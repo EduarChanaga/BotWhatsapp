@@ -19,8 +19,8 @@ async function handleSell(msg, texto) {
     const mercado = {
         'cultivos': { columna: 'cultivos', precio: 125, nombreTexto: 'Cultivos 🌾' },
         'cultivo': { columna: 'cultivos', precio: 125, nombreTexto: 'Cultivos 🌾' }, // Alias
-        'herramientas': { columna: 'herramientas', precio: 100, nombreTexto: 'Herramientas 🛠️' },
-        'herramienta': { columna: 'herramientas', precio: 100, nombreTexto: 'Herramientas 🛠️' } // Alias
+        'herramientas': { columna: 'herramientas', precio: 80, nombreTexto: 'Herramientas 🛠️' },
+        'herramienta': { columna: 'herramientas', precio: 80, nombreTexto: 'Herramientas 🛠️' } // Alias
     };
 
     const infoVenta = mercado[objeto];

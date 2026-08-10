@@ -32,11 +32,12 @@ async function reclamarDaily(usuarioId) {
     const ultima = usuario.ultima_reclamacion ? new Date(usuario.ultima_reclamacion) : null;
 
     if (!ultima || (ahora - ultima) >= 86400000) {
+      // Sumamos +5 pokeballs y +50 monedas en la misma consulta
       await db.execute(
-        'UPDATE usuarios SET pokeballs = pokeballs + 5, ultima_reclamacion = ? WHERE id = ?',
+        'UPDATE usuarios SET pokeballs = pokeballs + 5, monedas = monedas + 50, ultima_reclamacion = ? WHERE id = ?',
         [ahora, usuarioId]
       );
-      return { exito: true, nuevoTotal: 5 };
+      return { exito: true };
     }
 
     return { exito: false, tiempoRestante: ultima ? (86400000 - (ahora - ultima)) : 0 };

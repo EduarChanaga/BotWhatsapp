@@ -19,7 +19,6 @@ async function handleMutar(msg, texto) {
 
   const whatsappId = msg.author ? msg.author.split('@')[0] : msg.from.split('@')[0];
   
-  // Obtenemos los datos del Pokémon desde tu BD (esto incluye pokemon.punta_adn)
   const pokemon = await pokemonService.verificarYObtenerPokemon(whatsappId, nombrePokemon);
 
   if (!pokemon) return await msg.reply('❌ No tienes un Pokémon con ese nombre.');
@@ -28,28 +27,11 @@ async function handleMutar(msg, texto) {
   const data = await consultarPokemon(pokemon.pokemon_id);
   const todasLasVariantes = await getVariantesPokemon(data);
 
-  // Verificamos qué tipo de variante es actualmente
   const nombreActualAPI = data.name.toLowerCase();
   const esMegaActual = nombreActualAPI.includes('mega');
 
-  // Filtrado dinámico inteligente
-  const variantesFiltradas = todasLasVariantes.filter(v => {
-    const nombreV = v.toLowerCase();
-    
-    // Mantenemos bloqueado a los Primales a menos que ya sea uno
-    if (nombreV.includes('primal') && !nombreActualAPI.includes('primal')) return false;
-
-    const esMegaV = nombreV.includes('mega');
-
-    // REGLA 1: No permitir mutar a Mega si el Pokémon base no es Mega actualmente
-    if (esMegaV && !esMegaActual) return false;
-
-    // Permitimos que filtre los gmax. La restricción de los Gmax poderosos se hará en la validación de stats.
-    return true;
-  });
-
-  // 2. Búsqueda ultra flexible (ignora guiones y autocompleta el nombre base si falta)
-  const formaEncontrada = variantesFiltradas.find(v => {
+  // 2. Búsqueda ultra flexible en TODAS las variantes
+  const formaEncontrada = todasLasVariantes.find(v => {
     const vNormalizado = v.toLowerCase().replace(/-/g, ' ');
     const inputNormalizado = nombreNuevaForma.toLowerCase().replace(/-/g, ' ');
     const pokemonBase = pokemon.nombre.toLowerCase().replace(/-/g, ' ');
@@ -59,31 +41,39 @@ async function handleMutar(msg, texto) {
   });
 
   if (!formaEncontrada) {
+    // Escondemos visualmente las Megas en el mensaje de error para no confundir
+    const variantesVisuales = todasLasVariantes.filter(v => !v.includes('mega'));
     return await msg.reply(
-        `❌ Variante inválida o no permitida para el estado actual de *${pokemon.nombre}*.\n` +
-        `Opciones válidas: ${variantesFiltradas.map(v => v.replace(/-/g, ' ')).join(', ')}`
+        `❌ Variante inválida o mal escrita para *${pokemon.nombre}*.\n` +
+        `Opciones disponibles por ADN/Estética: ${variantesVisuales.map(v => v.replace(/-/g, ' ')).join(', ')}`
     );
   }
 
-  // 3. Obtener los datos completos de la nueva forma seleccionada
+  // 3. Validaciones específicas de formas supremas (SOLO MEGA)
+  const esMegaDestino = formaEncontrada.toLowerCase().includes('mega');
+
+  if (esMegaDestino && !esMegaActual) {
+      return await msg.reply(`🛑 La forma *${formaEncontrada.replace(/-/g, ' ')}* es una Mega Evolución.\n\n👉 Necesitas usar el comando: *#use mega_energia ${pokemon.nombre} ${formaEncontrada}*`);
+  }
+
+  // 4. Obtener los datos completos de la nueva forma seleccionada
   const dataNueva = await consultarPokemon(formaEncontrada);
 
-  // 4. LÓGICA: Comparar stats y validar el desbloqueo permanente del ADN
+  // 5. LÓGICA: Comparar stats y validar el desbloqueo permanente del ADN
   const statsSonIguales = sonStatsIguales(data.stats, dataNueva.stats);
   const tieneAdnActivado = pokemon.punta_adn === 1 || pokemon.punta_adn === true;
 
-  // NUEVA REGLA PARA GMAX:
-  // Si es un Gmax y las estadísticas cambian, es una Megaevolución técnica. Bloquear mutación.
+  // REGLA PARA GMAX (Solo bloquea si altera stats)
   if (formaEncontrada.toLowerCase().includes('max') && !statsSonIguales) {
-      return await msg.reply(`🛑 Esta forma Gigantamax (*${formaEncontrada.replace(/-/g, ' ')}*) altera enormemente el poder de combate. No es una simple mutación.\n\n👉 Para alcanzar esta forma necesitas usar el comando: *#use mega_energia ${pokemon.nombre}* y ser Nivel 10.`);
+      return await msg.reply(`🛑 Esta forma Gigantamax (*${formaEncontrada.replace(/-/g, ' ')}*) altera enormemente el poder de combate.\n\n👉 Necesitas usar el comando: *#use mega_energia ${pokemon.nombre} ${formaEncontrada}*`);
   }
 
-  // Regla estándar: Si cambian las stats y el Pokémon NO tiene el ADN inyectado, bloqueamos
+  // Regla estándar: Si cambian las stats (Primales, Regionales, etc) y NO tiene ADN, bloqueamos
   if (!statsSonIguales && !tieneAdnActivado) {
     return await msg.reply(`🧬 La nueva variante altera las estadísticas de combate y tu Pokémon no tiene el ADN preparado.\n👉 Si tienes una Punta ADN en tu inventario, aplícasela primero usando: *#use punta_adn ${pokemon.nombre}*`);
   }
 
-  // 5. Ejecutar cambio
+  // 6. Ejecutar cambio
   const exito = await pokemonService.cambiarVariantePokemon(pokemon.id, dataNueva.id, formaEncontrada);
 
   if (exito) {

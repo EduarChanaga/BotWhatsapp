@@ -575,13 +575,22 @@ class BotManager extends EventEmitter {
             const resultado = await usuarioService.reclamarDaily(usuario.id);
 
             if (resultado.exito) {
-              return await msg.reply(`🎁 *¡RECLAMO DIARIO!* 🎁\n\nHas recibido *5 Pokéballs* gratis.\n¡Úsalas con sabiduría para capturar nuevos Pokémon! 🎒`);
+              return await msg.reply(
+                `🎁 *¡RECLAMO DIARIO!* 🎁\n\n` +
+                `Has recibido:\n` +
+                `• *5 Pokéballs* 🎒\n` +
+                `• *50 Monedas* 🪙\n\n` +
+                `¡Úsalas con sabiduría para capturar nuevos Pokémon!`
+              );
             } else {
               const msRestantes = resultado.tiempoRestante;
               const horas = Math.floor(msRestantes / (1000 * 60 * 60));
               const minutos = Math.floor((msRestantes % (1000 * 60 * 60)) / (1000 * 60));
               
-              return await msg.reply(`⏳ *¡Ya reclamaste tu recompensa!* ⏳\n\nDebes esperar *${horas} horas y ${minutos} minutos* para poder volver a reclamar tus Pokéballs.`);
+              return await msg.reply(
+                `⏳ *¡Ya reclamaste tu recompensa!* ⏳\n\n` +
+                `Debes esperar *${horas} horas y ${minutos} minutos* para volver a reclamar.`
+              );
             }
           } catch (err) {
             this.log(`Error en #daily: ${err.message}`, 'error');

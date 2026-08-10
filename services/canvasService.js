@@ -210,87 +210,185 @@ async function generarSilueta(urlImagen) {
 }
 
 async function generarImagenIncubadora(huevosEnEspera) {
-  const canvasWidth = 800;
-  const canvasHeight = 350;
+  const canvasWidth = 900;
+  const canvasHeight = 450;
   const canvas = createCanvas(canvasWidth, canvasHeight);
   const ctx = canvas.getContext('2d');
 
-  ctx.fillStyle = '#0f172a';
+  // 1. Fondo de Laboratorio (Degradado oscuro de arriba a abajo)
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+  bgGrad.addColorStop(0, '#020617'); // Negro azulado muy oscuro
+  bgGrad.addColorStop(1, '#0f172a'); // Pizarra oscuro
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-  ctx.fillStyle = '#f8fafc';
-  ctx.font = 'bold 30px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('♨️ INCUBADORA POKÉMON ♨️', canvasWidth / 2, 45);
+  // Rejilla técnica de fondo (Sutil)
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < canvasWidth; i += 40) {
+    ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, canvasHeight); ctx.stroke();
+  }
+  for (let i = 0; i < canvasHeight; i += 40) {
+    ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(canvasWidth, i); ctx.stroke();
+  }
 
+  // 2. Título de Alta Tecnología
+  ctx.shadowColor = '#06b6d4';
+  ctx.shadowBlur = 15;
+  ctx.fillStyle = '#cffafe';
+  ctx.font = 'bold 36px "Courier New", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('🧬 CÁMARAS DE INCUBACIÓN 🧬', canvasWidth / 2, 55);
+  ctx.shadowBlur = 0; // Resetear sombra
+
+  ctx.fillStyle = '#64748b';
+  ctx.font = '16px sans-serif';
+  ctx.fillText('NÚCLEO DE DESARROLLO GENÉTICO Y CRIANZA', canvasWidth / 2, 85);
+
+  // Configuración de los Tubos
   const maxHuevos = 3;
-  const slotWidth = 220;
-  const slotHeight = 240;
-  const margin = (canvasWidth - (maxHuevos * slotWidth)) / (maxHuevos + 1);
+  const tubeWidth = 240;
+  const tubeHeight = 310;
+  const margin = (canvasWidth - (maxHuevos * tubeWidth)) / (maxHuevos + 1);
+  const y = 110;
 
   for (let i = 0; i < maxHuevos; i++) {
-    const x = margin + (i * (slotWidth + margin));
-    const y = 80;
-
-    ctx.fillStyle = '#1e293b';
-    ctx.strokeStyle = '#38bdf8'; 
-    ctx.lineWidth = 3;
-    drawRoundRect(ctx, x, y, slotWidth, slotHeight, 20, true, true);
-
+    const x = margin + (i * (tubeWidth + margin));
+    const cx = x + tubeWidth / 2;
     const huevo = huevosEnEspera[i];
 
+    // --- A. TAPAS METÁLICAS DEL TUBO ---
+    const metalGrad = ctx.createLinearGradient(x, 0, x + tubeWidth, 0);
+    metalGrad.addColorStop(0, '#334155');
+    metalGrad.addColorStop(0.2, '#94a3b8');
+    metalGrad.addColorStop(0.5, '#475569');
+    metalGrad.addColorStop(0.8, '#94a3b8');
+    metalGrad.addColorStop(1, '#1e293b');
+
+    // Tapa Superior
+    ctx.fillStyle = metalGrad;
+    drawRoundRect(ctx, x - 10, y - 15, tubeWidth + 20, 20, 6, true, false);
+    // Tapa Inferior
+    drawRoundRect(ctx, x - 10, y + tubeHeight - 5, tubeWidth + 20, 25, 6, true, false);
+
+    // --- B. INTERIOR DEL TUBO ---
+    const liquidGrad = ctx.createLinearGradient(x, y, x, y + tubeHeight);
     if (huevo) {
-      const centerX = x + (slotWidth / 2);
-      const centerY = y + 100;
+      // Tubo Activo (Líquido brillante)
+      liquidGrad.addColorStop(0, 'rgba(6, 182, 212, 0.15)'); // Cian claro
+      liquidGrad.addColorStop(1, 'rgba(59, 130, 246, 0.5)'); // Azul profundo
+    } else {
+      // Tubo Inactivo (Oscuro)
+      liquidGrad.addColorStop(0, 'rgba(15, 23, 42, 0.4)');
+      liquidGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+    }
+    
+    ctx.fillStyle = liquidGrad;
+    drawRoundRect(ctx, x, y, tubeWidth, tubeHeight, 10, true, false);
+
+    if (huevo) {
+      // --- C. ESTADO ACTIVO (HUEVO) ---
+      
+      // Burbujas de incubación flotando
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+      for(let b = 0; b < 25; b++) {
+          ctx.beginPath();
+          ctx.arc(x + 15 + Math.random() * (tubeWidth - 30), y + 20 + Math.random() * (tubeHeight - 60), Math.random() * 4 + 1, 0, Math.PI * 2);
+          ctx.fill();
+      }
+
+      // Sombra del huevo flotando
+      const cy = y + tubeHeight / 2 - 25;
+      ctx.shadowColor = '#0ea5e9';
+      ctx.shadowBlur = 35;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy + 90, 50, 12, 0, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Volumen 3D del Huevo (Degradado radial)
+      const eggGrad = ctx.createRadialGradient(cx - 20, cy - 25, 10, cx, cy, 80);
+      eggGrad.addColorStop(0, '#ffffff'); // Luz focal
+      eggGrad.addColorStop(0.6, '#f8fafc'); // Color base
+      eggGrad.addColorStop(1, '#94a3b8'); // Sombra en los bordes
 
       ctx.beginPath();
-      ctx.ellipse(centerX, centerY + 65, 45, 15, 0, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+      ctx.ellipse(cx, cy, 65, 85, 0, 0, Math.PI * 2);
+      ctx.fillStyle = eggGrad;
       ctx.fill();
 
+      // Manchas del huevo (Recortadas perfectamente al borde usando clip)
+      ctx.save(); // Guardar contexto
       ctx.beginPath();
-      ctx.ellipse(centerX, centerY, 55, 75, 0, 0, Math.PI * 2);
-      ctx.fillStyle = '#fdfbf7'; 
-      ctx.fill();
+      ctx.ellipse(cx, cy, 65, 85, 0, 0, Math.PI * 2);
+      ctx.clip(); // Aplicar máscara de recorte
+
+      ctx.fillStyle = '#4ade80'; // Verde brillante
+      ctx.beginPath(); ctx.ellipse(cx - 30, cy + 25, 20, 30, 0.5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(cx + 35, cy - 15, 15, 22, -0.3, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(cx, cy - 50, 25, 15, 0, 0, Math.PI * 2); ctx.fill();
+      
+      ctx.restore(); // Restaurar contexto y quitar el clip
+
+      // Panel LED de tiempo
+      const panelY = y + tubeHeight - 60;
+      ctx.fillStyle = '#020617'; // Fondo negro del LED
+      drawRoundRect(ctx, x + 30, panelY, tubeWidth - 60, 40, 8, true, false);
+
+      // Borde del panel
+      ctx.strokeStyle = '#334155';
       ctx.lineWidth = 2;
-      ctx.strokeStyle = '#cbd5e1';
-      ctx.stroke();
+      drawRoundRect(ctx, x + 30, panelY, tubeWidth - 60, 40, 8, false, true);
 
-      ctx.fillStyle = '#4ade80';
-      ctx.beginPath(); ctx.ellipse(centerX - 25, centerY + 20, 15, 20, 0.5, 0, Math.PI * 2); ctx.fill();
-      ctx.beginPath(); ctx.ellipse(centerX + 30, centerY - 15, 12, 18, -0.3, 0, Math.PI * 2); ctx.fill();
-      ctx.beginPath(); ctx.ellipse(centerX, centerY - 45, 18, 12, 0, 0, Math.PI * 2); ctx.fill();
-
-      ctx.beginPath();
-      ctx.ellipse(centerX, centerY, 65, 85, 0, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.1)';
-      ctx.fill();
-
-      ctx.fillStyle = '#ef4444'; 
-      ctx.font = 'bold 24px sans-serif';
+      // Texto LED Neón
+      ctx.shadowColor = '#22d3ee';
+      ctx.shadowBlur = 10;
+      ctx.fillStyle = '#67e8f9';
+      ctx.font = 'bold 22px "Courier New", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(`${huevo.horas}h ${huevo.minutos}m`, centerX, y + 210);
-
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '16px sans-serif';
-      ctx.fillText('Restantes', centerX, y + 230);
+      
+      // Formatear tiempo para que siempre tenga 2 dígitos (Ej: 05h 09m)
+      const hh = String(huevo.horas).padStart(2, '0');
+      const mm = String(huevo.minutos).padStart(2, '0');
+      ctx.fillText(`${hh}H ${mm}M`, cx, panelY + 28);
+      ctx.shadowBlur = 0;
 
     } else {
-      const centerX = x + (slotWidth / 2);
+      // --- D. ESTADO INACTIVO (VACÍO) ---
+      const cy = y + tubeHeight / 2 - 10;
       
-      ctx.setLineDash([8, 8]);
-      ctx.beginPath();
-      ctx.arc(centerX, y + 110, 40, 0, Math.PI * 2);
-      ctx.strokeStyle = '#475569';
+      // Holograma fantasma de un huevo
+      ctx.strokeStyle = '#334155';
       ctx.lineWidth = 3;
+      ctx.setLineDash([12, 12]); // Línea punteada
+      ctx.beginPath();
+      ctx.ellipse(cx, cy - 10, 55, 75, 0, 0, Math.PI * 2);
       ctx.stroke();
-      ctx.setLineDash([]); 
+      ctx.setLineDash([]); // Quitar punteado
 
+      // Texto de Inactivo
       ctx.fillStyle = '#475569';
-      ctx.font = 'bold 22px sans-serif';
+      ctx.font = 'bold 24px sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('VACÍO', centerX, y + 210);
+      ctx.fillText('INACTIVO', cx, cy + 110);
     }
+
+    // --- E. REFLEJO DEL CRISTAL (Glassmorphism overlay) ---
+    // Se dibuja al final para que cubra el líquido y el huevo
+    const reflectGrad = ctx.createLinearGradient(x, y, x + tubeWidth, y);
+    reflectGrad.addColorStop(0, 'rgba(255, 255, 255, 0.05)');
+    reflectGrad.addColorStop(0.15, 'rgba(255, 255, 255, 0.25)'); // Brillo principal del cristal
+    reflectGrad.addColorStop(0.3, 'rgba(255, 255, 255, 0)');
+    reflectGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    
+    ctx.fillStyle = reflectGrad;
+    drawRoundRect(ctx, x, y, tubeWidth, tubeHeight, 10, true, false);
+
+    // Contorno exterior del tubo
+    ctx.strokeStyle = huevo ? '#06b6d4' : '#334155'; // Brilla si está encendido
+    ctx.lineWidth = 2;
+    drawRoundRect(ctx, x, y, tubeWidth, tubeHeight, 10, false, true);
   }
 
   return canvas.toBuffer('image/png');
@@ -605,7 +703,7 @@ async function generarImagenExpediciones(expediciones) {
 }
 
 // ==========================================
-// NUEVO: GENERADOR DE IMAGEN PARA SACRIFICIO
+// NUEVO: GENERADOR DE IMAGEN PARA SACRIFICIO (VERSIÓN TENEBROSA Y MÁGICA)
 // ==========================================
 async function generarImagenSacrificio(pokemones) {
   const canvasWidth = 800;
@@ -613,97 +711,163 @@ async function generarImagenSacrificio(pokemones) {
   const canvas = createCanvas(canvasWidth, canvasHeight);
   const ctx = canvas.getContext('2d');
 
-  // Fondo místico oscuro
-  ctx.fillStyle = '#0a0a1a';
+  // Centro exacto del ritual
+  const cx = 400;
+  const cy = 460;
+
+  // 1. Fondo de Abismo (Degradado radial de púrpura profundo a negro)
+  const bgGrad = ctx.createRadialGradient(cx, cy, 50, cx, cy, 600);
+  bgGrad.addColorStop(0, '#150524'); // Púrpura oscuro en el centro
+  bgGrad.addColorStop(0.6, '#05010a'); // Casi negro
+  bgGrad.addColorStop(1, '#000000'); // Negro absoluto
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-  // Círculo rúnico gigante de fondo
-  ctx.beginPath();
-  ctx.arc(400, 450, 250, 0, Math.PI * 2);
-  ctx.strokeStyle = 'rgba(168, 85, 247, 0.3)'; // Púrpura brillante
-  ctx.lineWidth = 5;
-  ctx.stroke();
-
-  // Coordenadas perfectas para el triángulo equilátero
-  const p1 = { x: 400, y: 230 }; // Arriba
-  const p2 = { x: 210, y: 560 }; // Abajo izquierda
-  const p3 = { x: 590, y: 560 }; // Abajo derecha
-
-  // Dibujar triángulo místico
-  ctx.beginPath();
-  ctx.moveTo(p1.x, p1.y);
-  ctx.lineTo(p2.x, p2.y);
-  ctx.lineTo(p3.x, p3.y);
-  ctx.closePath();
-  ctx.strokeStyle = '#a855f7';
-  ctx.lineWidth = 4;
-  ctx.stroke();
-
-  // Función interna para dibujar a cada Pokémon en las puntas
-  const drawNode = async (point, poke) => {
-    // Círculo base de la punta
+  // 2. Partículas de Almas (Puntos brillantes flotando)
+  for (let i = 0; i < 150; i++) {
+    ctx.fillStyle = Math.random() > 0.5 ? '#ef4444' : '#c084fc'; // Rojo o Púrpura
+    ctx.globalAlpha = Math.random() * 0.6 + 0.1;
     ctx.beginPath();
-    ctx.arc(point.x, point.y, 80, 0, Math.PI * 2);
-    ctx.fillStyle = '#1e1b4b'; // Fondo oscuro
+    ctx.arc(Math.random() * canvasWidth, Math.random() * canvasHeight, Math.random() * 2.5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = '#c084fc';
-    ctx.stroke();
+  }
+  ctx.globalAlpha = 1.0;
 
-    // Cargar y pintar imagen
+  // 3. Círculos Rúnicos Mágicos
+  ctx.shadowColor = '#9333ea';
+  ctx.shadowBlur = 25;
+  ctx.strokeStyle = '#c084fc';
+
+  // Anillo exterior principal
+  ctx.lineWidth = 4;
+  ctx.beginPath(); ctx.arc(cx, cy, 280, 0, Math.PI * 2); ctx.stroke();
+
+  // Anillo interior secundario
+  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = '#f87171';
+  ctx.beginPath(); ctx.arc(cx, cy, 260, 0, Math.PI * 2); ctx.stroke();
+
+  // Anillo rúnico fragmentado (guiones)
+  ctx.lineWidth = 8;
+  ctx.strokeStyle = 'rgba(168, 85, 247, 0.6)';
+  ctx.setLineDash([20, 15, 5, 15]); // Patrón de runas
+  ctx.beginPath(); ctx.arc(cx, cy, 270, 0, Math.PI * 2); ctx.stroke();
+  ctx.setLineDash([]); // Resetear guiones
+
+  // 4. Hexagrama (Estrella de 6 puntas inscrita)
+  const r = 280; // Radio del triángulo
+  const p1 = { x: cx, y: cy - r }; // Arriba
+  const p2 = { x: cx + r * 0.866, y: cy + r * 0.5 }; // Abajo Derecha
+  const p3 = { x: cx - r * 0.866, y: cy + r * 0.5 }; // Abajo Izquierda
+  
+  const ip1 = { x: cx, y: cy + r }; // Invertido Abajo
+  const ip2 = { x: cx + r * 0.866, y: cy - r * 0.5 }; // Invertido Arriba Derecha
+  const ip3 = { x: cx - r * 0.866, y: cy - r * 0.5 }; // Invertido Arriba Izquierda
+
+  ctx.lineWidth = 3;
+  ctx.shadowColor = '#ef4444'; // Resplandor rojo sangre
+  ctx.shadowBlur = 15;
+  ctx.strokeStyle = 'rgba(239, 68, 68, 0.8)';
+
+  // Triángulo 1 (Normal)
+  ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.lineTo(p3.x, p3.y); ctx.closePath(); ctx.stroke();
+  // Triángulo 2 (Invertido)
+  ctx.beginPath(); ctx.moveTo(ip1.x, ip1.y); ctx.lineTo(ip2.x, ip2.y); ctx.lineTo(ip3.x, ip3.y); ctx.closePath(); ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // 5. Función para dibujar los Altares de los Pokémon
+  const drawNode = async (point, poke) => {
+    // Pedestal negro con aura carmesí
+    ctx.shadowColor = '#dc2626';
+    ctx.shadowBlur = 30;
+    ctx.beginPath();
+    ctx.arc(point.x, point.y, 85, 0, Math.PI * 2);
+    ctx.fillStyle = '#050505'; // Negro abismo
+    ctx.fill();
+
+    // Borde del pedestal
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#b91c1c';
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Cargar y pintar Sprite con sombra fantasmal
     if (poke.spriteUrl) {
       try {
         const sprite = await loadImage(poke.spriteUrl);
-        ctx.drawImage(sprite, point.x - 65, point.y - 65, 130, 130);
+        // Sombra paralela fantasmal púrpura
+        ctx.shadowColor = '#c084fc';
+        ctx.shadowBlur = 15;
+        ctx.shadowOffsetY = 5;
+        ctx.drawImage(sprite, point.x - 65, point.y - 75, 130, 130);
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetY = 0;
       } catch (e) {
         console.error(`Error sprite sacrificio:`, e);
       }
     }
 
-    // Nombre debajo del círculo
-    ctx.fillStyle = '#f8fafc';
-    ctx.font = 'bold 20px sans-serif';
+    // Nombre del sacrificio (Texto tenebroso)
+    ctx.fillStyle = '#f87171'; // Rojo claro
+    ctx.font = 'bold 22px "Courier New", monospace'; // Fuente tipo máquina/runa
     ctx.textAlign = 'center';
-    ctx.fillText(poke.nombre.toUpperCase(), point.x, point.y + 110);
+    ctx.letterSpacing = "2px";
+    
+    // Contorno negro para que resalte
+    ctx.strokeStyle = '#000000';
+    ctx.lineWidth = 4;
+    ctx.strokeText(poke.nombre.toUpperCase(), point.x, point.y + 115);
+    ctx.fillText(poke.nombre.toUpperCase(), point.x, point.y + 115);
   };
 
-  // Pintamos los 3 nodos
+  // Pintamos los 3 nodos en el triángulo principal
   await drawNode(p1, pokemones[0]);
   await drawNode(p2, pokemones[1]);
   await drawNode(p3, pokemones[2]);
 
-  // Centro exacto del triángulo para el premio
-  const centerX = 400;
-  const centerY = 450;
+  // 6. El Vórtice Central y el Huevo Corrompido
+  // Resplandor ardiente del fondo
+  const vortexGrad = ctx.createRadialGradient(cx, cy, 10, cx, cy, 150);
+  vortexGrad.addColorStop(0, '#ffffff'); // Núcleo al rojo vivo
+  vortexGrad.addColorStop(0.2, '#fef08a'); // Fuego amarillo
+  vortexGrad.addColorStop(0.5, '#ef4444'); // Fuego rojo
+  vortexGrad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = vortexGrad;
+  ctx.beginPath(); ctx.arc(cx, cy, 150, 0, Math.PI * 2); ctx.fill();
 
-  // Resplandor del huevo en el centro
-  const gradient = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, 100);
-  gradient.addColorStop(0, 'rgba(250, 204, 21, 0.5)'); // Amarillo brillante interior
-  gradient.addColorStop(1, 'rgba(250, 204, 21, 0)');   // Desvanecido exterior
-  ctx.fillStyle = gradient;
+  // El Huevo Oscuro (Corrompido por el sacrificio)
+  ctx.shadowColor = '#fca5a5';
+  ctx.shadowBlur = 20;
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 100, 0, Math.PI * 2);
+  ctx.ellipse(cx, cy, 45, 60, 0, 0, Math.PI * 2);
+  ctx.fillStyle = '#1e1b4b'; // Huevo color obsidiana/púrpura oscuro
   ctx.fill();
-
-  // Dibujar Huevo literal (Elipse)
-  ctx.beginPath();
-  ctx.ellipse(centerX, centerY, 40, 55, 0, 0, Math.PI * 2);
-  ctx.fillStyle = '#fdfbf7';
-  ctx.fill();
-  ctx.lineWidth = 3;
-  ctx.strokeStyle = '#fbbf24';
+  
+  // Borde carmesí brillante del huevo
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = '#ef4444';
   ctx.stroke();
+  ctx.shadowBlur = 0;
 
-  // Manchas del huevo (estilo clásico de la incubadora)
-  ctx.fillStyle = '#4ade80';
-  ctx.beginPath(); ctx.ellipse(centerX - 15, centerY + 15, 10, 15, 0.5, 0, Math.PI * 2); ctx.fill();
-  ctx.beginPath(); ctx.ellipse(centerX + 20, centerY - 10, 8, 12, -0.3, 0, Math.PI * 2); ctx.fill();
+  // Manchas del huevo (Como lava / energía residual)
+  ctx.fillStyle = '#f87171'; // Rojo brillante
+  ctx.beginPath(); ctx.ellipse(cx - 18, cy + 18, 12, 18, 0.5, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(cx + 25, cy - 15, 10, 15, -0.3, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(cx, cy - 35, 15, 8, 0, 0, Math.PI * 2); ctx.fill();
 
-  // Título Superior
-  ctx.fillStyle = '#c084fc';
-  ctx.font = 'bold 46px sans-serif';
+  // 7. Título Superior Tenebroso
+  ctx.shadowColor = '#ef4444';
+  ctx.shadowBlur = 25;
+  ctx.fillStyle = '#f8fafc';
+  ctx.font = 'bold 48px "Courier New", monospace';
   ctx.textAlign = 'center';
-  ctx.fillText('🔮 RITUAL COMPLETADO 🔮', 400, 80);
+  ctx.fillText('⛤ RITUAL COMPLETADO ⛤', cx, 80);
+  ctx.shadowBlur = 0;
+
+  // Subtítulo fantasma
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = 'italic 20px sans-serif';
+  ctx.fillText('Las almas han sido forjadas...', cx, 115);
 
   return canvas.toBuffer('image/png');
 }

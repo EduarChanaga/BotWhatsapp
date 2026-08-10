@@ -275,7 +275,7 @@ async function handlePokechallenge(msg, texto) {
       else danioBase = Math.floor(danioBase * multiplicadorElemental);
 
       let esCritico = false;
-      if (danioBase > 0 && Math.random() < 0.15) {
+      if (danioBase > 0 && Math.random() < 0.05) {
         esCritico = true;
         danioBase = Math.floor(danioBase * 1.5);
       }

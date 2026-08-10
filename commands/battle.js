@@ -272,7 +272,7 @@ async function handlePokeaccept(msg, pokemonRivalNombre = '') {
 
         let esCritico = false;
         if (danioBase > 0) {
-          esCritico = Math.random() < 0.15;
+          esCritico = Math.random() < 0.05;
           if (esCritico) danioBase = Math.floor(danioBase * 1.5);
         }
 

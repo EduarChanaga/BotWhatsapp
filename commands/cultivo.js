@@ -53,22 +53,27 @@ async function handleCultivo(msg, texto) {
     // ==========================================
     // 3. ARAR / PLANTAR / REGAR
     // ==========================================
-    if (args.length >= 4 && ['arar', 'plantar', 'regar'].includes(args[1].toLowerCase())) {
+    if (args.length >= 3 && ['arar', 'plantar', 'regar'].includes(args[1].toLowerCase())) {
         const accion = args[1].toLowerCase();
         const slot = parseInt(args[2]);
-        const nombrePokemon = args.slice(3).join(' ');
+        const nombrePokemon = args.length >= 4 ? args.slice(3).join(' ') : '';
+        const fueAutomatico = nombrePokemon === ''; // Detectar si el bot escoge
 
-        if (isNaN(slot) || slot < 1 || slot > 6) return await msg.reply('❌ Indica un campo válido del 1 al 6. Ej: #cultivo arar 1 Diglett');
+        if (isNaN(slot) || slot < 1 || slot > 6) return await msg.reply('❌ Indica un campo válido del 1 al 6. Ej: *#cultivo arar 1*');
 
         const res = await cultivoService.procesarAccionCultivo(whatsappId, slot, nombrePokemon, accion);
 
         if (res.error) {
             if (res.error === 'pokemon_no_encontrado') return await msg.reply(`❌ No tienes ningún *${nombrePokemon}* registrado.`);
             if (res.error === 'cooldown_pokemon') return await msg.reply(`💤 *${nombrePokemon}* está exhausto. Déjalo descansar *${res.mins} minutos* más antes de volver a trabajar.`);
-            if (res.error === 'tipos_multiples') return await msg.reply(`❌ Este trabajo es muy especializado. *${nombrePokemon}* tiene múltiples tipos y se confunde. ¡Solo se admiten Pokémon de tipo PURO!`);
+            if (res.error === 'tipos_multiples') return await msg.reply(`❌ Este trabajo es especializado. ¡Solo se admiten Pokémon de tipo PURO!`);
             if (res.error === 'tipo_incorrecto') {
                 const reqMap = { 'arar': 'Tierra (Ground)', 'plantar': 'Planta (Grass)', 'regar': 'Agua (Water)' };
                 return await msg.reply(`❌ Tipo incorrecto. Para *${accion}* necesitas un Pokémon de tipo puro *${reqMap[accion]}*.`);
+            }
+            if (res.error === 'ninguno_disponible') {
+                const reqMap = { 'ground': 'Tierra', 'grass': 'Planta', 'water': 'Agua' };
+                return await msg.reply(`❌ *Automatización fallida:* No tienes ningún Pokémon de tipo PURO *${reqMap[res.tipoReq]}* descansado y disponible para trabajar.\nRevisa tu caja con: *#pokedex cultivo*`);
             }
             if (res.error === 'estado_incorrecto') return await msg.reply(`❌ El campo ${slot} no está en las condiciones correctas para *${accion}*.`);
             if (res.error === 'sin_semillas') return await msg.reply('🎒 No tienes *Semillas* en tu inventario para plantar.');
@@ -78,9 +83,21 @@ async function handleCultivo(msg, texto) {
         }
 
         if (res.success) {
-            if (accion === 'arar') return await msg.reply(`🚜 *${res.pokemon}* ha removido la tierra del Campo ${slot}. ¡Está listo para plantar!`);
-            if (accion === 'plantar') return await msg.reply(`🌱 *${res.pokemon}* ha enterrado la semilla en el Campo ${slot}. Tomará 20 horas en crecer.`);
-            if (accion === 'regar') return await msg.reply(`💧 *${res.pokemon}* ha regado el Campo ${slot}. El tiempo de crecimiento se ha reducido en 2 horas.`);
+            let texto = '';
+            if (accion === 'arar') texto = `🚜 *${res.pokemon}* ha removido la tierra del Campo ${slot}. ¡Está listo para plantar!`;
+            if (accion === 'plantar') texto = `🌱 *${res.pokemon}* ha enterrado la semilla en el Campo ${slot}. Tomará 20 horas en crecer.`;
+            if (accion === 'regar') texto = `💧 *${res.pokemon}* ha regado el Campo ${slot}. El tiempo de crecimiento se ha reducido en 2 horas.`;
+
+            if (fueAutomatico) {
+                // Adjuntar la foto del Pokémon que el sistema seleccionó
+                const { getImagen } = require('../services/pokeapi');
+                const urlImagen = getImagen({ id: res.pokeId });
+                if (urlImagen) {
+                    const media = MessageMedia.fromFilePath(urlImagen);
+                    return await msg.reply(media, undefined, { caption: texto });
+                }
+            }
+            return await msg.reply(texto);
         }
     }
 }
