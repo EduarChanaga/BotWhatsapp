@@ -4,6 +4,9 @@ const { consultarPokemon, getImagen } = require('./services/pokeapi');
 const express = require('express');
 const http = require('http');
 const path = require('path');
+const crypto = require('crypto');
+const fs = require('fs');
+const { execFile } = require('child_process');
 const { WebSocketServer } = require('ws');
 const bot = require('./services/bot');
 
@@ -15,8 +18,40 @@ const wss = new WebSocketServer({ server });
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/imagenes', express.static(path.join(__dirname, 'imagenes')));
+app.use('/finanzas', express.static(path.join(__dirname, 'public', 'finanzas')));
 
 const clients = new Set();
+const riotKeyMetaPath = path.join(__dirname, '.riot-key-meta.json');
+const finanzasDataDir = path.join(__dirname, 'data', 'finanzas');
+const finanzasFiles = ['usuarios', 'cuentas', 'historialPagos', 'gastosHormiga', 'prestamos', 'sesion'];
+
+function readFinanzasFile(name, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(finanzasDataDir, `${name}.json`), 'utf8'));
+  } catch (_err) {
+    return fallback;
+  }
+}
+
+function writeFinanzasFile(name, data) {
+  const filePath = path.join(finanzasDataDir, `${name}.json`);
+  const tempPath = `${filePath}.tmp`;
+  fs.writeFileSync(tempPath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
+  fs.renameSync(tempPath, filePath);
+}
+
+function readRiotKeyMeta() {
+  try {
+    return JSON.parse(fs.readFileSync(riotKeyMetaPath, 'utf8'));
+  } catch (_err) {
+    return {};
+  }
+}
+
+function saveRiotKeyMeta(apiKey) {
+  const keyHash = crypto.createHash('sha256').update(apiKey).digest('hex');
+  fs.writeFileSync(riotKeyMetaPath, JSON.stringify({ keyHash, updatedAt: Date.now() }));
+}
 
 function broadcast(event, data) {
   const payload = JSON.stringify({ event, data });
@@ -39,6 +74,121 @@ wss.on('connection', (ws) => {
 
 app.get('/api/status', (_req, res) => {
   res.json(bot.getState());
+});
+
+app.get('/api/finanzas/data', (_req, res) => {
+  const data = {};
+  for (const name of finanzasFiles) data[name] = readFinanzasFile(name, name === 'sesion' ? null : []);
+  res.json(data);
+});
+
+app.put('/api/finanzas/data/:name', (req, res) => {
+  const { name } = req.params;
+  if (!finanzasFiles.includes(name) || !Object.prototype.hasOwnProperty.call(req.body || {}, 'data')) {
+    return res.status(400).json({ error: 'Archivo financiero inválido.' });
+  }
+  const value = req.body.data;
+  if (name === 'sesion' ? (value !== null && typeof value !== 'object') : !Array.isArray(value)) {
+    return res.status(400).json({ error: 'Formato de datos inválido.' });
+  }
+  try {
+    writeFinanzasFile(name, value);
+    return res.json({ ok: true });
+  } catch (error) {
+    console.error('Error guardando datos financieros:', error.message);
+    return res.status(500).json({ error: 'No se pudieron guardar los datos.' });
+  }
+});
+
+app.get('/api/riot-key/status', (_req, res) => {
+  const meta = readRiotKeyMeta();
+  const configured = Boolean(process.env.RIOT_API_KEY || meta.keyHash);
+  const nextUpdateAt = meta.updatedAt ? meta.updatedAt + 24 * 60 * 60 * 1000 : null;
+  res.json({ configured, nextUpdateAt });
+});
+
+app.post('/api/riot-key', (req, res) => {
+  const apiKey = typeof req.body?.apiKey === 'string' ? req.body.apiKey.trim() : '';
+  if (!/^RGAPI-[A-Za-z0-9-]+$/.test(apiKey)) {
+    return res.status(400).json({ error: 'Introduce una clave Riot API válida.' });
+  }
+
+  const meta = readRiotKeyMeta();
+  const sameKey = meta.keyHash === crypto.createHash('sha256').update(apiKey).digest('hex');
+  const stillValid = meta.updatedAt && Date.now() - meta.updatedAt < 24 * 60 * 60 * 1000;
+  if (sameKey && stillValid) {
+    process.env.RIOT_API_KEY = apiKey;
+    return res.json({ ok: true, alreadyConfigured: true, nextUpdateAt: meta.updatedAt + 24 * 60 * 60 * 1000 });
+  }
+
+  const finish = (error) => {
+    if (error) {
+      console.error('Error guardando RIOT_API_KEY:', error.message);
+      return res.status(500).json({ error: 'No se pudo guardar la clave en el servidor.' });
+    }
+    process.env.RIOT_API_KEY = apiKey;
+    saveRiotKeyMeta(apiKey);
+    return res.json({ ok: true, nextUpdateAt: Date.now() + 24 * 60 * 60 * 1000 });
+  };
+
+  if (process.platform !== 'win32') return finish(null);
+  execFile('setx', ['RIOT_API_KEY', apiKey], { windowsHide: true }, finish);
+});
+
+app.get('/api/riot', async (req, res) => {
+  const riotApiKey = req.get('X-Riot-Token') || process.env.RIOT_API_KEY;
+  const requestedUrl = typeof req.query.url === 'string' ? req.query.url : '';
+  const allowedHosts = new Set([
+    'americas.api.riotgames.com',
+    'la1.api.riotgames.com'
+  ]);
+
+  if (!riotApiKey) {
+    return res.status(503).json({
+      status: { status_code: 503, message: 'Falta configurar RIOT_API_KEY en el servidor.' }
+    });
+  }
+
+  let riotUrl;
+  try {
+    riotUrl = new URL(requestedUrl);
+  } catch (_err) {
+    return res.status(400).json({ error: 'URL de Riot inválida.' });
+  }
+
+  if (riotUrl.protocol !== 'https:' || !allowedHosts.has(riotUrl.hostname)) {
+    return res.status(400).json({ error: 'Destino de Riot no permitido.' });
+  }
+
+  try {
+    const riotResponse = await fetch(riotUrl, {
+      headers: { 'X-Riot-Token': riotApiKey }
+    });
+    const responseText = await riotResponse.text();
+    let payload;
+
+    try {
+      payload = responseText ? JSON.parse(responseText) : {};
+    } catch (_err) {
+      payload = { error: responseText || 'Respuesta no válida de Riot.' };
+    }
+
+    if (!riotResponse.ok) {
+      return res.status(riotResponse.status).json({
+        status: {
+          status_code: riotResponse.status,
+          message: payload?.status?.message || payload?.message || 'Riot rechazó la solicitud.'
+        }
+      });
+    }
+
+    return res.json(payload);
+  } catch (err) {
+    console.error('Error en proxy de Riot:', err.message);
+    return res.status(502).json({
+      status: { status_code: 502, message: 'No se pudo conectar con Riot Games.' }
+    });
+  }
 });
 
 app.post('/api/start', async (_req, res) => {

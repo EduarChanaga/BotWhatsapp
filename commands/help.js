@@ -31,6 +31,10 @@ const AYUDA =
   `• *#pokeaccept [nombre]* - Acepta un desafío usando tu propio Pokémon.\r\n` +
   `• *#poketrain [nombre]* - Entrenamiento intensivo (+5 EXP) 🏋️.\r\n\r\n` +
 
+  `💰 *FINANZAS PERSONALES*\r\n` +
+  `• *#finanzas ayuda* - Catálogo de comandos financieros.\r\n` +
+  `• *#finanzas gastohormiga 150000 "salida restaurante"* - Registra un gasto.\r\n\r\n` +
+
   `🔮 *EXTRAS Y UTILIDADES*\r\n` +
   `• *#poketeam* - Genera un equipo aleatorio de 6 Pokémon (Stickers).\r\n` +
   `• *#help* - Muestra esta guía de comandos.\r\n\r\n` +

@@ -1,7 +1,7 @@
 const pokemonService = require('../services/pokemonService');
-const { consultarPokemon, getStat, getImagen, getTiposEspanol } = require('../services/pokeapi');
+const { consultarPokemon, getStat, getImagen, getTiposEspanol, getHabilidadesEspanol } = require('../services/pokeapi');
 const { MessageMedia } = require('whatsapp-web.js');
-const { getMediaFromUrlWithCache } = require('../services/reply');
+const { generarFichaPokemon } = require('../services/canvasService');
 
 async function handlePokemonStats(msg) {
   try {
@@ -43,6 +43,8 @@ async function handlePokemonStats(msg) {
 
     // 2. Calculamos el multiplicador según el nivel actual del Pokémon
     const nivelActual = pokeDB.nivel || 1;
+    const xpNecesariaSiguienteNivel = 100 + ((nivelActual - 1) * 25);
+    const xpFaltante = Math.max(0, xpNecesariaSiguienteNivel - (pokeDB.experiencia || 0));
     const multNivel = 1 + (nivelActual - 1) * 0.05;
 
     // 3. Calculamos los totales usando las fórmulas de tu sistema de combate
@@ -53,71 +55,32 @@ async function handlePokemonStats(msg) {
     const spDefTotal = Math.floor(stats.spDef * multNivel);
     const velTotal = Math.floor(stats.vel * multNivel);
 
-    // 4. Calculamos el "aumento" (la diferencia entre el total y la base)
-    const bonoHp = hpTotal - stats.hp;
-    const bonoAtk = atkTotal - stats.atk;
-    const bonoDef = defTotal - stats.def;
-    const bonoSpAtk = spAtkTotal - stats.spAtk;
-    const bonoSpDef = spDefTotal - stats.spDef;
-    const bonoVel = velTotal - stats.vel;
-
     let probEsquive = (stats.vel / 20) + (nivelActual > 1 ? nivelActual - 1 : 0);
     if (probEsquive > 30) probEsquive = 30;
 
-    const fechaFormateada = new Date(pokeDB.atrapado_en).toLocaleString('es-CO', {
+    const formatearFecha = (fecha) => fecha ? new Date(fecha).toLocaleString('es-CO', {
       day: '2-digit',
       month: '2-digit',
       year: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
       hour12: true
-    });
+    }) : null;
+    const fechaFormateada = formatearFecha(pokeDB.atrapado_en);
 
     const tipos = await Promise.resolve(getTiposEspanol(dataApi));
 
-    // 5. Construimos el mensaje mostrando Base + Bono = Total
-    const mensaje = 
-      `📊 *ESTADÍSTICAS INDIVIDUALES* 📊\r\n` +
-      `────────────────────────\r\n` +
-      `📝 *DATOS DE TU EJEMPLAR:*\r\n` +
-      `👤 *Nombre:* ${pokeDB.nombre}\r\n` +
-      `🏅 *Nivel:* ${nivelActual}\r\n` +
-      `⭐ *Experiencia:* ${pokeDB.experiencia || 0} EXP\r\n` +
-      `⚔️ *Combates Realizados:* ${pokeDB.combates || 0}\r\n` +
-      `📅 *Capturado el:* ${fechaFormateada}\r\n` +
-      `────────────────────────\r\n` +
-      `🧬 *ESTADÍSTICAS ACTUALES (Base + Nivel):*\r\n` +
-      `🔢 *Nº Pokedex:* #${pokedexId}\r\n` +
-      `🏷️ *Tipo:* [ *${tipos}* ]\r\n` +
-      `❤️ *HP:* ${stats.hp} + ${bonoHp} = *${hpTotal}*\r\n` +
-      `⚔️ *Ataque:* ${stats.atk} + ${bonoAtk} = *${atkTotal}*\r\n` +
-      `🛡️ *Defensa:* ${stats.def} + ${bonoDef} = *${defTotal}*\r\n` +
-      `💥 *Atk. Especial:* ${stats.spAtk} + ${bonoSpAtk} = *${spAtkTotal}*\r\n` +
-      `🔰 *Def. Especial:* ${stats.spDef} + ${bonoSpDef} = *${spDefTotal}*\r\n` +
-      `⚡ *Velocidad:* ${stats.vel} \r\n` +
-      `💨 *Prob. de Esquivar:* ${probEsquive.toFixed(1)}%`; 
-
-    await msg.reply(mensaje);
-
-    const urlImagen = getImagen(dataApi);
-    if (urlImagen) {
-      try {
-        // Usamos una función de ayuda si la tienes, o MessageMedia directamente
-        // Asegúrate de que urlImagen sea una ruta local válida
-        const media = MessageMedia.fromFilePath(urlImagen);
-        
-        // CORRECCIÓN AQUÍ: Usamos msg.reply en lugar de chat.sendMessage
-        await msg.reply(media, undefined, {
-          sendMediaAsSticker: true,
-          stickerName: pokeDB.nombre,
-          stickerAuthor: 'Stats de Entrenador',
-          quotedMessageId: msg.id._serialized // Mantiene la referencia al mensaje original
-        });
-        
-      } catch (imageError) {
-        console.warn('No se pudo enviar el sticker de stats:', imageError.message);
-      }
-    }
+    const habilidades = await getHabilidadesEspanol(dataApi);
+    const ficha = await generarFichaPokemon(dataApi, {
+      nombre: pokeDB.nombre, tipos, nivel: nivelActual, experiencia: pokeDB.experiencia || 0, xpFaltante,
+      combates: pokeDB.combates || 0, fechaCaptura: fechaFormateada,
+      fechaEntrenamiento: formatearFecha(pokeDB.fecha_entrenamiento),
+      fechaTrabajo: formatearFecha(pokeDB.fecha_ultimo_trabajo), habilidades, probEsquive,
+      imagen: getImagen(dataApi),
+      totales: { hp: hpTotal, atk: atkTotal, def: defTotal, spAtk: spAtkTotal, spDef: spDefTotal, vel: velTotal }, stats,
+    });
+    const media = new MessageMedia('image/png', ficha.toString('base64'), `pokedex_${pokedexId}.png`);
+    await msg.reply(media, undefined, { quotedMessageId: msg.id._serialized });
 
   } catch (error) {
     console.error('Error en handlePokemonStats:', error);

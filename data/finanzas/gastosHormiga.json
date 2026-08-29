@@ -1,0 +1,274 @@
+[
+  {
+    "id": "1780709001172-20bkcpv",
+    "usuarioId": 1,
+    "fecha": "2026-06-05",
+    "mes": "06-2026",
+    "monto": 200000,
+    "descripcion": "Pantalla"
+  },
+  {
+    "id": "1780709021617-3d8od1w",
+    "usuarioId": 1,
+    "fecha": "2026-06-05",
+    "mes": "06-2026",
+    "monto": 120000,
+    "descripcion": "Ragalo Madre"
+  },
+  {
+    "id": "1780709033497-mxm8kl0",
+    "usuarioId": 1,
+    "fecha": "2026-06-05",
+    "mes": "06-2026",
+    "monto": 70000,
+    "descripcion": "Regalo Karol"
+  },
+  {
+    "id": "1780709163103-wulvdg3",
+    "usuarioId": 1,
+    "fecha": "2026-06-05",
+    "mes": "06-2026",
+    "monto": 30000,
+    "descripcion": "Aceite Moto"
+  },
+  {
+    "id": "1780710018192-7fbkgt2",
+    "usuarioId": 1,
+    "fecha": "2026-06-05",
+    "mes": "06-2026",
+    "monto": 10000,
+    "descripcion": "Uñas luna"
+  },
+  {
+    "id": "1781011012737-iczcimz",
+    "usuarioId": 1,
+    "fecha": "2026-06-09",
+    "mes": "06-2026",
+    "monto": 25000,
+    "descripcion": "Pizza"
+  },
+  {
+    "id": "1781011028239-jlmasy5",
+    "usuarioId": 1,
+    "fecha": "2026-06-06",
+    "mes": "06-2026",
+    "monto": 15000,
+    "descripcion": "Salida Alexandra"
+  },
+  {
+    "id": "1781185316886-0lk335e",
+    "usuarioId": 1,
+    "fecha": "2026-06-11",
+    "mes": "06-2026",
+    "monto": 120000,
+    "descripcion": "Salida Cine Karol"
+  },
+  {
+    "id": "1781539315798-aov5c05",
+    "usuarioId": 1,
+    "fecha": "2026-06-15",
+    "mes": "06-2026",
+    "monto": 10000,
+    "descripcion": "Arroz Chino"
+  },
+  {
+    "id": "1781711898693-7ykt61c",
+    "usuarioId": 1,
+    "fecha": "2026-06-17",
+    "mes": "06-2026",
+    "monto": 114000,
+    "descripcion": "Steam"
+  },
+  {
+    "id": "1781717943974-3x4sipn",
+    "usuarioId": 1,
+    "fecha": "2026-06-17",
+    "mes": "06-2026",
+    "monto": 60000,
+    "descripcion": "Regalo Emilia"
+  },
+  {
+    "id": "1782789100087-jp9swbh",
+    "usuarioId": 1,
+    "fecha": "2026-06-29",
+    "mes": "06-2026",
+    "monto": 40000,
+    "descripcion": "peluche karol"
+  },
+  {
+    "id": "1782864279364-ljinvfw",
+    "usuarioId": 1,
+    "fecha": "2026-07-01",
+    "mes": "07-2026",
+    "monto": 50000,
+    "descripcion": "Steam"
+  },
+  {
+    "id": "1783222277789-n72ox6q",
+    "usuarioId": 1,
+    "fecha": "2026-07-04",
+    "mes": "07-2026",
+    "monto": 30000,
+    "descripcion": "Papitas"
+  },
+  {
+    "id": "1783293088079-jfbur03",
+    "usuarioId": 1,
+    "fecha": "2026-07-05",
+    "mes": "07-2026",
+    "monto": 51000,
+    "descripcion": "Compras Temu"
+  },
+  {
+    "id": "1783442683312-q0qh9yh",
+    "usuarioId": 1,
+    "fecha": "2026-07-07",
+    "mes": "07-2026",
+    "monto": 9000,
+    "descripcion": "Decoracion Foscal"
+  },
+  {
+    "id": "1783825695878-6aph8av",
+    "usuarioId": 1,
+    "fecha": "2026-07-11",
+    "mes": "07-2026",
+    "monto": 100000,
+    "descripcion": "Salida Karol Enbalce de tona"
+  },
+  {
+    "id": "1783825710934-zu8k02g",
+    "usuarioId": 1,
+    "fecha": "2026-07-11",
+    "mes": "07-2026",
+    "monto": 50000,
+    "descripcion": "Negocios con el transito"
+  },
+  {
+    "id": "1784182493743-87ppmkb",
+    "usuarioId": 1,
+    "fecha": "2026-07-16",
+    "mes": "07-2026",
+    "monto": 60000,
+    "descripcion": "gasolina"
+  },
+  {
+    "id": "1784604281636-drg9trb",
+    "usuarioId": 1,
+    "fecha": "2026-07-20",
+    "mes": "07-2026",
+    "monto": 150000,
+    "descripcion": "Fin de semana karol"
+  },
+  {
+    "id": "1785463132627-gd51do7",
+    "usuarioId": 1,
+    "fecha": "2026-08-01",
+    "mes": "08-2026",
+    "monto": 20000,
+    "descripcion": "Regalo Ancestors Marcox"
+  },
+  {
+    "id": "1785693436692-c47eret",
+    "usuarioId": 1,
+    "fecha": "2026-08-02",
+    "mes": "08-2026",
+    "monto": 60000,
+    "descripcion": "Regalo Zapatos Karol"
+  },
+  {
+    "id": "1785693451276-c3rwqtl",
+    "usuarioId": 1,
+    "fecha": "2026-08-02",
+    "mes": "08-2026",
+    "monto": 100000,
+    "descripcion": "Regalo Cesar"
+  },
+  {
+    "id": "1785972920719-o810d51",
+    "usuarioId": 1,
+    "fecha": "2026-08-05",
+    "mes": "08-2026",
+    "monto": 70000,
+    "descripcion": "Moto Mantenimiento"
+  },
+  {
+    "id": "1786251929189-v4333wv",
+    "usuarioId": 1,
+    "fecha": "2026-08-09",
+    "mes": "08-2026",
+    "monto": 200000,
+    "descripcion": "Salida Airsoft"
+  },
+  {
+    "id": "1786503463996-rz0qn3y",
+    "usuarioId": 1,
+    "fecha": "2026-08-11",
+    "mes": "08-2026",
+    "monto": 110000,
+    "descripcion": "Regalo Alexandra"
+  },
+  {
+    "id": "1786677229530-u7qiz8a",
+    "usuarioId": 1,
+    "fecha": "2026-08-13",
+    "mes": "08-2026",
+    "monto": 10000,
+    "descripcion": "Desayuno"
+  },
+  {
+    "id": "1786899466753-uwu2nco",
+    "usuarioId": 1,
+    "fecha": "2026-08-16",
+    "mes": "08-2026",
+    "monto": 40000,
+    "descripcion": "Feria RGH"
+  },
+  {
+    "id": "1786931563980-xenbmfq",
+    "usuarioId": 1,
+    "fecha": "2026-08-16",
+    "mes": "08-2026",
+    "monto": 20000,
+    "descripcion": "Domingo 16"
+  },
+  {
+    "id": "1787087108165-09x9gs8",
+    "usuarioId": 1,
+    "fecha": "2026-08-18",
+    "mes": "08-2026",
+    "monto": 8000,
+    "descripcion": "Hamburguesa"
+  },
+  {
+    "id": "1787333710978-cyqv93c",
+    "usuarioId": 1,
+    "fecha": "2026-09-01",
+    "mes": "09-2026",
+    "monto": 40000,
+    "descripcion": "Regalo productos karol"
+  },
+  {
+    "id": "1787467331090-iztubep",
+    "usuarioId": 1,
+    "fecha": "2026-08-23",
+    "mes": "08-2026",
+    "monto": 15000,
+    "descripcion": "22 sabado karol"
+  },
+  {
+    "id": "1787539857744-gep2lgs",
+    "usuarioId": 1,
+    "fecha": "2026-08-23",
+    "mes": "08-2026",
+    "monto": 30000,
+    "descripcion": "Cumpleaños angel"
+  },
+  {
+    "id": "1787878317215-j9ox9rg",
+    "usuarioId": 1,
+    "fecha": "2026-08-27",
+    "mes": "08-2026",
+    "monto": 25000,
+    "descripcion": "cometa"
+  }
+]

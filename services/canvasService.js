@@ -1,5 +1,140 @@
 const { createCanvas, loadImage } = require('canvas');
 
+function fitCanvasText(ctx, text, maxWidth) {
+  const value = String(text || '');
+  if (ctx.measureText(value).width <= maxWidth) return value;
+  let fitted = value;
+  while (fitted.length > 1 && ctx.measureText(`${fitted}...`).width > maxWidth) fitted = fitted.slice(0, -1);
+  return `${fitted}...`;
+}
+
+function drawStatBar(ctx, label, baseValue, totalValue, x, y, color, maxValue = 300) {
+  const barX = x + 92;
+  const barWidth = 315;
+  const safeBase = Math.max(0, Number(baseValue) || 0);
+  const safeTotal = Math.max(0, Number(totalValue) || 0);
+  const scaleMax = Math.max(300, Number(maxValue) || 300);
+  const fillWidth = Math.min((safeTotal / scaleMax) * barWidth, barWidth);
+  ctx.fillStyle = '#b8c7d9';
+  ctx.font = 'bold 18px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(label, x, y + 15);
+  ctx.fillStyle = '#172235';
+  drawRoundRect(ctx, barX, y, barWidth, 18, 9, true, false);
+  ctx.fillStyle = color;
+  drawRoundRect(ctx, barX, y, Math.max(8, fillWidth), 18, 9, true, false);
+  ctx.fillStyle = '#f5f9ff';
+  ctx.font = 'bold 16px sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText(`${safeBase} + ${Math.max(0, safeTotal - safeBase)} = ${safeTotal}`, x + 555, y + 16);
+}
+
+async function generarFichaPokemon(pokemon, ejemplar) {
+  const canvasWidth = 1200;
+  const canvasHeight = 920;
+  const canvas = createCanvas(canvasWidth, canvasHeight);
+  const ctx = canvas.getContext('2d');
+  const stats = ejemplar.stats || {};
+  const colors = ['#ef5350', '#ffca28', '#42a5f5', '#ab47bc', '#26a69a', '#ec407a'];
+  const background = ctx.createLinearGradient(0, 0, canvasWidth, canvasHeight);
+  background.addColorStop(0, '#07111f');
+  background.addColorStop(0.55, '#102b43');
+  background.addColorStop(1, '#183b4f');
+  ctx.fillStyle = background;
+  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  ctx.strokeStyle = 'rgba(129, 210, 230, 0.08)';
+  for (let x = 0; x < canvasWidth; x += 40) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvasHeight); ctx.stroke();
+  }
+  for (let y = 0; y < canvasHeight; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvasWidth, y); ctx.stroke();
+  }
+  ctx.fillStyle = '#eaf7ff';
+  ctx.font = 'bold 42px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('POKEDEX // REGISTRO DE ENTRENADOR', 55, 64);
+  ctx.fillStyle = '#6ed5e8';
+  ctx.font = 'bold 22px sans-serif';
+  ctx.fillText(`#${String(pokemon.id).padStart(4, '0')}`, 1090, 62);
+  ctx.fillStyle = 'rgba(8, 20, 35, 0.82)';
+  drawRoundRect(ctx, 45, 100, 1110, 800, 24, true, false);
+  ctx.strokeStyle = '#3d7891';
+  ctx.lineWidth = 2;
+  drawRoundRect(ctx, 45, 100, 1110, 800, 24, false, true);
+  ctx.fillStyle = '#eef8ff';
+  ctx.font = 'bold 48px sans-serif';
+  ctx.fillText(fitCanvasText(ctx, String(ejemplar.nombre || pokemon.name).toUpperCase(), 510), 85, 164);
+  ctx.fillStyle = '#82d9e8';
+  ctx.font = 'bold 21px sans-serif';
+  ctx.fillText(ejemplar.tipos || 'Sin tipo', 88, 202);
+  ctx.fillStyle = '#9eb2c8';
+  ctx.font = '18px sans-serif';
+  ctx.fillText(`FORMA: ${pokemon.forms?.map((form) => form.name).join(', ') || pokemon.name}`, 88, 232);
+  ctx.fillStyle = '#122a3d';
+  drawRoundRect(ctx, 75, 270, 340, 630, 18, true, false);
+  ctx.strokeStyle = '#315d72';
+  drawRoundRect(ctx, 75, 270, 340, 630, 18, false, true);
+  ctx.fillStyle = '#71d4e5';
+  ctx.font = 'bold 17px sans-serif';
+  ctx.fillText('DATOS DEL EJEMPLAR', 98, 307);
+  ctx.fillStyle = '#0b1d2d';
+  drawRoundRect(ctx, 98, 325, 294, 170, 14, true, false);
+  const personalData = [
+    ['NIVEL', ejemplar.nivel || 1], ['EXPERIENCIA', `${ejemplar.experiencia || 0} EXP`],
+    ['COMBATES', ejemplar.combates || 0], ['ALTURA', `${((pokemon.height || 0) / 10).toFixed(1)} m`],
+    ['PESO', `${((pokemon.weight || 0) / 10).toFixed(1)} kg`], ['EXP. BASE', pokemon.base_experience || 0],
+  ];
+  personalData.forEach(([label, value], index) => {
+    const y = 525 + index * 40;
+    ctx.fillStyle = '#829ab2'; ctx.font = 'bold 14px sans-serif'; ctx.fillText(label, 98, y);
+    ctx.fillStyle = '#f1f7fc'; ctx.font = 'bold 18px sans-serif'; ctx.fillText(String(value), 98, y + 21);
+  });
+  ctx.fillStyle = '#71d4e5'; ctx.font = 'bold 11px sans-serif'; ctx.fillText('PARA SIGUIENTE NIVEL', 205, 525);
+  ctx.fillStyle = '#eef8ff'; ctx.font = 'bold 14px sans-serif';
+  ctx.fillText(`${Number(ejemplar.xpFaltante || 0)} EXP FALTANTE`, 205, 546);
+  ctx.fillStyle = '#829ab2'; ctx.font = 'bold 13px sans-serif';
+  ctx.fillText('HISTORIAL', 98, 790);
+  const dates = [
+    ['CAPTURA', ejemplar.fechaCaptura], ['ENTRENAMIENTO', ejemplar.fechaEntrenamiento],
+    ['ULTIMO TRABAJO', ejemplar.fechaTrabajo],
+  ];
+  dates.forEach(([label, value], index) => {
+    const y = 815 + index * 32;
+    ctx.fillStyle = '#b8c7d9'; ctx.font = 'bold 11px sans-serif'; ctx.fillText(`${label}:`, 98, y);
+    ctx.fillStyle = '#eef8ff'; ctx.font = '12px sans-serif'; ctx.fillText(fitCanvasText(ctx, value || 'No registrada', 185), 205, y);
+  });
+  ctx.fillStyle = '#132f42';
+  drawRoundRect(ctx, 445, 270, 665, 630, 18, true, false);
+  ctx.fillStyle = '#71d4e5'; ctx.font = 'bold 17px sans-serif';
+  ctx.fillText('ESTADISTICAS ACTUALES  //  BASE + NIVEL = TOTAL', 475, 307);
+  const statRows = [
+    ['HP', stats.hp, ejemplar.totales.hp], ['ATK', stats.atk, ejemplar.totales.atk],
+    ['DEF', stats.def, ejemplar.totales.def], ['SP.ATK', stats.spAtk, ejemplar.totales.spAtk],
+    ['SP.DEF', stats.spDef, ejemplar.totales.spDef], ['VEL', stats.vel, ejemplar.totales.vel],
+  ];
+  const maxStat = Math.max(300, ...statRows.map(([, , total]) => Number(total) || 0));
+  statRows.forEach(([label, base, total], index) => drawStatBar(ctx, label, base, total, 475, 335 + index * 51, colors[index], maxStat));
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#829ab2'; ctx.font = 'bold 14px sans-serif'; ctx.fillText('HABILIDADES', 475, 680);
+  ctx.fillStyle = '#eef8ff'; ctx.font = '18px sans-serif';
+  ctx.fillText(fitCanvasText(ctx, ejemplar.habilidades || 'No disponibles', 600), 475, 707);
+  ctx.fillStyle = '#829ab2'; ctx.font = 'bold 14px sans-serif'; ctx.fillText('MOVIMIENTOS REGISTRADOS', 825, 680);
+  ctx.fillStyle = '#eef8ff'; ctx.font = '18px sans-serif'; ctx.fillText(`${pokemon.moves?.length || 0}`, 825, 707);
+  try {
+    const sprite = await loadImage(ejemplar.imagen || pokemon.sprites?.other?.['official-artwork']?.front_default || pokemon.sprites?.front_default);
+    ctx.globalAlpha = 0.14; ctx.drawImage(sprite, 880, 120, 230, 230); ctx.globalAlpha = 1;
+    ctx.drawImage(sprite, 165, 340, 160, 160);
+  } catch (error) {
+    console.warn(`No se pudo cargar el sprite de ${pokemon.name}:`, error.message);
+  }
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#6ed5e8'; ctx.font = 'bold 15px sans-serif';
+  ctx.fillText(`ESQUIVE: ${Number(ejemplar.probEsquive || 0).toFixed(1)}%`, 475, 760);
+  ctx.fillStyle = '#829ab2'; ctx.font = '14px sans-serif';
+  ctx.fillText('DATOS SINCRONIZADOS CON POKEAPI + POKEDEX LOCAL', 475, 790);
+  return canvas.toBuffer('image/png');
+}
+
 // Función auxiliar para dibujar rectángulos con bordes redondeados
 function drawRoundRect(ctx, x, y, width, height, radius, fill, stroke) {
   ctx.beginPath();
@@ -1269,4 +1404,4 @@ async function generarImagenMinas(minas, nombreEntrenador) {
 }
 
 // === ACTUALIZA ESTA LÍNEA AL FINAL ===
-module.exports = { generarCollagePokemon, generarImagenVersus, generarSilueta, generarImagenIncubadora, generarImagenPoketeam, generarImagenInventario, generarImagenExpediciones, generarImagenSacrificio, generarImagenCultivos, generarImagenMinas };
+module.exports = { generarFichaPokemon, generarCollagePokemon, generarImagenVersus, generarSilueta, generarImagenIncubadora, generarImagenPoketeam, generarImagenInventario, generarImagenExpediciones, generarImagenSacrificio, generarImagenCultivos, generarImagenMinas };

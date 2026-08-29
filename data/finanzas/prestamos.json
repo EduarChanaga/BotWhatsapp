@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1781539575036-nvtxswf",
+    "usuarioId": 1,
+    "prestante": "Suegra",
+    "monto": 100000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-12-12",
+    "cuotas": 1,
+    "cuotasPagadas": 1
+  },
+  {
+    "id": "1787585558544-hkb0fel",
+    "usuarioId": 1,
+    "prestante": "Marilin",
+    "monto": 30000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-08-30",
+    "cuotas": 1,
+    "cuotasPagadas": 1
+  },
+  {
+    "id": "1787585589744-tzczztj",
+    "usuarioId": 1,
+    "prestante": "Familia Daniel",
+    "monto": 30000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-08-30",
+    "cuotas": 1,
+    "cuotasPagadas": 1
+  }
+]

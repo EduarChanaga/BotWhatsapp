@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de pagos</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="app-nav">
+    <a href="dashboard.html" class="app-nav__brand">Finanzas</a>
+    <button type="button" class="app-nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+      <span class="app-nav__toggle-icon" aria-hidden="true"></span>
+    </button>
+    <div class="app-nav__menu" id="nav-menu">
+      <div class="app-nav__links">
+        <a href="dashboard.html">Cuentas</a>
+        <a href="pagos.html" class="active">Pagos</a>
+        <a href="hormiga.html">Hormiga</a>
+        <a href="prestamos.html">Préstamos</a>
+        <a href="resumen.html">Resumen</a>
+      </div>
+      <span class="app-nav__user" id="user-label"></span>
+      <div class="app-nav__actions">
+        <button type="button" class="btn btn--ghost btn--sm" id="btn-logout">Salir</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="alerta-pagos-semana" class="alerta-pagos-semana" hidden></div>
+
+  <main class="app-main">
+    <header class="page-header">
+      <h1>Pagos mensuales</h1>
+      <p>Todas tus cuentas a la vez — haz clic en el estado para marcar.</p>
+    </header>
+
+    <div id="pagos-resumen-mes" class="pagos-resumen-mes" hidden>
+      <div>
+        <p class="pagos-resumen-mes__label">Gastado en <strong id="resumen-mes-nombre"></strong></p>
+        <p class="pagos-resumen-mes__detalle" id="resumen-mes-detalle"></p>
+      </div>
+      <p class="pagos-resumen-mes__total" id="resumen-mes-total">0,00 €</p>
+    </div>
+
+    <div class="pagos-leyenda" aria-label="Leyenda de estados">
+      <span class="pagos-leyenda__item"><span class="estado-chip estado-chip--pagado"></span> Pagado</span>
+      <span class="pagos-leyenda__item"><span class="estado-chip estado-chip--pendiente"></span> Pendiente</span>
+      <span class="pagos-leyenda__item"><span class="estado-chip estado-chip--vencido"></span> Vencido</span>
+    </div>
+
+    <div id="empty-pagos" class="empty-state" hidden>
+      <strong>Sin cuentas activas</strong>
+      <p>No tienes cuentas en estado «pagando» para controlar.</p>
+    </div>
+
+    <div id="panel-pagos" class="pagos-panel" hidden>
+      <div class="pagos-rango">
+        <div class="form-group pagos-rango__campo">
+          <label for="rango-desde">Desde</label>
+          <input type="month" id="rango-desde">
+        </div>
+        <div class="form-group pagos-rango__campo">
+          <label for="rango-hasta">Hasta</label>
+          <input type="month" id="rango-hasta">
+        </div>
+        <button type="button" class="btn btn--ghost btn--sm" id="btn-rango-defecto">Rango por defecto</button>
+      </div>
+
+      <div id="lista-pagos" class="pagos-todas"></div>
+    </div>
+  </main>
+
+  <script src="js/nav.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/alertas.js"></script>
+  <script src="js/pagos-page.js"></script>
+</body>
+</html>

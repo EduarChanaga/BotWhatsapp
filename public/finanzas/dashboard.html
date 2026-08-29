@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Gestionar cuentas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="app-nav">
+    <a href="dashboard.html" class="app-nav__brand">Finanzas</a>
+    <button type="button" class="app-nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+      <span class="app-nav__toggle-icon" aria-hidden="true"></span>
+    </button>
+    <div class="app-nav__menu" id="nav-menu">
+      <div class="app-nav__links">
+        <a href="dashboard.html" class="active">Cuentas</a>
+        <a href="pagos.html">Pagos</a>
+        <a href="hormiga.html">Hormiga</a>
+        <a href="prestamos.html">Préstamos</a>
+        <a href="resumen.html">Resumen</a>
+      </div>
+      <span class="app-nav__user" id="user-label"></span>
+      <div class="app-nav__actions">
+        <button type="button" class="btn btn--ghost btn--sm" id="btn-logout">Salir</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="alerta-pagos-semana" class="alerta-pagos-semana" hidden></div>
+
+  <main class="app-main">
+    <header class="page-header page-header__row">
+      <div>
+        <h1>Gestionar cuentas</h1>
+        <p>Agrega gastos mensuales, permanentes o de pago único.</p>
+      </div>
+      <div>
+        <button type="button" class="btn btn--ghost" id="btn-editar-usuario">Editar número</button>
+        <button type="button" class="btn btn--primary" id="btn-nueva-cuenta">+ Nueva cuenta</button>
+      </div>
+    </header>
+
+    <form id="form-usuario" class="card-panel" hidden>
+      <h2>Datos de contacto</h2>
+      <div class="form-group">
+        <label for="usuario-numero">Número de WhatsApp</label>
+        <input type="tel" id="usuario-numero" required placeholder="Ej. 1095581647">
+      </div>
+      <div class="modal__footer">
+        <button type="button" class="btn btn--ghost" id="btn-cancelar-usuario">Cancelar</button>
+        <button type="submit" class="btn btn--primary">Guardar número</button>
+      </div>
+      <p id="msg-usuario" class="form-message" hidden></p>
+    </form>
+
+    <div id="empty-cuentas" class="empty-state" hidden>
+      <strong>No hay cuentas</strong>
+      <p>Pulsa «Nueva cuenta» para registrar tu primer gasto.</p>
+    </div>
+
+    <ul id="lista-cuentas" class="cuentas-list" hidden></ul>
+  </main>
+
+  <div id="modal-cuenta" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-titulo">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <h2 id="modal-titulo">Nueva cuenta</h2>
+        <button type="button" class="modal__close" data-close aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="form-cuenta">
+        <div class="form-group">
+          <label for="cuenta-nombre">Nombre del gasto</label>
+          <input type="text" id="cuenta-nombre" required placeholder="Ej. Netflix, Alquiler…">
+        </div>
+        <div class="form-group">
+          <label for="cuenta-monto">Monto a pagar (€)</label>
+          <input type="number" id="cuenta-monto" min="0" step="0.01" required placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <span class="form-group label" style="display:block;font-size:0.85rem;font-weight:500;color:var(--text-muted);margin-bottom:0.4rem;">Modalidad</span>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="tipo-cuenta" value="permanente" checked>
+              Permanente (recurrente sin fin)
+            </label>
+            <label>
+              <input type="radio" name="tipo-cuenta" value="unico">
+              Único coste (un solo pago)
+            </label>
+            <label>
+              <input type="radio" name="tipo-cuenta" value="limitada">
+              Mensual limitada (varios meses)
+            </label>
+          </div>
+        </div>
+        <div class="form-group" id="field-meses" hidden>
+          <label for="cuenta-meses">Cantidad de meses</label>
+          <input type="number" id="cuenta-meses" min="2" max="120" value="3">
+        </div>
+        <div class="form-group" id="field-mes-inicio">
+          <label for="cuenta-mes-inicio">Primer mes de pago</label>
+          <input type="month" id="cuenta-mes-inicio" required>
+        </div>
+        <div class="form-group" id="field-fecha-dia">
+          <label for="cuenta-dia">Día de pago (límite cada mes)</label>
+          <input type="number" id="cuenta-dia" min="1" max="31" value="1" required>
+        </div>
+        <div class="form-group" id="field-fecha-completa" hidden>
+          <label for="cuenta-fecha">Fecha de pago (límite)</label>
+          <input type="date" id="cuenta-fecha">
+        </div>
+        <div class="form-group">
+          <label for="cuenta-estado">Estado</label>
+          <select id="cuenta-estado">
+            <option value="pagando">Pagando</option>
+            <option value="completado">Completado</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </div>
+        <div class="modal__footer">
+          <button type="button" class="btn btn--ghost" data-close>Cancelar</button>
+          <button type="submit" class="btn btn--primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/alertas.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

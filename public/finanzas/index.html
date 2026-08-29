@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanzas Personales — Iniciar sesión</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="auth-page">
+  <div class="auth-card">
+    <header class="auth-card__header">
+      <h1>Finanzas Personales</h1>
+      <p>Gestiona tus cuentas y gastos personales</p>
+    </header>
+
+    <nav class="auth-tabs" aria-label="Formularios de acceso">
+      <button type="button" class="active" data-tab="login">Iniciar sesión</button>
+      <button type="button" data-tab="registro">Registrarse</button>
+    </nav>
+
+    <section class="auth-panel active" data-panel="login">
+      <form id="form-login" novalidate>
+        <div class="form-group">
+          <label for="login-usuario">Usuario</label>
+          <input type="text" id="login-usuario" name="usuario" autocomplete="username" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Entrar</button>
+        <p id="msg-login" class="form-message" hidden></p>
+      </form>
+    </section>
+
+    <section class="auth-panel" data-panel="registro">
+      <form id="form-registro" novalidate>
+        <div class="form-group">
+          <label for="reg-usuario">Usuario</label>
+          <input type="text" id="reg-usuario" name="usuario" autocomplete="username" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-numero">Número de WhatsApp</label>
+          <input type="tel" id="reg-numero" name="numero" autocomplete="tel" required placeholder="Ej. 1095581647">
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Contraseña</label>
+          <input type="password" id="reg-password" name="password" autocomplete="new-password" required minlength="4">
+        </div>
+        <div class="form-group">
+          <label for="reg-confirm">Confirmar contraseña</label>
+          <input type="password" id="reg-confirm" name="confirm" autocomplete="new-password" required>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Crear cuenta</button>
+        <p id="msg-registro" class="form-message" hidden></p>
+      </form>
+    </section>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/alertas.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

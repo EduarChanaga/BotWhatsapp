@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1780593635306-54wbqer",
+    "usuarioId": 1,
+    "nombre": "Alquiler",
+    "fechaPago": "5",
+    "cantidadMeses": 0,
+    "estado": "pagando",
+    "monto": 300000,
+    "mesInicio": "10-2025"
+  },
+  {
+    "id": "1780594073768-xm97jnf",
+    "usuarioId": 1,
+    "nombre": "Celular Addi",
+    "monto": 220000,
+    "fechaPago": "2026-06-09",
+    "cantidadMeses": 6,
+    "estado": "pagando",
+    "mesInicio": "06-2026"
+  },
+  {
+    "id": "1780594184724-a5nz3md",
+    "usuarioId": 1,
+    "nombre": "Netflix",
+    "monto": 30000,
+    "fechaPago": "2026-05-03",
+    "cantidadMeses": 12,
+    "estado": "pagando",
+    "mesInicio": "05-2026"
+  },
+  {
+    "id": "1780594347714-rh77fez",
+    "usuarioId": 1,
+    "nombre": "Parqueadero Foscal",
+    "monto": 66000,
+    "mesInicio": "04-2026",
+    "fechaPago": "6",
+    "cantidadMeses": 0,
+    "estado": "pagando"
+  },
+  {
+    "id": "1780594629259-c4ovono",
+    "usuarioId": 1,
+    "nombre": "Pantalla",
+    "monto": 80000,
+    "mesInicio": "07-2026",
+    "fechaPago": "2026-07-02",
+    "cantidadMeses": 3,
+    "estado": "pagando"
+  },
+  {
+    "id": "1780594830376-qfenhve",
+    "usuarioId": 1,
+    "nombre": "Ahorros FNA",
+    "monto": 200000,
+    "mesInicio": "06-2026",
+    "fechaPago": "10",
+    "cantidadMeses": 0,
+    "estado": "pagando"
+  },
+  {
+    "id": "1780595217119-gph9h6e",
+    "usuarioId": 1,
+    "nombre": "Plan de Datos",
+    "monto": 42000,
+    "mesInicio": "06-2026",
+    "fechaPago": "22",
+    "cantidadMeses": 0,
+    "estado": "pagando"
+  },
+  {
+    "id": "1780670226460-bm5wtnk",
+    "usuarioId": 1,
+    "nombre": "Celular Alkomprar",
+    "monto": 30000,
+    "mesInicio": "06-2026",
+    "fechaPago": "2026-06-07",
+    "cantidadMeses": 6,
+    "estado": "pagando"
+  },
+  {
+    "id": "1781718005369-e593038",
+    "usuarioId": 1,
+    "nombre": "Recibo Internet",
+    "monto": 24000,
+    "mesInicio": "08-2025",
+    "fechaPago": "2025-08-20",
+    "cantidadMeses": 24,
+    "estado": "pagando"
+  },
+  {
+    "id": "1781972249504-wbwr3fw",
+    "usuarioId": 1,
+    "nombre": "Camisa estafa",
+    "monto": 38000,
+    "mesInicio": "06-2026",
+    "fechaPago": "2026-06-17",
+    "cantidadMeses": 3,
+    "estado": "completado"
+  },
+  {
+    "id": "1781972311925-n472g1a",
+    "usuarioId": 1,
+    "nombre": "Camisa estafa 2",
+    "monto": 38000,
+    "mesInicio": "07-2026",
+    "fechaPago": "2026-07-02",
+    "cantidadMeses": 2,
+    "estado": "completado"
+  },
+  {
+    "id": "1782023941904-19one6j",
+    "usuarioId": 1,
+    "nombre": "Casco Karol",
+    "monto": 65000,
+    "mesInicio": "07-2026",
+    "fechaPago": "2026-07-20",
+    "cantidadMeses": 2,
+    "estado": "completado"
+  },
+  {
+    "id": "1782023990355-13rxw46",
+    "usuarioId": 1,
+    "nombre": "Ventilador",
+    "monto": 38000,
+    "mesInicio": "07-2026",
+    "fechaPago": "2026-07-20",
+    "cantidadMeses": 3,
+    "estado": "pagando"
+  },
+  {
+    "id": "1786404735607-43zsk60",
+    "usuarioId": 1,
+    "nombre": "Spotify",
+    "monto": 5000,
+    "mesInicio": "08-2026",
+    "fechaPago": "2",
+    "cantidadMeses": 0,
+    "estado": "pagando"
+  }
+]

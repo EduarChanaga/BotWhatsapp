@@ -217,6 +217,7 @@ class BotManager extends EventEmitter {
         textoMinuscula.startsWith('#cultivo') ||
         textoMinuscula.startsWith('#sell') ||
         textoMinuscula.startsWith('#mina') ||
+        /^#finanzas(?:\s|$)/.test(textoMinuscula) ||
         textoMinuscula === '#help';
 
       if (!esComando) return;
@@ -227,6 +228,11 @@ class BotManager extends EventEmitter {
         const chatName = msg.from; 
 
         this.log(`Comando recibido (${origen}) en "${chatName}": ${texto} [ID Real: ${whatsappId}]`, 'command');
+
+        if (/^#finanzas(?:\s|$)/.test(textoMinuscula)) {
+          const { handleFinanzas } = require('../commands/finanzas');
+          return await handleFinanzas(msg, texto, whatsappId);
+        }
 
         // ==========================================
         // COMANDO: #give (Donar objetos)

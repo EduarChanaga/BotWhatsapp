@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gastos hormiga</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="app-nav">
+    <a href="dashboard.html" class="app-nav__brand">Finanzas</a>
+    <button type="button" class="app-nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+      <span class="app-nav__toggle-icon" aria-hidden="true"></span>
+    </button>
+    <div class="app-nav__menu" id="nav-menu">
+      <div class="app-nav__links">
+        <a href="dashboard.html">Cuentas</a>
+        <a href="pagos.html">Pagos</a>
+        <a href="hormiga.html" class="active">Hormiga</a>
+        <a href="prestamos.html">Préstamos</a>
+        <a href="resumen.html">Resumen</a>
+      </div>
+      <span class="app-nav__user" id="user-label"></span>
+      <div class="app-nav__actions">
+        <button type="button" class="btn btn--ghost btn--sm" id="btn-logout">Salir</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="alerta-pagos-semana" class="alerta-pagos-semana" hidden></div>
+
+  <main class="app-main">
+    <header class="page-header page-header__row">
+      <div>
+        <h1>Gastos hormiga</h1>
+        <p>Registra gastos pequeños del día a día.</p>
+      </div>
+    </header>
+
+    <div class="hormiga-toolbar">
+      <div class="form-group hormiga-toolbar__mes">
+        <label for="filtro-mes">Mes</label>
+        <input type="month" id="filtro-mes">
+      </div>
+      <div class="hormiga-subtotal">
+        <span class="hormiga-subtotal__label">Total del mes</span>
+        <span class="hormiga-subtotal__valor" id="subtotal-mes">0,00 €</span>
+      </div>
+    </div>
+
+    <form id="form-hormiga" class="hormiga-form card-panel">
+      <h2 id="form-hormiga-titulo">Nuevo gasto</h2>
+      <div class="hormiga-form__grid">
+        <div class="form-group">
+          <label for="hormiga-fecha">Fecha</label>
+          <input type="date" id="hormiga-fecha" required>
+        </div>
+        <div class="form-group">
+          <label for="hormiga-monto">Monto</label>
+          <input type="number" id="hormiga-monto" min="0" step="0.01" required placeholder="0">
+        </div>
+        <div class="form-group hormiga-form__desc">
+          <label for="hormiga-descripcion">Descripción</label>
+          <input type="text" id="hormiga-descripcion" required placeholder="Ej. salida, café…">
+        </div>
+        <div class="hormiga-form__actions">
+          <button type="button" class="btn btn--ghost btn--sm" id="btn-cancelar-hormiga" hidden>Cancelar</button>
+          <button type="submit" class="btn btn--primary btn--sm" id="btn-guardar-hormiga">Agregar</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="empty-hormiga" class="empty-state" hidden>
+      <strong>Sin gastos este mes</strong>
+      <p>Usa el formulario de arriba para registrar el primero.</p>
+    </div>
+
+    <ul id="lista-hormiga" class="hormiga-list"></ul>
+  </main>
+
+  <script src="js/nav.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/alertas.js"></script>
+  <script src="js/hormiga-page.js"></script>
+</body>
+</html>
