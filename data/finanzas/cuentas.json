@@ -47,7 +47,7 @@
     "mesInicio": "07-2026",
     "fechaPago": "2026-07-02",
     "cantidadMeses": 3,
-    "estado": "pagando"
+    "estado": "completado"
   },
   {
     "id": "1780594830376-qfenhve",
@@ -73,7 +73,7 @@
     "id": "1780670226460-bm5wtnk",
     "usuarioId": 1,
     "nombre": "Celular Alkomprar",
-    "monto": 30000,
+    "monto": 33000,
     "mesInicio": "06-2026",
     "fechaPago": "2026-06-07",
     "cantidadMeses": 6,
@@ -123,11 +123,11 @@
     "id": "1782023990355-13rxw46",
     "usuarioId": 1,
     "nombre": "Ventilador",
-    "monto": 38000,
+    "monto": 39000,
     "mesInicio": "07-2026",
     "fechaPago": "2026-07-20",
     "cantidadMeses": 3,
-    "estado": "pagando"
+    "estado": "completado"
   },
   {
     "id": "1786404735607-43zsk60",

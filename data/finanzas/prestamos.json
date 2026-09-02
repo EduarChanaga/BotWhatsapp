@@ -28,5 +28,75 @@
     "fechaVencimiento": "2026-08-30",
     "cuotas": 1,
     "cuotasPagadas": 1
+  },
+  {
+    "id": "1788022599447-lzoqiez",
+    "usuarioId": 1,
+    "prestante": "Daniel",
+    "monto": 20000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-08-31",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1788022655093-1wofck8",
+    "usuarioId": 1,
+    "prestante": "Rubiela*",
+    "monto": 60000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1788022670699-4mjssq2",
+    "usuarioId": 1,
+    "prestante": "Rubiela*",
+    "monto": 100000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1788022689314-qn6emvg",
+    "usuarioId": 1,
+    "prestante": "Rubiela*",
+    "monto": 50000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1788024778738-9eq6i2f",
+    "usuarioId": 1,
+    "prestante": "Nona Carmen",
+    "monto": 20000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1788030824418-ue6911g",
+    "usuarioId": 1,
+    "prestante": "Nona Carmen rifa",
+    "monto": 10000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1788277464559-jvbq6cz",
+    "usuarioId": 1,
+    "prestante": "Nona carmen enfermeras",
+    "monto": 40000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
   }
 ]

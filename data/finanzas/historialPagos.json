@@ -406,5 +406,61 @@
     "mes": "08-2026",
     "dia": "20",
     "estado": "pagado"
+  },
+  {
+    "id": "1788213165090-13bico2",
+    "cuentaId": "1786404735607-43zsk60",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "2",
+    "estado": "pagado"
+  },
+  {
+    "id": "1788213574460-2ojospc",
+    "cuentaId": "1780593635306-54wbqer",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "5",
+    "estado": "pagado"
+  },
+  {
+    "id": "1788215137253-i5ux2yh",
+    "cuentaId": "1780594830376-qfenhve",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "10",
+    "estado": "pagado"
+  },
+  {
+    "id": "1788215264268-2juf4xk",
+    "cuentaId": "1782023990355-13rxw46",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "20",
+    "estado": "pagado"
+  },
+  {
+    "id": "1788219083479-r045e5j",
+    "cuentaId": "1780594073768-xm97jnf",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "9",
+    "estado": "pagado"
+  },
+  {
+    "id": "1788219085862-q7h4p2q",
+    "cuentaId": "1780594629259-c4ovono",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "2",
+    "estado": "pagado"
+  },
+  {
+    "id": "1788295998517-r2sfym3",
+    "cuentaId": "1780670226460-bm5wtnk",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "7",
+    "estado": "pagado"
   }
 ]

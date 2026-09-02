@@ -240,14 +240,6 @@
     "descripcion": "Hamburguesa"
   },
   {
-    "id": "1787333710978-cyqv93c",
-    "usuarioId": 1,
-    "fecha": "2026-09-01",
-    "mes": "09-2026",
-    "monto": 40000,
-    "descripcion": "Regalo productos karol"
-  },
-  {
     "id": "1787467331090-iztubep",
     "usuarioId": 1,
     "fecha": "2026-08-23",
@@ -270,5 +262,13 @@
     "mes": "08-2026",
     "monto": 25000,
     "descripcion": "cometa"
+  },
+  {
+    "id": "1788062161969-i413pyh",
+    "usuarioId": 1,
+    "fecha": "2026-08-29",
+    "mes": "08-2026",
+    "monto": 50000,
+    "descripcion": "Volar cometa"
   }
 ]
