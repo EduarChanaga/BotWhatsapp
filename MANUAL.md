@@ -1,3 +1,14 @@
+## Integración con Steam
+
+Para habilitar la búsqueda de AppIDs, horas y logros en `juegos.html`, configura estas variables en el entorno del servidor antes de iniciar Node:
+
+```powershell
+$env:STEAM_API_KEY = 'TU_CLAVE_STEAM_API'
+$env:STEAM_ID64 = '76561199863742925'
+node index.js
+```
+
+La clave se utiliza únicamente en el servidor. El catálogo se cachea en `data/steam-apps.json`; los juegos vinculados guardan `steamAppId`, horas sincronizadas y logros dentro de `data/juegos.json`. El campo del modal acepta el SteamID64 o una URL de perfil con formato `steamcommunity.com/id/...`.
 # Manual — Bot Pokémon WhatsApp
 
 Guía paso a paso para instalar y ejecutar el bot en **Windows**.

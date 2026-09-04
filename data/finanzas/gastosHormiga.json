@@ -270,5 +270,29 @@
     "mes": "08-2026",
     "monto": 50000,
     "descripcion": "Volar cometa"
+  },
+  {
+    "id": "1788410582119-6gn4w90",
+    "usuarioId": 1,
+    "fecha": "2026-09-02",
+    "mes": "09-2026",
+    "monto": 20000,
+    "descripcion": "Recarga Kick"
+  },
+  {
+    "id": "1788460408569-ewfb0vn",
+    "usuarioId": 1,
+    "fecha": "2026-09-03",
+    "mes": "09-2026",
+    "monto": 60000,
+    "descripcion": "Regalo Daniel"
+  },
+  {
+    "id": "1788487976629-btsqcjt",
+    "usuarioId": 1,
+    "fecha": "2026-09-03",
+    "mes": "09-2026",
+    "monto": 13000,
+    "descripcion": "Compra Steam"
   }
 ]

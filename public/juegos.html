@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca de Juegos | PokéControl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/juegos.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">PLAY</span>
+        <span><small>PokéControl</small>Biblioteca personal</span>
+      </a>
+      <a class="back-link" href="/">← Volver al panel</a>
+      <a class="toplist-link" href="/toplist.html">Toplist ↗</a>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div>
+          <p class="kicker">Colección · progreso · próxima partida</p>
+          <h1>Mis juegos</h1>
+          <p class="intro-copy">Una vista tranquila para recordar qué estás jugando y decidir cuál sigue.</p>
+        </div>
+        <button class="button button-primary" id="newGameButton" type="button"><span>＋</span> Añadir juego</button>
+      </section>
+
+      <section class="stats-grid" aria-label="Resumen de la biblioteca">
+        <article class="stat stat-accent"><span class="stat-label">En biblioteca</span><strong id="totalCount">0</strong><span class="stat-note">juegos registrados</span></article>
+        <article class="stat"><span class="stat-label">Jugando</span><strong id="playingCount">0</strong><span class="stat-note">partidas activas</span></article>
+        <article class="stat"><span class="stat-label">Completados</span><strong id="completedCount">0</strong><span class="stat-note">historias terminadas</span></article>
+        <article class="stat"><span class="stat-label">En cola</span><strong id="queueCount">0</strong><span class="stat-note">próximos por jugar</span></article>
+        <article class="stat"><span class="stat-label">Sin final</span><strong id="endlessCount">0</strong><span class="stat-note">juegos permanentes</span></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="library-column">
+          <div class="section-heading">
+            <div><p class="kicker">Tu colección</p><h2>Todos los juegos</h2></div>
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Buscar juego..." autocomplete="off"></label>
+          </div>
+          <div class="filter-row" id="filterRow" role="toolbar" aria-label="Filtrar juegos">
+            <button class="filter-button active" type="button" data-filter="all">Todos</button>
+            <button class="filter-button" type="button" data-filter="pending">Pendientes</button>
+            <button class="filter-button" type="button" data-filter="playing">Jugando</button>
+            <button class="filter-button" type="button" data-filter="completed">Completados</button>
+            <button class="filter-button" type="button" data-filter="platinum">Platinando</button>
+            <button class="filter-button" type="button" data-filter="abandoned">Abandonados</button>
+            <button class="filter-button" type="button" data-filter="endless">Sin final</button>
+          </div>
+          <div class="library-toolbar">
+            <span class="toolbar-label">Ordenar por</span>
+            <select id="sortSelect" aria-label="Ordenar juegos">
+              <option value="rating-desc">Calificación: mayor a menor</option>
+              <option value="rating-asc">Calificación: menor a mayor</option>
+              <option value="hours-desc">Horas: mayor a menor</option>
+              <option value="cost-desc">Costo: mayor a menor</option>
+              <option value="cost-asc">Costo: menor a mayor</option>
+              <option value="date-desc">Adquisición: más reciente</option>
+              <option value="date-asc">Adquisición: más antigua</option>
+              <option value="name-asc">Nombre: A-Z</option>
+              <option value="name-desc">Nombre: Z-A</option>
+            </select>
+          </div>
+          <div class="game-list" id="gameList"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <span class="empty-icon">◎</span><h3>Tu biblioteca está esperando</h3><p>Añade tu primer juego para empezar a registrar la aventura.</p>
+            <button class="button button-secondary" id="emptyAddButton" type="button">Añadir juego</button>
+          </div>
+        </div>
+
+        <aside class="queue-panel">
+          <div class="section-heading compact"><div><p class="kicker">Orden de juego</p><h2>Próximamente</h2></div><span class="queue-count" id="queueLabel">0</span></div>
+          <p class="queue-help">Mueve los juegos para decidir qué jugar después.</p>
+          <div class="queue-list" id="queueList"></div>
+          <div class="queue-empty" id="queueEmpty">No hay juegos en cola todavía.</div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="game-dialog" id="gameDialog">
+    <form id="gameForm" method="dialog">
+      <div class="dialog-header"><div><p class="kicker">Ficha de juego</p><h2 id="dialogTitle">Añadir juego</h2></div><button class="icon-button" id="closeDialogButton" type="button" aria-label="Cerrar">×</button></div>
+      <input id="gameId" type="hidden">
+      <div class="form-layout">
+        <div class="cover-upload">
+          <div class="cover-preview" id="coverPreview"><span>＋</span><small>Portada</small></div>
+          <label class="upload-button">Elegir imagen<input id="gameImage" type="file" accept="image/*"></label>
+          <button class="remove-image" id="removeImageButton" type="button" hidden>Quitar imagen</button>
+        </div>
+        <div class="form-fields">
+          <label>Nombre del juego<input id="gameName" type="text" maxlength="80" placeholder="Ej. The Legend of Zelda" required></label>
+          <label>Estado<select id="gameStatus"><option value="pending">Pendiente</option><option value="playing">Jugando</option><option value="completed">Completado</option><option value="platinum">Completado platinando</option><option value="abandoned">Abandonado</option><option value="endless">Sin final</option></select></label>
+          <div class="purchase-fields">
+            <label>Costo de compra <span class="optional">(opcional)</span><div class="currency-input"><span>$</span><input id="gameCost" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></div></label>
+            <label>Fecha de adquisición <span class="optional">(opcional)</span><input id="gameAcquiredAt" type="date"></label>
+          </div>
+          <div class="purchase-fields">
+            <label>Horas jugadas <span class="optional">(opcional)</span><input id="gameHours" type="number" min="0" step="0.1" inputmode="decimal" placeholder="0"></label>
+            <label class="queue-check endless-check"><input id="gameEndless" type="checkbox"><span>Juego sin final</span></label>
+          </div>
+          <label>Calificación <span class="optional">(opcional)</span><span class="rating-input" id="ratingInput" role="radiogroup" aria-label="Calificación de 0 a 10 estrellas"></span></label>
+          <label>Descripción de la experiencia <span class="optional">(opcional)</span><textarea id="gameDescription" maxlength="500" rows="4" placeholder="¿Qué te está pareciendo? ¿Qué quieres recordar?"></textarea></label>
+          <fieldset class="tag-field"><legend>Etiquetas <span class="optional">(puedes elegir varias)</span></legend><div class="tag-checklist">
+            <label><input type="checkbox" value="mundo abierto"><span>Mundo abierto</span></label>
+            <label><input type="checkbox" value="lineal"><span>Lineal</span></label>
+            <label><input type="checkbox" value="RPG"><span>RPG</span></label>
+            <label><input type="checkbox" value="acción"><span>Acción</span></label>
+            <label><input type="checkbox" value="aventura"><span>Aventura</span></label>
+            <label><input type="checkbox" value="estrategia"><span>Estrategia</span></label>
+            <label><input type="checkbox" value="terror"><span>Terror</span></label>
+            <label><input type="checkbox" value="supervivencia"><span>Supervivencia</span></label>
+            <label><input type="checkbox" value="soulslike"><span>Soulslike</span></label>
+            <label><input type="checkbox" value="roguelike"><span>Roguelike</span></label>
+            <label><input type="checkbox" value="indie"><span>Indie</span></label>
+            <label><input type="checkbox" value="cooperativo"><span>Cooperativo</span></label>
+            <label><input type="checkbox" value="competitivo"><span>Competitivo</span></label>
+            <label><input type="checkbox" value="narrativa"><span>Narrativa</span></label>
+            <label><input type="checkbox" value="sigilo"><span>Sigilo</span></label>
+            <label><input type="checkbox" value="multijugador"><span>Multijugador</span></label>
+          </div></fieldset>
+          <label class="queue-check"><input id="gameInQueue" type="checkbox"><span>Agregar a la cola de próximos juegos</span></label>
+        </div>
+      </div>
+      <div class="dialog-actions"><button class="button button-secondary" id="cancelButton" type="button">Cancelar</button><button class="button button-primary" type="submit">Guardar juego</button></div>
+    </form>
+  </dialog>
+  <dialog class="steam-dialog" id="steamDialog">
+    <form id="steamForm" method="dialog">
+      <div class="dialog-header"><div><p class="kicker">Integración Steam</p><h2>Vincular juego</h2></div><button class="icon-button" id="closeSteamButton" type="button" aria-label="Cerrar">×</button></div>
+      <p class="steam-current" id="steamCurrentGame"></p>
+      <div class="steam-key-box"><label class="steam-label">Clave Steam Web API<input id="steamApiKey" type="password" placeholder="Pega aquí tu clave Steam" autocomplete="new-password"></label><button class="button button-secondary" id="saveSteamKeyButton" type="button">Guardar clave en servidor</button><p class="steam-key-status" id="steamKeyStatus"></p></div>
+      <div class="steam-library-actions"><button class="button button-secondary" id="loadSteamLibraryButton" type="button">Cargar mi biblioteca de Steam</button><input id="steamSearch" type="search" placeholder="Filtrar mi biblioteca..." autocomplete="off"></div>
+      <div class="steam-results" id="steamResults"><p class="steam-hint">Carga tu biblioteca para elegir el juego correspondiente.</p></div>
+      <label class="steam-label">SteamID64 o perfil <span class="optional">(también acepta URL /id/)</span><input id="steamId64" type="text" placeholder="7656119... o steamcommunity.com/id/tu perfil"></label>
+      <div class="steam-selection" id="steamSelection" hidden></div>
+      <p class="steam-sync-note" id="steamSyncNote">Selecciona un resultado para vincularlo y sincronizar horas y logros.</p>
+      <div class="dialog-actions"><button class="button button-secondary" id="cancelSteamButton" type="button">Cancelar</button><button class="button button-primary" id="syncSteamButton" type="submit" disabled>Vincular y sincronizar</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/js/juegos.js"></script>
+</body>
+</html>

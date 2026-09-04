@@ -1,0 +1,3545 @@
+[
+  {
+    "id": "a3ad6d22-30bc-4d7c-ad24-af2b7f7d1790",
+    "name": "RED DEAD REDEMTION 2",
+    "status": "completed",
+    "endless": false,
+    "hours": 66.6,
+    "cost": 60000,
+    "acquiredAt": "2025-09-08",
+    "rating": 8,
+    "ratingScale": 10,
+    "tags": [
+      "mundo abierto",
+      "narrativa"
+    ],
+    "description": "Un gran juego, historia engancharle y una ambientación perfecta, le falta mas jugabilidad post historia",
+    "image": "/imagenes/juegos/d4458ca1-bb86-4774-b42e-5e3cf73d52fa.jpg",
+    "inQueue": false,
+    "queueOrder": 0,
+    "steamAppId": 1174180,
+    "steamName": "Red Dead Redemption 2",
+    "steamPlaytimeHours": 66.6,
+    "steamAchievements": [
+      {
+        "apiname": "Achievement1",
+        "achieved": 1,
+        "unlocktime": 1757458607
+      },
+      {
+        "apiname": "Achievement2",
+        "achieved": 1,
+        "unlocktime": 1757439671
+      },
+      {
+        "apiname": "Achievement3",
+        "achieved": 1,
+        "unlocktime": 1758321776
+      },
+      {
+        "apiname": "Achievement4",
+        "achieved": 1,
+        "unlocktime": 1758903694
+      },
+      {
+        "apiname": "Achievement5",
+        "achieved": 1,
+        "unlocktime": 1760293456
+      },
+      {
+        "apiname": "Achievement6",
+        "achieved": 1,
+        "unlocktime": 1760302632
+      },
+      {
+        "apiname": "Achievement7",
+        "achieved": 1,
+        "unlocktime": 1760583777
+      },
+      {
+        "apiname": "Achievement8",
+        "achieved": 1,
+        "unlocktime": 1760673725
+      },
+      {
+        "apiname": "Achievement9",
+        "achieved": 1,
+        "unlocktime": 1760889092
+      },
+      {
+        "apiname": "Achievement10",
+        "achieved": 1,
+        "unlocktime": 1761007364
+      },
+      {
+        "apiname": "Achievement11",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement13",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement14",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement15",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement16",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement17",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement18",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement19",
+        "achieved": 1,
+        "unlocktime": 1758478588
+      },
+      {
+        "apiname": "Achievement20",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement21",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement22",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement23",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement24",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement26",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement27",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement28",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement29",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement30",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement31",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement32",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement33",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement34",
+        "achieved": 1,
+        "unlocktime": 1760290586
+      },
+      {
+        "apiname": "Achievement35",
+        "achieved": 1,
+        "unlocktime": 1761010360
+      },
+      {
+        "apiname": "Achievement36",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement37",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement38",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement39",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement40",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement41",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement42",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement43",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement44",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement45",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement46",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement47",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement48",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement49",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement51",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ]
+  },
+  {
+    "id": "6dde401e-aac0-41d5-b7b8-44173b7ebb67",
+    "name": "Days Gone",
+    "status": "completed",
+    "endless": false,
+    "hours": 63.2,
+    "cost": 185000,
+    "acquiredAt": "2026-01-26",
+    "rating": 10,
+    "ratingScale": 10,
+    "tags": [
+      "mundo abierto",
+      "aventura",
+      "supervivencia",
+      "narrativa"
+    ],
+    "description": "Una obra de arte del gaming, experiencia fluida y enganchable, hace falta platinarlo",
+    "image": "/imagenes/juegos/5faca182-67f6-4cdc-9cb7-921d5b5f2331.jpg",
+    "inQueue": true,
+    "queueOrder": 5,
+    "steamAppId": 1259420,
+    "steamName": "Days Gone",
+    "steamId64": "76561199863742925",
+    "steamPlaytimeHours": 63.2,
+    "steamAchievements": [
+      {
+        "apiname": "DG1_ACH_60",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_0",
+        "achieved": 1,
+        "unlocktime": 1769448527
+      },
+      {
+        "apiname": "DG1_ACH_1",
+        "achieved": 1,
+        "unlocktime": 1769456797
+      },
+      {
+        "apiname": "DG1_ACH_2",
+        "achieved": 1,
+        "unlocktime": 1769453147
+      },
+      {
+        "apiname": "DG1_ACH_3",
+        "achieved": 1,
+        "unlocktime": 1769495345
+      },
+      {
+        "apiname": "DG1_ACH_4",
+        "achieved": 1,
+        "unlocktime": 1769722277
+      },
+      {
+        "apiname": "DG1_ACH_5",
+        "achieved": 1,
+        "unlocktime": 1770965673
+      },
+      {
+        "apiname": "DG1_ACH_6",
+        "achieved": 1,
+        "unlocktime": 1770985393
+      },
+      {
+        "apiname": "DG1_ACH_7",
+        "achieved": 1,
+        "unlocktime": 1770989416
+      },
+      {
+        "apiname": "DG1_ACH_8",
+        "achieved": 1,
+        "unlocktime": 1771295289
+      },
+      {
+        "apiname": "DG1_ACH_9",
+        "achieved": 1,
+        "unlocktime": 1771469678
+      },
+      {
+        "apiname": "DG1_ACH_10",
+        "achieved": 1,
+        "unlocktime": 1771528717
+      },
+      {
+        "apiname": "DG1_ACH_11",
+        "achieved": 1,
+        "unlocktime": 1771530028
+      },
+      {
+        "apiname": "DG1_ACH_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_13",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_14",
+        "achieved": 1,
+        "unlocktime": 1772745931
+      },
+      {
+        "apiname": "DG1_ACH_15",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_16",
+        "achieved": 1,
+        "unlocktime": 1770974939
+      },
+      {
+        "apiname": "DG1_ACH_17",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_18",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_19",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_20",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_21",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_22",
+        "achieved": 1,
+        "unlocktime": 1769456936
+      },
+      {
+        "apiname": "DG1_ACH_23",
+        "achieved": 1,
+        "unlocktime": 1769456875
+      },
+      {
+        "apiname": "DG1_ACH_24",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_26",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_27",
+        "achieved": 1,
+        "unlocktime": 1771470385
+      },
+      {
+        "apiname": "DG1_ACH_28",
+        "achieved": 1,
+        "unlocktime": 1769446853
+      },
+      {
+        "apiname": "DG1_ACH_29",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_30",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_31",
+        "achieved": 1,
+        "unlocktime": 1771022611
+      },
+      {
+        "apiname": "DG1_ACH_32",
+        "achieved": 1,
+        "unlocktime": 1769450063
+      },
+      {
+        "apiname": "DG1_ACH_33",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_34",
+        "achieved": 1,
+        "unlocktime": 1771521404
+      },
+      {
+        "apiname": "DG1_ACH_35",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_36",
+        "achieved": 1,
+        "unlocktime": 1771525839
+      },
+      {
+        "apiname": "DG1_ACH_37",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_38",
+        "achieved": 1,
+        "unlocktime": 1769469308
+      },
+      {
+        "apiname": "DG1_ACH_39",
+        "achieved": 1,
+        "unlocktime": 1769453346
+      },
+      {
+        "apiname": "DG1_ACH_40",
+        "achieved": 1,
+        "unlocktime": 1770099614
+      },
+      {
+        "apiname": "DG1_ACH_41",
+        "achieved": 1,
+        "unlocktime": 1771305534
+      },
+      {
+        "apiname": "DG1_ACH_42",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_43",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_44",
+        "achieved": 1,
+        "unlocktime": 1770156168
+      },
+      {
+        "apiname": "DG1_ACH_45",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_46",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_47",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_48",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_49",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_51",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_52",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_53",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_54",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_55",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_56",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_57",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_58",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_59",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_61",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_62",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_63",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_64",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_65",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DG1_ACH_66",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ]
+  },
+  {
+    "id": "eb1c55f0-0dfb-431d-acc5-0415c20bf450",
+    "name": "ASSASSINS CREED: VALHALLA",
+    "status": "platinum",
+    "endless": false,
+    "hours": 148.3,
+    "cost": 75000,
+    "acquiredAt": "2025-12-12",
+    "rating": 10,
+    "ratingScale": 10,
+    "tags": [
+      "mundo abierto",
+      "RPG",
+      "aventura"
+    ],
+    "description": "Excelente juego, en historia, jugabilidad y post lore, largo para pasar muchas horas jugando, actualmente el mas jugado",
+    "image": "/imagenes/juegos/8b209b88-399b-4ad0-aecb-128825ec4c1f.jpg",
+    "inQueue": true,
+    "queueOrder": 1,
+    "steamAppId": 2208920,
+    "steamName": "Assassin's Creed Valhalla",
+    "steamId64": "76561199863742925",
+    "steamPlaytimeHours": 148.3,
+    "steamAchievements": [
+      {
+        "apiname": "ACValhalla_Ach_1",
+        "achieved": 1,
+        "unlocktime": 1765574459
+      },
+      {
+        "apiname": "ACValhalla_Ach_2",
+        "achieved": 1,
+        "unlocktime": 1765734120
+      },
+      {
+        "apiname": "ACValhalla_Ach_3",
+        "achieved": 1,
+        "unlocktime": 1772528182
+      },
+      {
+        "apiname": "ACValhalla_Ach_4",
+        "achieved": 1,
+        "unlocktime": 1775762333
+      },
+      {
+        "apiname": "ACValhalla_Ach_5",
+        "achieved": 1,
+        "unlocktime": 1774208653
+      },
+      {
+        "apiname": "ACValhalla_Ach_6",
+        "achieved": 1,
+        "unlocktime": 1780811898
+      },
+      {
+        "apiname": "ACValhalla_Ach_7",
+        "achieved": 1,
+        "unlocktime": 1783016524
+      },
+      {
+        "apiname": "ACValhalla_Ach_8",
+        "achieved": 1,
+        "unlocktime": 1784347795
+      },
+      {
+        "apiname": "ACValhalla_Ach_9",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_10",
+        "achieved": 1,
+        "unlocktime": 1785191398
+      },
+      {
+        "apiname": "ACValhalla_Ach_11",
+        "achieved": 1,
+        "unlocktime": 1786257291
+      },
+      {
+        "apiname": "ACValhalla_Ach_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_13",
+        "achieved": 1,
+        "unlocktime": 1765736326
+      },
+      {
+        "apiname": "ACValhalla_Ach_14",
+        "achieved": 1,
+        "unlocktime": 1772641030
+      },
+      {
+        "apiname": "ACValhalla_Ach_15",
+        "achieved": 1,
+        "unlocktime": 1774850214
+      },
+      {
+        "apiname": "ACValhalla_Ach_16",
+        "achieved": 1,
+        "unlocktime": 1784946867
+      },
+      {
+        "apiname": "ACValhalla_Ach_17",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_18",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_19",
+        "achieved": 1,
+        "unlocktime": 1786295646
+      },
+      {
+        "apiname": "ACValhalla_Ach_20",
+        "achieved": 1,
+        "unlocktime": 1785197242
+      },
+      {
+        "apiname": "ACValhalla_Ach_21",
+        "achieved": 1,
+        "unlocktime": 1786893524
+      },
+      {
+        "apiname": "ACValhalla_Ach_22",
+        "achieved": 1,
+        "unlocktime": 1782099758
+      },
+      {
+        "apiname": "ACValhalla_Ach_23",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_24",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_26",
+        "achieved": 1,
+        "unlocktime": 1785076624
+      },
+      {
+        "apiname": "ACValhalla_Ach_27",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_28",
+        "achieved": 1,
+        "unlocktime": 1768682414
+      },
+      {
+        "apiname": "ACValhalla_Ach_29",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_30",
+        "achieved": 1,
+        "unlocktime": 1781801033
+      },
+      {
+        "apiname": "ACValhalla_Ach_31",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_32",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_33",
+        "achieved": 1,
+        "unlocktime": 1774205368
+      },
+      {
+        "apiname": "ACValhalla_Ach_34",
+        "achieved": 1,
+        "unlocktime": 1784351306
+      },
+      {
+        "apiname": "ACValhalla_Ach_35",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_36",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_37",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_38",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_39",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_40",
+        "achieved": 1,
+        "unlocktime": 1783722863
+      },
+      {
+        "apiname": "ACValhalla_Ach_41",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_42",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_43",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_44",
+        "achieved": 1,
+        "unlocktime": 1773951244
+      },
+      {
+        "apiname": "ACValhalla_Ach_45",
+        "achieved": 1,
+        "unlocktime": 1785074170
+      },
+      {
+        "apiname": "ACValhalla_Ach_46",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_47",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_48",
+        "achieved": 1,
+        "unlocktime": 1784951087
+      },
+      {
+        "apiname": "ACValhalla_Ach_49",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_51",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_52",
+        "achieved": 1,
+        "unlocktime": 1788410012
+      },
+      {
+        "apiname": "ACValhalla_Ach_53",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_54",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_55",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_56",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_57",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_58",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_59",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_60",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_61",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_62",
+        "achieved": 1,
+        "unlocktime": 1786067617
+      },
+      {
+        "apiname": "ACValhalla_Ach_63",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_64",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_65",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_66",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_67",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_68",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_69",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_70",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_71",
+        "achieved": 1,
+        "unlocktime": 1774039779
+      },
+      {
+        "apiname": "ACValhalla_Ach_72",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_73",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_74",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_75",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_76",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_77",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_78",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_79",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_80",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_81",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_82",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_83",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_84",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_85",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_86",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_87",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_88",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_89",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_90",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACValhalla_Ach_91",
+        "achieved": 1,
+        "unlocktime": 1772704340
+      },
+      {
+        "apiname": "ACValhalla_Ach_92",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ]
+  },
+  {
+    "id": "7275bfd9-e80f-4f38-aa43-3a1009865553",
+    "name": "MONSTER HUNTER :WORLD",
+    "status": "pending",
+    "cost": 43000,
+    "acquiredAt": "2026-02-12",
+    "rating": 6,
+    "ratingScale": 10,
+    "tags": [],
+    "description": "Un gran juego, historia y jugabilidad lineal, haze falta dedicarle mas tiempo pero se ve bien a futuro",
+    "image": "/imagenes/juegos/9736c2f7-09ec-41b3-9171-79b56049085a.avif",
+    "inQueue": true,
+    "queueOrder": 6,
+    "steamAppId": 582010,
+    "steamName": "Monster Hunter: World",
+    "steamPlaytimeHours": 6.9,
+    "steamAchievements": [
+      {
+        "apiname": "Achievement0",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement1",
+        "achieved": 1,
+        "unlocktime": 1770932076
+      },
+      {
+        "apiname": "Achievement2",
+        "achieved": 1,
+        "unlocktime": 1770939532
+      },
+      {
+        "apiname": "Achievement3",
+        "achieved": 1,
+        "unlocktime": 1780963252
+      },
+      {
+        "apiname": "Achievement4",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement6",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement7",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement8",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement9",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement10",
+        "achieved": 1,
+        "unlocktime": 1770937293
+      },
+      {
+        "apiname": "Achievement11",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement13",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement14",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement15",
+        "achieved": 1,
+        "unlocktime": 1770928789
+      },
+      {
+        "apiname": "Achievement16",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement17",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement18",
+        "achieved": 1,
+        "unlocktime": 1770931721
+      },
+      {
+        "apiname": "Achievement19",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement20",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement21",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement22",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement23",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement24",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement26",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement27",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement28",
+        "achieved": 1,
+        "unlocktime": 1773008642
+      },
+      {
+        "apiname": "Achievement29",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement30",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement31",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement32",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement33",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement34",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement35",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement36",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement37",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement38",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement39",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement40",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement41",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement42",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement43",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement44",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement45",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement46",
+        "achieved": 1,
+        "unlocktime": 1770937294
+      },
+      {
+        "apiname": "Achievement47",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement48",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement49",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement51",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement52",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement53",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement54",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement55",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement56",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement57",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement58",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement59",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement60",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement61",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement62",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement63",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement64",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement65",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement66",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement67",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement68",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement69",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement70",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement71",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement72",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement73",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement74",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement75",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement76",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement77",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement78",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement79",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement80",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement81",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement82",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement83",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement84",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement85",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement86",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement87",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement88",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement89",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement90",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement91",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement92",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement93",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement94",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement95",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement96",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement97",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement98",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement99",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "hours": 6.9
+  },
+  {
+    "id": "770a830a-71bb-452a-8354-09f451527b98",
+    "name": "GOD OF WAR 4",
+    "status": "pending",
+    "rating": 0,
+    "description": "",
+    "image": "/imagenes/juegos/b3ba0178-61b0-4b89-8588-642e357528c8.jpg",
+    "inQueue": true,
+    "queueOrder": 7,
+    "ratingScale": 10,
+    "tags": []
+  },
+  {
+    "id": "032f85ba-be90-42f1-8be2-e7d87d52d0b4",
+    "name": "Hellblade: Senua's Sacrifice",
+    "status": "pending",
+    "rating": 0,
+    "description": "",
+    "image": "/imagenes/juegos/8fb199ad-0a5c-4f2b-935d-2b51bd32d1c8.jpg",
+    "inQueue": true,
+    "queueOrder": 8,
+    "ratingScale": 10,
+    "tags": []
+  },
+  {
+    "id": "000e93fa-f6c6-4bd2-952e-0f19cbe08ebf",
+    "name": "ANCESTORS",
+    "status": "abandoned",
+    "cost": 20000,
+    "acquiredAt": "2025-07-17",
+    "rating": 6,
+    "ratingScale": 10,
+    "tags": [],
+    "description": "Buen juego, pero algo lento o complejo de comprender",
+    "image": "/imagenes/juegos/9d8f708f-617e-4c13-a82d-af448960df91.jpg",
+    "inQueue": false,
+    "queueOrder": 7
+  },
+  {
+    "id": "564bc5cf-5a34-4b06-94f6-10b73e339497",
+    "name": "FARCRY PRIMAL",
+    "status": "playing",
+    "cost": 12000,
+    "acquiredAt": "2025-10-04",
+    "rating": 8,
+    "ratingScale": 10,
+    "tags": [],
+    "description": "Buena historia, algo dificil pero entretenido y divertido",
+    "image": "/imagenes/juegos/deb13e96-17b5-4581-b8d8-7f1e785aab00.jpg",
+    "inQueue": true,
+    "queueOrder": 4,
+    "steamAppId": 371660,
+    "steamName": "Far Cry Primal",
+    "steamPlaytimeHours": 18.4,
+    "steamAchievements": [
+      {
+        "apiname": "FCPrimal_Ach_1",
+        "achieved": 1,
+        "unlocktime": 1759634789
+      },
+      {
+        "apiname": "FCPrimal_Ach_2",
+        "achieved": 1,
+        "unlocktime": 1759647948
+      },
+      {
+        "apiname": "FCPrimal_Ach_3",
+        "achieved": 1,
+        "unlocktime": 1761353059
+      },
+      {
+        "apiname": "FCPrimal_Ach_4",
+        "achieved": 1,
+        "unlocktime": 1762636558
+      },
+      {
+        "apiname": "FCPrimal_Ach_5",
+        "achieved": 1,
+        "unlocktime": 1762636558
+      },
+      {
+        "apiname": "FCPrimal_Ach_6",
+        "achieved": 1,
+        "unlocktime": 1759649736
+      },
+      {
+        "apiname": "FCPrimal_Ach_7",
+        "achieved": 1,
+        "unlocktime": 1759645735
+      },
+      {
+        "apiname": "FCPrimal_Ach_8",
+        "achieved": 1,
+        "unlocktime": 1759651526
+      },
+      {
+        "apiname": "FCPrimal_Ach_9",
+        "achieved": 1,
+        "unlocktime": 1759649113
+      },
+      {
+        "apiname": "FCPrimal_Ach_10",
+        "achieved": 1,
+        "unlocktime": 1759805688
+      },
+      {
+        "apiname": "FCPrimal_Ach_11",
+        "achieved": 1,
+        "unlocktime": 1773726230
+      },
+      {
+        "apiname": "FCPrimal_Ach_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_13",
+        "achieved": 1,
+        "unlocktime": 1760573034
+      },
+      {
+        "apiname": "FCPrimal_Ach_14",
+        "achieved": 1,
+        "unlocktime": 1762636558
+      },
+      {
+        "apiname": "FCPrimal_Ach_15",
+        "achieved": 1,
+        "unlocktime": 1765176661
+      },
+      {
+        "apiname": "FCPrimal_Ach_16",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_17",
+        "achieved": 1,
+        "unlocktime": 1759646817
+      },
+      {
+        "apiname": "FCPrimal_Ach_18",
+        "achieved": 1,
+        "unlocktime": 1759644764
+      },
+      {
+        "apiname": "FCPrimal_Ach_19",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_20",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_21",
+        "achieved": 1,
+        "unlocktime": 1762636558
+      },
+      {
+        "apiname": "FCPrimal_Ach_22",
+        "achieved": 1,
+        "unlocktime": 1765175959
+      },
+      {
+        "apiname": "FCPrimal_Ach_23",
+        "achieved": 1,
+        "unlocktime": 1773722739
+      },
+      {
+        "apiname": "FCPrimal_Ach_24",
+        "achieved": 1,
+        "unlocktime": 1759652893
+      },
+      {
+        "apiname": "FCPrimal_Ach_25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_26",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_27",
+        "achieved": 1,
+        "unlocktime": 1761351218
+      },
+      {
+        "apiname": "FCPrimal_Ach_28",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_29",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_30",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_31",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_32",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_33",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_34",
+        "achieved": 1,
+        "unlocktime": 1759653456
+      },
+      {
+        "apiname": "FCPrimal_Ach_35",
+        "achieved": 1,
+        "unlocktime": 1759802870
+      },
+      {
+        "apiname": "FCPrimal_Ach_36",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_37",
+        "achieved": 1,
+        "unlocktime": 1759726028
+      },
+      {
+        "apiname": "FCPrimal_Ach_38",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_39",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_40",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_41",
+        "achieved": 1,
+        "unlocktime": 1773721583
+      },
+      {
+        "apiname": "FCPrimal_Ach_42",
+        "achieved": 1,
+        "unlocktime": 1759653835
+      },
+      {
+        "apiname": "FCPrimal_Ach_43",
+        "achieved": 1,
+        "unlocktime": 1759648490
+      },
+      {
+        "apiname": "FCPrimal_Ach_44",
+        "achieved": 1,
+        "unlocktime": 1759683411
+      },
+      {
+        "apiname": "FCPrimal_Ach_45",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_46",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_47",
+        "achieved": 1,
+        "unlocktime": 1759649054
+      },
+      {
+        "apiname": "FCPrimal_Ach_48",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_49",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_51",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_52",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_53",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_54",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FCPrimal_Ach_55",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "hours": 18.4
+  },
+  {
+    "id": "bbe72b0c-6b2c-408c-a794-597cd9446e2c",
+    "name": "Little nightmare enhanced edition",
+    "status": "playing",
+    "cost": 15000,
+    "acquiredAt": "2026-04-30",
+    "rating": 8,
+    "ratingScale": 10,
+    "tags": [],
+    "description": "Gran juego, divertido y da tension, perfecto para jugar a ratos y pasar la historia, hace falta la historia de 1 niño",
+    "image": "/imagenes/juegos/e2bb1681-a5b6-460f-830b-0e8a6cd8d350.jpg",
+    "inQueue": true,
+    "queueOrder": 2,
+    "steamAppId": 2149010,
+    "steamName": "Little Nightmares Enhanced Edition",
+    "steamId64": "76561199863742925",
+    "steamPlaytimeHours": 4.5,
+    "steamAchievements": [
+      {
+        "apiname": "LittleLostThings",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "KitchenHand",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "HighlySprung",
+        "achieved": 1,
+        "unlocktime": 1782872015
+      },
+      {
+        "apiname": "Rascal",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "LightUpYourLife",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ThePrison",
+        "achieved": 1,
+        "unlocktime": 1779115859
+      },
+      {
+        "apiname": "TheLair",
+        "achieved": 1,
+        "unlocktime": 1782871135
+      },
+      {
+        "apiname": "TheKitchen",
+        "achieved": 1,
+        "unlocktime": 1782874290
+      },
+      {
+        "apiname": "TheGuestArea",
+        "achieved": 1,
+        "unlocktime": 1782875776
+      },
+      {
+        "apiname": "TheLadysQuarters",
+        "achieved": 1,
+        "unlocktime": 1782876540
+      },
+      {
+        "apiname": "Elusive",
+        "achieved": 1,
+        "unlocktime": 1782873518
+      },
+      {
+        "apiname": "Glissando",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "HardToTheCore",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "SoClose",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "NotAlone",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FunAndGamesAhead",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "EndInSight",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "IsAnybodyOutThere",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "AshesInTheMaw",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "WellMeetAgain",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "AshesToAshes",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ImLosingYou",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "hours": 4.5
+  },
+  {
+    "id": "4f193105-f216-48c5-9d68-b96f1a10157f",
+    "name": "LIMBO",
+    "status": "playing",
+    "cost": 3000,
+    "acquiredAt": "2026-08-06",
+    "rating": 7,
+    "ratingScale": 10,
+    "tags": [
+      "narrativa"
+    ],
+    "description": "Gran juego de puzzles",
+    "image": "/imagenes/juegos/2932bb52-cd5b-45a6-b61f-a0454022f0d0.jpg",
+    "inQueue": true,
+    "queueOrder": 3,
+    "steamAppId": 48000,
+    "steamName": "LIMBO",
+    "steamPlaytimeHours": 1.6,
+    "steamAchievements": [
+      {
+        "apiname": "ACH_1",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_2",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_3",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_4",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_6",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_7",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_8",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_9",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_11",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_13",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "hours": 1.6
+  },
+  {
+    "id": "6402c6c6-e58b-4048-9d8d-38941a514a32",
+    "name": "Plague Tale: Innocence",
+    "status": "pending",
+    "cost": 13000,
+    "acquiredAt": "2026-09-03",
+    "rating": 0,
+    "ratingScale": 10,
+    "tags": [
+      "lineal",
+      "narrativa",
+      "sigilo"
+    ],
+    "description": "",
+    "image": "/imagenes/juegos/3edf2222-efb5-47ca-8e33-d1f1268ab6ed.jpg",
+    "inQueue": true,
+    "queueOrder": 9,
+    "steamAppId": 752590,
+    "steamName": "A Plague Tale: Innocence",
+    "steamPlaytimeHours": 0,
+    "steamAchievements": [
+      {
+        "apiname": "ACH_01",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_02",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_03",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_04",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_05",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_06",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_07",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_08",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_09",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_11",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_13",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_14",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_15",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_16",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_17",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_18",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_19",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_20",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_21",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_22",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_23",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_24",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_26",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_27",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_28",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_29",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_30",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_31",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_32",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_33",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_34",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_35",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "hours": 0
+  },
+  {
+    "id": "ffe8caf6-18ac-43d7-8d79-2c7fc95dc2bd",
+    "name": "UNRAVEL TWO",
+    "status": "playing",
+    "endless": false,
+    "hours": 6.6,
+    "cost": 12000,
+    "acquiredAt": "2026-08-22",
+    "rating": 7,
+    "ratingScale": 10,
+    "tags": [
+      "estrategia",
+      "narrativa"
+    ],
+    "description": "",
+    "image": "/imagenes/juegos/298617bc-d329-4acf-9037-db22479e5b79.jpg",
+    "inQueue": false,
+    "queueOrder": 0,
+    "steamAppId": 1225570,
+    "steamName": "Unravel Two",
+    "steamPlaytimeHours": 6.6,
+    "steamAchievements": [
+      {
+        "apiname": "Achievement_GOSCC_1",
+        "achieved": 1,
+        "unlocktime": 1783961827
+      },
+      {
+        "apiname": "Achievement_GOSCC_2",
+        "achieved": 1,
+        "unlocktime": 1787001857
+      },
+      {
+        "apiname": "Achievement_GOSCC_3",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_4",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_6",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_7",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_8",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_9",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_11",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_13",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_14",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_15",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_16",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_17",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_18",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_19",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_20",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_21",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_22",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_23",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_24",
+        "achieved": 1,
+        "unlocktime": 1782596539
+      },
+      {
+        "apiname": "Achievement_GOSCC_25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_26",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_27",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_GOSCC_28",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ]
+  },
+  {
+    "id": "c911ae3b-0fb7-4686-928f-ebb08e0aa163",
+    "name": "castle crashers",
+    "status": "abandoned",
+    "cost": 6000,
+    "acquiredAt": "2026-06-18",
+    "rating": 6,
+    "ratingScale": 10,
+    "tags": [
+      "aventura",
+      "cooperativo"
+    ],
+    "description": "",
+    "image": "/imagenes/juegos/748bc6c3-0f60-4213-978b-e6e2a7c6d7b1.jpg",
+    "inQueue": false,
+    "queueOrder": 0,
+    "steamAppId": 204360,
+    "steamName": "Castle Crashers",
+    "steamPlaytimeHours": 6.4,
+    "steamAchievements": [
+      {
+        "apiname": "ACH_MELEEISBEST",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_KISS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_TRADITIONAL",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_THETRAITOR",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_DEERTRAINER",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_CONOBJECTOR",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_MAXFIREPOWR",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_ANMLTRAINER",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_ARENAMASTER",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_GLORK",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_TREASURHNTR",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_MEDIC",
+        "achieved": 1,
+        "unlocktime": 1781931916
+      }
+    ],
+    "hours": 6.4
+  },
+  {
+    "id": "c67fc5b5-7f33-488d-991a-2a722f834809",
+    "name": "minecraft dungeon",
+    "status": "abandoned",
+    "cost": 31000,
+    "acquiredAt": "2026-06-11",
+    "rating": 6,
+    "ratingScale": 10,
+    "tags": [
+      "RPG",
+      "aventura",
+      "cooperativo"
+    ],
+    "description": "",
+    "image": "/imagenes/juegos/dccbdf95-8f29-405b-ba68-2cdd246fadbc.webp",
+    "inQueue": false,
+    "queueOrder": 0,
+    "steamAppId": 1672970,
+    "steamName": "Minecraft Dungeons",
+    "steamPlaytimeHours": 14.5,
+    "steamAchievements": [
+      {
+        "apiname": "REVIVE_20",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "KILL_50_MOBS",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "KILL_2500_MOBS",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "KILL_50_PASSIVE",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "KILL_50_ENCHANTED",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "LVL_10",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "LVL_25",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "LVL_50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FANCY_CHEST",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "CHEST_100",
+        "achieved": 1,
+        "unlocktime": 1781199985
+      },
+      {
+        "apiname": "EMERALD_1000",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "EMERALD_5000",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "EAT_200_FOOD",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "COMPLETE_SQUID_COAST",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "COMPLETE_CREEPER_WOODS",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "COMPLETE_LEVEL_GROUP1",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "COMPLETE_LEVEL_GROUP2",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "COMPLETE_LEVEL_GROUP3",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "DEFEAT_ARCH_ILLAGER_ANY",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "DEFEAT_ARCH_ILLAGER_HARD",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "TNT_KILL_10",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "FULL_ENCHANTED_GEAR_SET",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FULLY_UPGRADE_ENCHANTMENT",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "BEAST_MASTER",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "DEFEAT_JUNGLE_ABOMINATION_ADVENTURE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_PANDA_PLATEAU",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "OCELOT_ARMOUR",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_DINGY_JUNGLE_POTION",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEFEAT_MOOSHROOM_MONSTROSITY_ITEMS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEFEAT_WRETCHED_WRAITH_ADVENTURE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_LOST_SETTLEMENT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ICE_WAND_KILL_5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ICE_SLIDE_500",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ICE_NO_WEAPONS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_GALE_SANCTUM_ADVENTURE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_COLOSSAL_RAMPART",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "KILL_10_MOUNTAINEER_TEMPEST_KNIFE_TIMED",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "UPDRAFT_WINDCALLERS_3",
+        "achieved": 1,
+        "unlocktime": 1781568112
+      },
+      {
+        "apiname": "LLAMA_OFFERING",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "KILL_RAVAGER_SQUALL_GOLEM_TIMED",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEFEAT_TEMPEST_GOLEM_PETS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_OBSIDIAN_PINNACLE_APOCALYPSE5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_DAILY_TRIAL_EMERALD_ARMOUR",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEATH_BARTER_2",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_NETHER_WASTES_APOCALYPSE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_NETHER_SECRET_APOCALYPSE_PLUS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEFEAT_ANCIENT_15",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COLLECT_500_GOLD",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "MERCHANTS_6",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "GONG_6",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "SPINWHEEL_70",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "HYPERMISSIONS_4",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "HOMECOMING",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "EFFECTS_TRIGGER_5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_ABYSSAL_MONUMENT_APOCALYPSE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_RADIANT_RAVINE_APOCALYPSE_PLUS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "GLOWSQUID_ICEWAND",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "FISHING_ROD",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "LOST_CONDUIT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "RELAX_BUBBLE_COLUMN",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "NO_OXYGEN_60",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "TRIDENT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "RAID_CAPTAIN_10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "BUBBLE_BOW",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "TRAVEL_THROUGH_END_PORTAL",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ENTER_STRONGHOLD_VAULT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEFEAT_BROKEN_HEART_OF_ENDER",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "UNLOCK_ALL_ITEMS_BASE_AND_DLC",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "REACH_TOP_OF_BROKEN_CITADEL_NO_HIT_SHULKERS_BULLET",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEFEAT_1000_ENDERLINGS_WITH_OBSIDIAN_BLADE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "SURVIVE_AFFLICTED_BY_VOIDED_X999",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ELYTRA_DIVE_ATTACK_12_ENEMIES_AT_ONCE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "BURNING_BREW_DEFEAT_MOB_WITH_FIRE_ENCHANTMENT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "SQUID_COAST_EASTER_EGG",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "TOWER_ALL_EQUIPMENT",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "TOWER_ALL_VENDOR_PURCHASE",
+        "achieved": 1,
+        "unlocktime": 1781568025
+      },
+      {
+        "apiname": "COMPLETE_TOWER_ADVENTURE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_TOWER_APOCALYPSE",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "STORAGE_ROOM",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "SEASON_RANK_10",
+        "achieved": 1,
+        "unlocktime": 1781561430
+      },
+      {
+        "apiname": "SEASON_RANK_25",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "GAUNTLET_GALES_GOLDEN_PARROT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "CLEAR_X_TOWER_FLOORS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "PET_THE_DOG",
+        "achieved": 1,
+        "unlocktime": 1781197104
+      },
+      {
+        "apiname": "COMPLETE_LEVEL_WITH_OLD_SEASON_COSMETICS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "DEFEAT_REDSTONE_MONSTROSITY_PETS",
+        "achieved": 1,
+        "unlocktime": 1781569800
+      },
+      {
+        "apiname": "ROAR_AT_JBOMINATION",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "VISIT_15_TOWER_BIOMES",
+        "achieved": 1,
+        "unlocktime": 1781568025
+      },
+      {
+        "apiname": "WEEKLY_CHALLENGES_10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_DAILY_TRIALS_IN_ONE_DAY_3",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_CACTI_CANYON_UNDER_5_MIN",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "CREEPER_WOODS_NO_KILLS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "STORAGE_CHEST_50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "WILDFIRES_10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_DESERT_TEMPLE_UNDER_4_MIN",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ENCHANTSMITH_SERVICES_3",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_TREETOP_WEARING_ROOT_ROT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_TREETOP_TANGLE_APOCALYPSE_PLUS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_LOWER_TEMPLE_APOC_PLUS_WITH_DESERT_RABBIT",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "HORSE_EMOTE_AT_SKELETON_HORSEMAN",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "KILL_100_TOWER_GUARDS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "USE_SOUL_TOTEM_50",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "COMPLETE_TOWER_WITHOUT_USING_MERCHANTS",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "SUMMON_15_BEES_AT_ONCE",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "hours": 14.5
+  },
+  {
+    "id": "488ca384-9576-4666-81c4-88462a807bfc",
+    "name": "Sword Art Online: Fatal Bullet",
+    "status": "abandoned",
+    "cost": 20000,
+    "acquiredAt": "2026-01-26",
+    "rating": 2,
+    "ratingScale": 10,
+    "tags": [
+      "mundo abierto",
+      "RPG"
+    ],
+    "description": "",
+    "image": "/imagenes/juegos/03269cae-6953-4c42-a9a9-07001b13ac20.jpg",
+    "inQueue": false,
+    "queueOrder": 0,
+    "steamAppId": 626690,
+    "steamName": "Sword Art Online: Fatal Bullet",
+    "steamPlaytimeHours": 3.2,
+    "steamAchievements": [
+      {
+        "apiname": "platinum",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "afasys_parts_1st",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "afasys_parts_2nd",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "afasys_parts_3rd",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "spaceship_area_unlock",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "squadron",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "spaceship_area_complete",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "bob_complete",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "kureha_death_end",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "zeliska_death_end",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "true_end",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "extreme_true_end",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "costume_create",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "weapon_customize",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "appreciation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "medal_exchange",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "information_purchase",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "afasys_deposit",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "avatar_arrangement",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "online_versus",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "online_versus_win",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "visual_lobby",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "online_coop_boss_defeat",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "weapon_arts_complete",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "status_assignment",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "skill_mastery",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "skill_learn",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "weapon_mastery",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "all_weapon_mastery",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "named_monster_defeat_first",
+        "achieved": 1,
+        "unlocktime": 1769202562
+      },
+      {
+        "apiname": "wanted_monster_defeat_all",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "named_monster_defeat_all",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "treasure_hunt_quest_all_complete",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "reward_ranking",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "reward_ranking_1st",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "player_level",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "rare_weapon",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "present",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "afasys_date",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "sleepover",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "kureha_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "zeliska_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "itsuki_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "original_characters_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "sao_girls_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "sao_characters_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "friend_reputation_all",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_extra_coop_quest_complete",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_player_level",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_hero_singole_quest_complete",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_sachi",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_deactivate_snow_generator",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_boss0_defeat",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_boss1_defeat",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_itsuki_mail",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_extreme_boss0_defeat",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_extreme_boss1_defeat",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_hero_party_quest",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_additional_weapon",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_school_uniform_creation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_ubiquitous_dress_f_creation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_characters_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "dlc4_sachi_reputation",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "hours": 3.2
+  },
+  {
+    "id": "c6691163-9ec8-4a15-946b-67e09a506483",
+    "name": "Grand Theft Auto V",
+    "status": "pending",
+    "cost": 60000,
+    "acquiredAt": "2025-09-13",
+    "rating": 5,
+    "ratingScale": 10,
+    "tags": [
+      "acción",
+      "multijugador"
+    ],
+    "description": "",
+    "image": "/imagenes/juegos/e48a656c-5104-4f59-ae2f-dca284e55950.jpg",
+    "inQueue": false,
+    "queueOrder": 0
+  }
+]

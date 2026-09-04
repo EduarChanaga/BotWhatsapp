@@ -22,8 +22,37 @@ app.use('/finanzas', express.static(path.join(__dirname, 'public', 'finanzas')))
 
 const clients = new Set();
 const riotKeyMetaPath = path.join(__dirname, '.riot-key-meta.json');
+const steamKeyPath = path.join(__dirname, '.steam-key.json');
+const steamIdPath = path.join(__dirname, '.steam-id.json');
 const finanzasDataDir = path.join(__dirname, 'data', 'finanzas');
 const finanzasFiles = ['usuarios', 'cuentas', 'historialPagos', 'gastosHormiga', 'prestamos', 'sesion'];
+const juegosDataPath = path.join(__dirname, 'data', 'juegos.json');
+const juegosImagesDir = path.join(__dirname, 'imagenes', 'juegos');
+const steamCatalogPath = path.join(__dirname, 'data', 'steam-apps.json');
+const steamApiBase = 'https://api.steampowered.com';
+
+function loadSteamKey() {
+  if (process.env.STEAM_API_KEY) return process.env.STEAM_API_KEY;
+  try {
+    const data = JSON.parse(fs.readFileSync(steamKeyPath, 'utf8'));
+    return typeof data.apiKey === 'string' ? data.apiKey : '';
+  } catch (_err) {
+    return '';
+  }
+}
+
+function loadSteamId() {
+  if (process.env.STEAM_ID64) return process.env.STEAM_ID64;
+  try {
+    const data = JSON.parse(fs.readFileSync(steamIdPath, 'utf8'));
+    return typeof data.steamId64 === 'string' ? data.steamId64 : '';
+  } catch (_err) {
+    return '';
+  }
+}
+
+process.env.STEAM_API_KEY = loadSteamKey();
+process.env.STEAM_ID64 = loadSteamId();
 
 function readFinanzasFile(name, fallback) {
   try {
@@ -38,6 +67,54 @@ function writeFinanzasFile(name, data) {
   const tempPath = `${filePath}.tmp`;
   fs.writeFileSync(tempPath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
   fs.renameSync(tempPath, filePath);
+}
+
+function readJuegosFile() {
+  try {
+    const data = JSON.parse(fs.readFileSync(juegosDataPath, 'utf8'));
+    return Array.isArray(data) ? data : [];
+  } catch (_err) {
+    return [];
+  }
+}
+
+function writeJuegosFile(data) {
+  const tempPath = `${juegosDataPath}.tmp`;
+  fs.writeFileSync(tempPath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
+  fs.renameSync(tempPath, juegosDataPath);
+}
+
+function readSteamCatalog() {
+  try {
+    const data = JSON.parse(fs.readFileSync(steamCatalogPath, 'utf8'));
+    return Array.isArray(data.apps) ? data : { apps: [] };
+  } catch (_err) {
+    return { apps: [], updatedAt: null };
+  }
+}
+
+async function refreshSteamCatalog() {
+  const response = await fetch(`${steamApiBase}/ISteamApps/GetAppList/v2/`);
+  if (!response.ok) throw new Error(`Steam catálogo respondió ${response.status}.`);
+  const payload = await response.json();
+  const catalog = { apps: payload?.applist?.apps || [], updatedAt: new Date().toISOString() };
+  writeJsonFile(steamCatalogPath, catalog);
+  return catalog;
+}
+
+function writeJsonFile(filePath, data) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const tempPath = `${filePath}.tmp`;
+  fs.writeFileSync(tempPath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
+  fs.renameSync(tempPath, filePath);
+}
+
+function requireSteamKey(res) {
+  if (!process.env.STEAM_API_KEY) {
+    res.status(503).json({ error: 'Configura STEAM_API_KEY en el servidor.' });
+    return false;
+  }
+  return true;
 }
 
 function readRiotKeyMeta() {
@@ -97,6 +174,163 @@ app.put('/api/finanzas/data/:name', (req, res) => {
   } catch (error) {
     console.error('Error guardando datos financieros:', error.message);
     return res.status(500).json({ error: 'No se pudieron guardar los datos.' });
+  }
+});
+
+app.get('/api/juegos/data', (_req, res) => {
+  res.json(readJuegosFile());
+});
+
+app.put('/api/juegos/data', (req, res) => {
+  if (!Array.isArray(req.body?.data)) {
+    return res.status(400).json({ error: 'Formato de juegos inválido.' });
+  }
+  try {
+    writeJuegosFile(req.body.data);
+    return res.json({ ok: true, count: req.body.data.length });
+  } catch (error) {
+    console.error('Error guardando juegos:', error.message);
+    return res.status(500).json({ error: 'No se pudieron guardar los juegos.' });
+  }
+});
+
+app.post('/api/juegos/image', (req, res) => {
+  const contentType = (req.get('Content-Type') || '').split(';')[0].trim().toLowerCase();
+  const allowedTypes = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif']);
+  if (!allowedTypes.has(contentType)) {
+    return res.status(400).json({ error: 'Formato de imagen no permitido.' });
+  }
+
+  const extension = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif', 'image/avif': 'avif' }[contentType];
+  const imageName = `${crypto.randomUUID()}.${extension}`;
+  const imagePath = path.join(juegosImagesDir, imageName);
+  let size = 0;
+  const chunks = [];
+
+  req.on('data', (chunk) => {
+    size += chunk.length;
+    if (size <= 10 * 1024 * 1024) chunks.push(chunk);
+  });
+  req.on('end', () => {
+    if (size > 10 * 1024 * 1024) return res.status(413).json({ error: 'La imagen no puede superar 10 MB.' });
+    try {
+      fs.mkdirSync(juegosImagesDir, { recursive: true });
+      fs.writeFileSync(imagePath, Buffer.concat(chunks));
+      return res.json({ ok: true, path: `/imagenes/juegos/${imageName}` });
+    } catch (error) {
+      console.error('Error guardando imagen de juego:', error.message);
+      return res.status(500).json({ error: 'No se pudo guardar la imagen.' });
+    }
+  });
+  req.on('error', () => res.status(400).json({ error: 'No se pudo recibir la imagen.' }));
+});
+
+app.get('/api/steam/status', (_req, res) => {
+  const catalog = readSteamCatalog();
+  res.json({ configured: Boolean(process.env.STEAM_API_KEY), steamIdConfigured: Boolean(process.env.STEAM_ID64), catalogCount: catalog.apps.length, catalogUpdatedAt: catalog.updatedAt });
+});
+
+app.post('/api/steam-key', (req, res) => {
+  const apiKey = typeof req.body?.apiKey === 'string' ? req.body.apiKey.trim() : '';
+  if (!/^[A-Za-z0-9]{20,64}$/.test(apiKey)) {
+    return res.status(400).json({ error: 'Introduce una clave Steam Web API válida.' });
+  }
+  try {
+    fs.writeFileSync(steamKeyPath, `${JSON.stringify({ apiKey, updatedAt: Date.now() }, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
+    process.env.STEAM_API_KEY = apiKey;
+    return res.json({ ok: true });
+  } catch (error) {
+    console.error('Error guardando clave Steam:', error.message);
+    return res.status(500).json({ error: 'No se pudo guardar la clave Steam.' });
+  }
+});
+
+app.get('/api/steam/search', async (req, res) => {
+  const query = typeof req.query.q === 'string' ? req.query.q.trim().toLowerCase() : '';
+  if (query.length < 2) return res.json([]);
+  try {
+    const storeUrl = `https://store.steampowered.com/api/storesearch/?${new URLSearchParams({ term: query, cc: 'us', l: 'english' })}`;
+    const storeResponse = await fetch(storeUrl);
+    if (storeResponse.ok) {
+      const storePayload = await storeResponse.json();
+      const storeResults = (storePayload?.items || []).slice(0, 30).map((item) => ({ appid: item.id, name: item.name }));
+      if (storeResults.length) return res.json(storeResults);
+    }
+  } catch (error) {
+    console.warn('Buscador de tienda Steam no disponible:', error.message);
+  }
+  let catalog = readSteamCatalog();
+  try {
+    if (!catalog.apps.length) catalog = await refreshSteamCatalog();
+  } catch (error) {
+    console.error('Error cargando catálogo Steam:', error.message);
+    return res.status(502).json({ error: 'No se pudo cargar el catálogo de Steam.' });
+  }
+  const results = catalog.apps.filter((app) => app.name?.toLowerCase().includes(query)).slice(0, 30);
+  return res.json(results);
+});
+
+app.get('/api/steam/library', async (req, res) => {
+  if (!requireSteamKey(res)) return;
+  const linkedGame = readJuegosFile().find((game) => /^\d{10,20}$/.test(String(game.steamId64 || '')));
+  const steamId = String(req.query.steamId64 || process.env.STEAM_ID64 || linkedGame?.steamId64 || '').trim();
+  if (!/^\d{10,20}$/.test(steamId)) return res.status(400).json({ error: 'Configura un SteamID64 válido.' });
+  try {
+    const params = new URLSearchParams({ key: process.env.STEAM_API_KEY, steamid: steamId, include_appinfo: 'true', format: 'json' });
+    const response = await fetch(`${steamApiBase}/IPlayerService/GetOwnedGames/v0001/?${params}`);
+    if (!response.ok) return res.status(response.status).json({ error: 'Steam no pudo consultar tu biblioteca.' });
+    const payload = await response.json();
+    const games = (payload?.response?.games || []).map((game) => ({
+      appid: game.appid,
+      name: game.name,
+      playtimeHours: Number((game.playtime_forever / 60).toFixed(1)),
+      icon: game.img_icon_url ? `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg` : null
+    })).sort((first, second) => first.name.localeCompare(second.name, 'es'));
+    return res.json({ steamId64: steamId, games });
+  } catch (error) {
+    console.error('Error cargando biblioteca Steam:', error.message);
+    return res.status(502).json({ error: 'No se pudo conectar con Steam.' });
+  }
+});
+
+app.post('/api/steam/sync', async (req, res) => {
+  if (!requireSteamKey(res)) return;
+  const appId = Number(req.body?.appId);
+  let steamId = String(req.body?.steamId64 || process.env.STEAM_ID64 || '').trim();
+  if (!Number.isInteger(appId) || appId <= 0 || !steamId) {
+    return res.status(400).json({ error: 'AppID o perfil de Steam inválido.' });
+  }
+  try {
+    if (!/^\d{10,20}$/.test(steamId)) {
+      const vanity = steamId.replace(/^https?:\/\/(www\.)?steamcommunity\.com\/id\//i, '').replace(/\/$/, '');
+      if (!vanity || /[\/\\]/.test(vanity)) return res.status(400).json({ error: 'Usa un SteamID64 o una URL /id/ de Steam válida.' });
+      const vanityParams = new URLSearchParams({ key: process.env.STEAM_API_KEY, vanityurl: vanity, format: 'json' });
+      const vanityResponse = await fetch(`${steamApiBase}/ISteamUser/ResolveVanityURL/v0001/?${vanityParams}`);
+      const vanityPayload = await vanityResponse.json();
+      if (!vanityResponse.ok || vanityPayload?.response?.success !== 1) return res.status(404).json({ error: 'No se pudo resolver ese perfil de Steam.' });
+      steamId = vanityPayload.response.steamid;
+    }
+    if (!/^\d{10,20}$/.test(steamId)) return res.status(400).json({ error: 'SteamID64 inválido.' });
+    fs.writeFileSync(steamIdPath, `${JSON.stringify({ steamId64: steamId, updatedAt: Date.now() }, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
+    process.env.STEAM_ID64 = steamId;
+    const params = new URLSearchParams({ key: process.env.STEAM_API_KEY, steamid: steamId, include_appinfo: 'true', format: 'json' });
+    params.set('appids_filter[0]', String(appId));
+    const gamesResponse = await fetch(`${steamApiBase}/IPlayerService/GetOwnedGames/v0001/?${params}`);
+    if (!gamesResponse.ok) return res.status(gamesResponse.status).json({ error: 'Steam no pudo consultar la biblioteca.' });
+    const gamesPayload = await gamesResponse.json();
+    const game = gamesPayload?.response?.games?.find((item) => Number(item.appid) === appId);
+    if (!game) return res.status(404).json({ error: 'Steam no encontró ese juego en la biblioteca del usuario.' });
+    let achievements = null;
+    const achievementParams = new URLSearchParams({ appid: String(appId), key: process.env.STEAM_API_KEY, steamid: steamId });
+    const achievementsResponse = await fetch(`${steamApiBase}/ISteamUserStats/GetPlayerAchievements/v0001/?${achievementParams}`);
+    if (achievementsResponse.ok) {
+      const achievementPayload = await achievementsResponse.json();
+      achievements = achievementPayload?.playerstats?.achievements || [];
+    }
+    return res.json({ appId, name: game.name, playtimeHours: Number((game.playtime_forever / 60).toFixed(1)), achievements, icon: game.img_icon_url ? `https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${game.img_icon_url}.jpg` : null });
+  } catch (error) {
+    console.error('Error sincronizando Steam:', error.message);
+    return res.status(502).json({ error: 'No se pudo conectar con Steam.' });
   }
 });
 
@@ -209,6 +443,14 @@ app.post('/api/stop', async (_req, res) => {
 });
 
 function startServer() {
+  server.once('error', (error) => {
+    if (error.code === 'EADDRINUSE') {
+      console.error(`\n❌ El puerto ${PORT} ya está ocupado. Cierra la instancia anterior o inicia con otro puerto usando $env:PORT.\n`);
+      process.exitCode = 1;
+      return;
+    }
+    throw error;
+  });
   server.listen(PORT, () => {
     console.log(`\n🌐 Panel web: http://localhost:${PORT}`);
     console.log('   Abre esa URL en el navegador para controlar el bot.\n');

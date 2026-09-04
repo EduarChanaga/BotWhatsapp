@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toplist de Juegos | PokéControl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/toplist.css">
+  <style>[hidden] { display: none !important; } .toplist-tags, .row-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; } .toplist-tags span, .row-tags span { color: #d6ed70; background: rgba(214,237,112,.12); border: 1px solid rgba(214,237,112,.3); border-radius: 3px; padding: 2px 5px; font-size: .6rem; font-weight: 700; } .row-tags span { color: #286c52; background: #e5efdf; border-color: #c9dcc5; }</style>
+</head>
+<body>
+  <div class="toplist-shell">
+    <header class="topbar">
+      <a class="brand" href="/juegos.html"><span class="brand-mark">PLAY</span><span><small>PokéControl</small>Biblioteca personal</span></a>
+      <nav><a href="/juegos.html">Mi biblioteca</a><a class="nav-current" href="/toplist.html">Toplist</a></nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy"><p class="kicker">Ranking personal · sin límites</p><h1>Los juegos<br><em>que dejaron huella.</em></h1><p>Tu ranking crece contigo. Cada juego cuenta, desde la primera aventura hasta el platino imposible.</p></div>
+        <div class="hero-orbit" aria-hidden="true"><span class="orbit-line orbit-line-one"></span><span class="orbit-line orbit-line-two"></span><span class="orbit-dot orbit-dot-one"></span><span class="orbit-dot orbit-dot-two"></span><strong id="heroTotal">0</strong><small>JUEGOS<br>EN LISTA</small></div>
+      </section>
+
+      <section class="podium-section">
+        <div class="section-label"><span>01</span><h2>El podio</h2><p>Los favoritos de tu colección</p></div>
+        <div class="podium" id="podium"></div>
+      </section>
+
+      <section class="lower-grid">
+        <div class="ranking-section">
+          <div class="section-heading"><div class="section-label"><span>02</span><h2 id="rankingTitle">Ranking completo</h2></div><div class="ranking-tools"><select id="rankingMode" aria-label="Tipo de ranking"><option value="rating">Mejor valorados</option><option value="cost">Más costosos</option><option value="hours">Más horas jugadas</option></select><select id="statusFilter" aria-label="Filtrar por estado"><option value="all">Todos los estados</option><option value="completed">Completados</option><option value="playing">Jugando</option><option value="pending">Pendientes</option><option value="platinum">Platinando</option><option value="abandoned">Abandonados</option><option value="endless">Sin final</option></select><input id="rankingSearch" type="search" placeholder="Buscar..." aria-label="Buscar en el ranking"></div></div>
+          <div class="ranking-list" id="rankingList"></div>
+          <div class="ranking-empty" id="rankingEmpty" hidden><strong>Aún no hay juegos para rankear.</strong><span>Añade juegos desde tu biblioteca y vuelve a este escenario.</span><a href="/juegos.html">Ir a mi biblioteca →</a></div>
+        </div>
+
+        <aside class="radar-card">
+          <div class="radar-spark">✦</div><p class="kicker">Función sorpresa</p><h2>Radar de<br><em>antojo</em></h2><p class="radar-copy">No siempre hay que elegir. Deja que tu biblioteca te proponga la próxima partida.</p><button class="radar-button" id="radarButton" type="button"><span>◉</span> Sorpréndeme</button><div class="radar-result" id="radarResult" hidden><div class="radar-cover" id="radarCover"></div><div><span class="result-label">Tu señal de hoy</span><h3 id="radarName"></h3><p id="radarReason"></p></div></div>
+        </aside>
+      </section>
+    </main>
+    <footer><span>PokéControl / Toplist personal</span><span>Tu criterio, tus historias, tu orden.</span></footer>
+  </div>
+  <script src="/js/toplist.js"></script>
+</body>
+</html>

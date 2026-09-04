@@ -462,5 +462,13 @@
     "mes": "09-2026",
     "dia": "7",
     "estado": "pagado"
+  },
+  {
+    "id": "1788394271877-dfs67oc",
+    "cuentaId": "1780594347714-rh77fez",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "6",
+    "estado": "pagado"
   }
 ]

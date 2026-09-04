@@ -98,5 +98,25 @@
     "fechaVencimiento": "2026-09-05",
     "cuotas": 1,
     "cuotasPagadas": 0
+  },
+  {
+    "id": "1788394358379-xflm7zr",
+    "usuarioId": 1,
+    "prestante": "Rubiela Ahorros",
+    "monto": 45000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1788412093869-ljeyet8",
+    "usuarioId": 1,
+    "prestante": "Rubiela sueldo",
+    "monto": 420000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-05",
+    "cuotas": 1,
+    "cuotasPagadas": 0
   }
 ]
