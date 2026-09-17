@@ -470,5 +470,29 @@
     "mes": "09-2026",
     "dia": "6",
     "estado": "pagado"
+  },
+  {
+    "id": "1788533181966-hlf03p7",
+    "cuentaId": "1780594184724-a5nz3md",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "3",
+    "estado": "pagado"
+  },
+  {
+    "id": "1789400289378-vxn7jqx",
+    "cuentaId": "1780595217119-gph9h6e",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "22",
+    "estado": "pagado"
+  },
+  {
+    "id": "1789452089589-dwqu5jb",
+    "cuentaId": "1781718005369-e593038",
+    "usuarioId": 1,
+    "mes": "09-2026",
+    "dia": "20",
+    "estado": "pagado"
   }
 ]

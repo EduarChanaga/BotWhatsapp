@@ -1,121 +1,51 @@
 [
   {
-    "id": "1781539575036-nvtxswf",
+    "id": "1788586637637-inr2ihd",
     "usuarioId": 1,
-    "prestante": "Suegra",
-    "monto": 100000,
+    "prestante": "Cesar Laiton sueldo",
+    "monto": 185000,
     "intereses": 0,
-    "fechaVencimiento": "2026-12-12",
-    "cuotas": 1,
-    "cuotasPagadas": 1
-  },
-  {
-    "id": "1787585558544-hkb0fel",
-    "usuarioId": 1,
-    "prestante": "Marilin",
-    "monto": 30000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-08-30",
-    "cuotas": 1,
-    "cuotasPagadas": 1
-  },
-  {
-    "id": "1787585589744-tzczztj",
-    "usuarioId": 1,
-    "prestante": "Familia Daniel",
-    "monto": 30000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-08-30",
-    "cuotas": 1,
-    "cuotasPagadas": 1
-  },
-  {
-    "id": "1788022599447-lzoqiez",
-    "usuarioId": 1,
-    "prestante": "Daniel",
-    "monto": 20000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-08-31",
+    "fechaVencimiento": "2026-09-15",
     "cuotas": 1,
     "cuotasPagadas": 0
   },
   {
-    "id": "1788022655093-1wofck8",
+    "id": "1789521032922-1e9b6zt",
     "usuarioId": 1,
-    "prestante": "Rubiela*",
-    "monto": 60000,
+    "prestante": "ahorros rubiela",
+    "monto": 52000,
     "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
+    "fechaVencimiento": "2026-09-15",
     "cuotas": 1,
     "cuotasPagadas": 0
   },
   {
-    "id": "1788022670699-4mjssq2",
+    "id": "1789621113769-30o3gwv",
     "usuarioId": 1,
-    "prestante": "Rubiela*",
-    "monto": 100000,
+    "prestante": "ahorros daniel",
+    "monto": 95000,
     "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
+    "fechaVencimiento": "2026-09-20",
     "cuotas": 1,
     "cuotasPagadas": 0
   },
   {
-    "id": "1788022689314-qn6emvg",
+    "id": "1789621305238-zkyv3ud",
     "usuarioId": 1,
-    "prestante": "Rubiela*",
+    "prestante": "ahoros juan",
+    "monto": 145000,
+    "intereses": 0,
+    "fechaVencimiento": "2026-09-19",
+    "cuotas": 1,
+    "cuotasPagadas": 0
+  },
+  {
+    "id": "1789621395269-15rx5nu",
+    "usuarioId": 1,
+    "prestante": "ahorros eduar",
     "monto": 50000,
     "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
-    "cuotas": 1,
-    "cuotasPagadas": 0
-  },
-  {
-    "id": "1788024778738-9eq6i2f",
-    "usuarioId": 1,
-    "prestante": "Nona Carmen",
-    "monto": 20000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
-    "cuotas": 1,
-    "cuotasPagadas": 0
-  },
-  {
-    "id": "1788030824418-ue6911g",
-    "usuarioId": 1,
-    "prestante": "Nona Carmen rifa",
-    "monto": 10000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
-    "cuotas": 1,
-    "cuotasPagadas": 0
-  },
-  {
-    "id": "1788277464559-jvbq6cz",
-    "usuarioId": 1,
-    "prestante": "Nona carmen enfermeras",
-    "monto": 40000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
-    "cuotas": 1,
-    "cuotasPagadas": 0
-  },
-  {
-    "id": "1788394358379-xflm7zr",
-    "usuarioId": 1,
-    "prestante": "Rubiela Ahorros",
-    "monto": 45000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
-    "cuotas": 1,
-    "cuotasPagadas": 0
-  },
-  {
-    "id": "1788412093869-ljeyet8",
-    "usuarioId": 1,
-    "prestante": "Rubiela sueldo",
-    "monto": 420000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-09-05",
+    "fechaVencimiento": "2026-09-17",
     "cuotas": 1,
     "cuotasPagadas": 0
   }

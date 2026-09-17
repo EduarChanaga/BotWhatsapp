@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#9d174d">
+<title>21 meses contigo ♡</title>
+<style>
+:root{
+  --wine:#6d1239; --rose:#b83268; --pink:#ffe5ef; --cream:#fff9f4;
+  --ink:#321c29; --gold:#c89b3c; --shadow:0 22px 60px rgba(75,18,48,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,255,255,.8),transparent 28%),
+    radial-gradient(circle at 90% 20%,rgba(255,198,220,.65),transparent 25%),
+    linear-gradient(135deg,#fff4f7,#f9dce8 48%,#fff8f1);
+  overflow-x:hidden;
+}
+button{font:inherit}
+.bg-hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.bg-hearts span{position:absolute;bottom:-40px;font-size:clamp(18px,3vw,30px);opacity:.18;animation:rise linear infinite}
+.bg-hearts span:nth-child(1){left:7%;animation-duration:12s}
+.bg-hearts span:nth-child(2){left:22%;animation-duration:16s;animation-delay:2s}
+.bg-hearts span:nth-child(3){left:43%;animation-duration:14s;animation-delay:5s}
+.bg-hearts span:nth-child(4){left:65%;animation-duration:18s;animation-delay:1s}
+.bg-hearts span:nth-child(5){left:84%;animation-duration:13s;animation-delay:4s}
+@keyframes rise{to{transform:translateY(-115vh) rotate(20deg);opacity:0}}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:auto;padding:24px}
+.hero{
+  min-height:94vh;display:grid;place-items:center;text-align:center;padding:70px 20px;
+}
+.hero-card{
+  width:min(900px,100%);padding:clamp(34px,7vw,82px) clamp(22px,6vw,70px);
+  border:1px solid rgba(109,18,57,.12);border-radius:34px;background:rgba(255,255,255,.72);
+  backdrop-filter:blur(14px);box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.hero-card:before,.hero-card:after{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  background:rgba(255,183,209,.22);filter:blur(3px)
+}
+.hero-card:before{top:-80px;left:-60px}.hero-card:after{bottom:-100px;right:-60px}
+.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.78rem;color:var(--rose);font-weight:bold}
+.big-heart{font-size:clamp(55px,11vw,100px);display:block;line-height:1;margin:14px 0;animation:beat 1.5s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+h1{font-size:clamp(3rem,9vw,7rem);line-height:.9;margin:0;color:var(--wine);font-weight:700}
+.hero h2{font-size:clamp(1.2rem,3vw,2rem);font-weight:normal;margin:28px auto 12px;max-width:680px}
+.hero p{font-size:1.05rem;line-height:1.8;max-width:650px;margin:0 auto;color:#654555}
+.ornament{color:var(--gold);letter-spacing:.45em;margin:25px 0}
+.cta{
+  display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:14px 22px;border:0;border-radius:999px;
+  color:#fff;background:linear-gradient(135deg,var(--wine),var(--rose));cursor:pointer;
+  box-shadow:0 10px 25px rgba(109,18,57,.25);transition:.25s
+}
+.cta:hover{transform:translateY(-3px);box-shadow:0 15px 32px rgba(109,18,57,.3)}
+.section{padding:70px 0}
+.section-head{text-align:center;margin-bottom:38px}
+.section-head .num{font-size:4rem;color:rgba(184,50,104,.16);font-weight:bold;line-height:1}
+.section-head h2{font-size:clamp(2rem,5vw,3.4rem);color:var(--wine);margin:-18px 0 8px}
+.section-head p{max-width:650px;margin:auto;line-height:1.75;color:#715565}
+.reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.reason{
+  background:rgba(255,255,255,.82);border:1px solid rgba(109,18,57,.1);border-radius:22px;
+  padding:25px;box-shadow:0 10px 35px rgba(75,18,48,.08);position:relative;overflow:hidden;
+  opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease,box-shadow .25s ease
+}
+.reason.visible{opacity:1;transform:none}
+.reason:hover{box-shadow:0 16px 42px rgba(75,18,48,.14);transform:translateY(-4px)}
+.reason:after{content:"♡";position:absolute;right:15px;top:7px;font-size:55px;color:rgba(184,50,104,.07)}
+.badge{
+  width:45px;height:45px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,#fff0f5,#f6c3d7);color:var(--wine);font-weight:bold;
+  margin-bottom:15px
+}
+.reason h3{margin:0 0 10px;color:var(--wine);font-size:1.18rem}
+.reason p{margin:0;line-height:1.75;color:#4e3542}
+.quote{
+  margin:45px auto 0;max-width:820px;text-align:center;padding:38px 28px;border-radius:28px;
+  background:linear-gradient(135deg,rgba(109,18,57,.96),rgba(184,50,104,.92));color:white;box-shadow:var(--shadow)
+}
+.quote .qmark{font-size:3rem;opacity:.45}
+.quote p{font-size:clamp(1.25rem,3vw,1.8rem);line-height:1.6;margin:0;font-style:italic}
+.closing{
+  text-align:center;padding:80px 20px 110px;max-width:820px;margin:auto
+}
+.closing h2{font-size:clamp(2.5rem,7vw,5rem);color:var(--wine);margin:10px 0}
+.closing p{font-size:1.15rem;line-height:1.9;color:#654555}
+.signature{font-family:cursive;font-size:2rem;color:var(--rose);margin-top:28px}
+footer{text-align:center;padding:24px;color:#8d6d7b;font-size:.85rem}
+#topBtn{
+  position:fixed;right:20px;bottom:20px;width:48px;height:48px;border:0;border-radius:50%;
+  background:var(--wine);color:white;cursor:pointer;opacity:0;pointer-events:none;transition:.25s;z-index:4
+}
+#topBtn.show{opacity:1;pointer-events:auto}
+@media(max-width:720px){
+  .wrap{padding:14px}.hero{min-height:88vh;padding:35px 8px}.hero-card{border-radius:25px}
+  .reasons{grid-template-columns:1fr}.section{padding:48px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.big-heart,.bg-hearts span{animation:none}
+  .reason{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="bg-hearts" aria-hidden="true">
+  <span>♥</span><span>♡</span><span>♥</span><span>♡</span><span>♥</span>
+</div>
+
+<main class="wrap">
+<section class="hero" aria-labelledby="title">
+  <div class="hero-card">
+    <div class="eyebrow">Una carta para nosotros</div>
+    <span class="big-heart" aria-hidden="true">♥</span>
+    <h1 id="title">21 meses</h1>
+    <h2>y todavía encuentro infinitas razones para enamorarme de ti.</h2>
+    <div class="ornament">✦ ♡ ✦</div>
+    <p>
+      Hoy cumplimos 21 meses juntos y no se me ocurrió mejor forma de celebrarlo
+      que recordarte 21 de las infinitas razones por las que me tienes profundamente enamorado.
+    </p>
+    <button class="cta" onclick="document.getElementById('razones').scrollIntoView({behavior:'smooth'})">
+      Leer mis 21 razones <span>↓</span>
+    </button>
+  </div>
+</section>
+
+<section class="section" id="razones" aria-labelledby="reasons-title">
+  <div class="section-head">
+    <div class="num">21</div>
+    <h2 id="reasons-title">21 razones</h2>
+    <p>Y como cumplimos 21 meses, estas son las 21 cosas que primero se me ocurrieron de las cosas que amo de ti.</p>
+  </div>
+
+  <div class="reasons">
+    <article class="reason"><div class="badge">01</div><h3>Desde el primer día</h3><p>Desde el primer día en el colegio, cuando nos quedamos hablando por más de una hora, supe que tus gustos y tus metas encajaban con todo lo que soñaba para mi vida... aunque sé muy bien que dijiste varias cosas solo para impresionarme. 😉</p></article>
+    <article class="reason"><div class="badge">02</div><h3>Nuestro futuro</h3><p>Tu deseo de construir una estabilidad real y de hacer todo juntos es el regalo más lindo que me das; cada día a tu lado solo logra que me enamore más y me imagine un futuro entero agarrado de tu mano.</p></article>
+    <article class="reason"><div class="badge">03</div><h3>La futura madre</h3><p>Ver la ternura con la que tratas a los niños me hace soñar despierto con la idea de ser papá. Saber que en ti tengo a la futura madre de mis hijos —una mujer tan hermosa, dulce y perfecta— es la bendición más grande que me pudo dar la vida.</p></article>
+    <article class="reason"><div class="badge">04</div><h3>Tu cabello</h3><p>Me fascina tu cabello; es tan abundante, tan tuyo y te ves tan ridículamente hermosa con él que no puedo dejar de admirarte y querer acariciarlo siempre.</p></article>
+    <article class="reason"><div class="badge">05</div><h3>Mi mayor inspiración</h3><p>Tu entrega y responsabilidad con tus estudios y metas me inspiran a un nivel gigante. Ver cómo te esfuerzas me da ganas de superar mis propias fallas y dar siempre lo mejor de mí para estar a tu altura.</p></article>
+    <article class="reason"><div class="badge">06</div><h3>Tu figura hermosa</h3><p>La figura de tu cuerpo me sigue dejando sin aliento como el primer día. Verte es un espectáculo y no puedo evitar pensar "¡da una vueltita!", porque eres una obra de arte y es inevitable no enamorarse a cada segundo.</p></article>
+    <article class="reason"><div class="badge">07</div><h3>Una dulce adicción</h3><p>Tus pechos me vuelven completamente loco; se han vuelto una adicción dulce a la que me encanta volver siempre. Es imposible no perderme en ellos.</p></article>
+    <article class="reason"><div class="badge">08</div><h3>Nuestra conexión íntima</h3><p>La química y la conexión íntima que tenemos va mucho más allá de las palabras. A tu lado descubrí un deseo único; no quiero a nadie más en esta vida, solo quiero tenerte en mis manos para siempre.</p></article>
+    <article class="reason"><div class="badge">09</div><h3>Hacer cucharita</h3><p>Amo cuando recuestas tu cabeza en mi pecho o cuando nos acurrucamos a hacer cucharita; estar así contigo me transmite una paz que no cambio por nada en el mundo.</p></article>
+    <article class="reason"><div class="badge">10</div><h3>Nuestras aventuras</h3><p>Me llena de ilusión que te apunte a todas mis ideas locas de citas a futuro. En realidad, no importa el plan: quiero vivir cada aventura y cada experiencia posible de esta vida a tu lado.</p></article>
+    <article class="reason"><div class="badge">11</div><h3>Tus abrazos</h3><p>Sentir tus brazos rodeándome y el calor de tu cuerpo mientras conduzco es mi momento favorito. Me llena de tranquilidad y me encanta sentirte cerca... por favor, nunca dejes de abrazarme así.</p></article>
+    <article class="reason"><div class="badge">12</div><h3>Tu apoyo incondicional</h3><p>Tu apoyo incondicional me conmueve el alma. Aunque nunca me pides nada a cambio, me nace del corazón querer darte el mundo entero y hacerte la mujer más feliz.</p></article>
+    <article class="reason"><div class="badge">13</div><h3>Sentirme escuchado</h3><p>Adoro cómo me escuchas e intentas entender mis locuras. Que le des valor a todo lo que me pasa me hace sentir increíblemente importante, comprendido y amado.</p></article>
+    <article class="reason"><div class="badge">14</div><h3>Cómo me cuidas</h3><p>Tu preocupación por mi bienestar me derrite el corazón. Aunque a veces sea un poco terco o desobediente, sentir cómo me cuidas y me aconsejas me hace sentir el hombre más afortunado.</p></article>
+    <article class="reason"><div class="badge">15</div><h3>Nuestros outfits</h3><p>Me fascina tu sentido de la moda. Tus outfits son únicos, llenos de sensualidad y estilo; y cuando combinamos nuestras pintas para hacer twinning, me matas. Estás hermosa con lo que te pongas.</p></article>
+    <article class="reason"><div class="badge">16</div><h3>Mi mejor versión</h3><p>Tu presencia me transforma. A tu lado he mejorado aspectos de mi vida de los que antes no me sentía orgulloso; tú sacas la mejor versión de mí y me haces un bien infinito.</p></article>
+    <article class="reason"><div class="badge">17</div><h3>Tu paciencia</h3><p>Sé que a veces puedo ser un chico pesado o complicado, pero tu paciencia y tus ganas de entenderme me salvan... aunque admito que a veces eres tú la que me pide un poquito más de paciencia para aguantarme. :c</p></article>
+    <article class="reason"><div class="badge">18</div><h3>Cada hermoso detalle</h3><p>Cada detalle, regalo y abrazo con el que me has consentido durante estos 21 meses se quedan grabados en lo más profundo de mi corazón. Mes a mes me demuestras que tu amor es inagotable.</p></article>
+    <article class="reason"><div class="badge">19</div><h3>Tu corazón noble</h3><p>Amo la nobleza de tu corazón y la ternura de tus sentimientos. Fuiste tú quien vino a este mundo a enseñarme lo que realmente significa amar y la bendición de sentirse amado de verdad.</p></article>
+    <article class="reason"><div class="badge">20</div><h3>Sentir que me deseas</h3><p>Me encanta sentir que me deseas. A veces me cuesta creerlo o verme lindo, pero la forma en que te entregas y te comportas conmigo en nuestros momentos más íntimos me demuestra con hechos que te vuelvo loca.</p></article>
+    <article class="reason"><div class="badge">21</div><h3>Elegirnos siempre</h3><p>Lo que más amo de estos 21 meses juntos es que, sin importar las tempestades o tropezones, siempre elegimos salir adelante. Lo nuestro no es por costumbre ni forzado: es un amor puro, real y para toda la vida.</p></article>
+  </div>
+
+  <div class="quote">
+    <div class="qmark">“</div>
+    <p>21 meses, 21 razones... y aun así siento que me faltan miles por contarte.</p>
+    <div class="qmark">”</div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="ornament">♡ ✦ ♡</div>
+  <div class="eyebrow">Para Karol</div>
+  <h2>Felices 21 meses, mi amor.</h2>
+  <p>
+    Gracias por cada conversación, cada risa, cada abrazo, cada aventura y cada momento
+    que hemos construido. Si estas fueron las primeras 21 razones que se me vinieron a la mente,
+    imagina todas las que todavía me quedan por descubrir.
+  </p>
+  <p>Te quiero muchísimo. ❤️</p>
+  <div class="signature">Con todo mi cariño ♡</div>
+</section>
+</main>
+
+<footer>Hecha para celebrar nuestros 21 meses · ♡</footer>
+<button id="topBtn" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
+<script>
+const cards=[...document.querySelectorAll('.reason')];
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+cards.forEach((card,i)=>{card.style.transitionDelay=(Math.min(i%2,1)*70)+'ms';observer.observe(card)});
+
+const topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>topBtn.classList.toggle('show',scrollY>500),{passive:true});
+topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

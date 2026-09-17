@@ -645,7 +645,7 @@
     "name": "ASSASSINS CREED: VALHALLA",
     "status": "platinum",
     "endless": false,
-    "hours": 148.3,
+    "hours": 165.3,
     "cost": 75000,
     "acquiredAt": "2025-12-12",
     "rating": 10,
@@ -655,14 +655,13 @@
       "RPG",
       "aventura"
     ],
-    "description": "Excelente juego, en historia, jugabilidad y post lore, largo para pasar muchas horas jugando, actualmente el mas jugado",
+    "description": "Excelente juego, en historia, jugabilidad y post lore, largo para pasar muchas horas jugando, actualmente el mas jugado\n\nEl DLC de druidas estuvo increíble, disfrute cada minutos\n\nEl de paris estuvo bueno la historia principal, pero post historia se siente tedioso conseguir las cosas todas debajo de la tierra",
     "image": "/imagenes/juegos/8b209b88-399b-4ad0-aecb-128825ec4c1f.jpg",
     "inQueue": true,
     "queueOrder": 1,
     "steamAppId": 2208920,
     "steamName": "Assassin's Creed Valhalla",
-    "steamId64": "76561199863742925",
-    "steamPlaytimeHours": 148.3,
+    "steamPlaytimeHours": 165.3,
     "steamAchievements": [
       {
         "apiname": "ACValhalla_Ach_1",
@@ -821,8 +820,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_32",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789157600
       },
       {
         "apiname": "ACValhalla_Ach_33",
@@ -916,8 +915,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_51",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789156299
       },
       {
         "apiname": "ACValhalla_Ach_52",
@@ -926,18 +925,18 @@
       },
       {
         "apiname": "ACValhalla_Ach_53",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1788545639
       },
       {
         "apiname": "ACValhalla_Ach_54",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1788561372
       },
       {
         "apiname": "ACValhalla_Ach_55",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1788713495
       },
       {
         "apiname": "ACValhalla_Ach_56",
@@ -946,8 +945,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_57",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1788543349
       },
       {
         "apiname": "ACValhalla_Ach_58",
@@ -956,8 +955,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_59",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1788723194
       },
       {
         "apiname": "ACValhalla_Ach_60",
@@ -976,13 +975,13 @@
       },
       {
         "apiname": "ACValhalla_Ach_63",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789173690
       },
       {
         "apiname": "ACValhalla_Ach_64",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789169582
       },
       {
         "apiname": "ACValhalla_Ach_65",
@@ -991,13 +990,13 @@
       },
       {
         "apiname": "ACValhalla_Ach_66",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789167100
       },
       {
         "apiname": "ACValhalla_Ach_67",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789168253
       },
       {
         "apiname": "ACValhalla_Ach_68",
@@ -1011,8 +1010,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_70",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789165426
       },
       {
         "apiname": "ACValhalla_Ach_71",
@@ -2113,89 +2112,21 @@
   {
     "id": "4f193105-f216-48c5-9d68-b96f1a10157f",
     "name": "LIMBO",
-    "status": "playing",
+    "status": "completed",
+    "endless": false,
+    "hours": 2.9,
     "cost": 3000,
     "acquiredAt": "2026-08-06",
-    "rating": 7,
+    "rating": 8,
     "ratingScale": 10,
     "tags": [
+      "aventura",
       "narrativa"
     ],
-    "description": "Gran juego de puzzles",
+    "description": "Gran juego de puzzles, divertido para pasar un momento",
     "image": "/imagenes/juegos/2932bb52-cd5b-45a6-b61f-a0454022f0d0.jpg",
-    "inQueue": true,
-    "queueOrder": 3,
-    "steamAppId": 48000,
-    "steamName": "LIMBO",
-    "steamPlaytimeHours": 1.6,
-    "steamAchievements": [
-      {
-        "apiname": "ACH_1",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_2",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_3",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_4",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_5",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_6",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_7",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_8",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_9",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_10",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_11",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_12",
-        "achieved": 0,
-        "unlocktime": 0
-      },
-      {
-        "apiname": "ACH_13",
-        "achieved": 0,
-        "unlocktime": 0
-      }
-    ],
-    "hours": 1.6
+    "inQueue": false,
+    "queueOrder": 3
   },
   {
     "id": "6402c6c6-e58b-4048-9d8d-38941a514a32",

@@ -284,7 +284,7 @@
     "usuarioId": 1,
     "fecha": "2026-09-03",
     "mes": "09-2026",
-    "monto": 60000,
+    "monto": 180000,
     "descripcion": "Regalo Daniel"
   },
   {
@@ -294,5 +294,45 @@
     "mes": "09-2026",
     "monto": 13000,
     "descripcion": "Compra Steam"
+  },
+  {
+    "id": "1789022564832-63935kf",
+    "usuarioId": 1,
+    "fecha": "2026-09-10",
+    "mes": "09-2026",
+    "monto": 120000,
+    "descripcion": "Regalo karol shein"
+  },
+  {
+    "id": "1789108105161-xgrb4sc",
+    "usuarioId": 1,
+    "fecha": "2026-09-11",
+    "mes": "09-2026",
+    "monto": 6200,
+    "descripcion": "pizza"
+  },
+  {
+    "id": "1789272883758-ao7tlyg",
+    "usuarioId": 1,
+    "fecha": "2026-09-12",
+    "mes": "09-2026",
+    "monto": 50000,
+    "descripcion": "sabado 12 karol"
+  },
+  {
+    "id": "1789621602043-6apkmzp",
+    "usuarioId": 1,
+    "fecha": "2026-09-17",
+    "mes": "09-2026",
+    "monto": 75000,
+    "descripcion": "amigo secreto foscal"
+  },
+  {
+    "id": "1789621651938-fr48dlr",
+    "usuarioId": 1,
+    "fecha": "2026-09-16",
+    "mes": "09-2026",
+    "monto": 15000,
+    "descripcion": "compras oxxo"
   }
 ]
