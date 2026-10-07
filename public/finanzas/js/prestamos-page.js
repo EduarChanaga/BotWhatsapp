@@ -15,6 +15,8 @@ document.addEventListener('storage-ready', () => {
   const btnLogout = document.getElementById('btn-logout');
   const userLabel = document.getElementById('user-label');
   const indicadores = document.getElementById('prestamos-indicadores');
+  const selectPersona = document.getElementById('prestamo-persona');
+  const mostrarPagados = document.getElementById('mostrar-pagados');
 
   let editId = null;
 
@@ -35,10 +37,11 @@ document.addEventListener('storage-ready', () => {
     editId = prestamo?.id ?? null;
     modalTitle.textContent = prestamo ? 'Editar préstamo' : 'Nuevo préstamo';
     form.reset();
+    renderPersonas();
+    selectPersona.value = prestamo?.personaId || '';
     fieldCuotasPagadas.hidden = !prestamo;
 
     if (prestamo) {
-      document.getElementById('prestamo-prestante').value = prestamo.prestante;
       document.getElementById('prestamo-monto').value = prestamo.monto;
       document.getElementById('prestamo-intereses').value = prestamo.intereses ?? 0;
       document.getElementById('prestamo-vencimiento').value = prestamo.fechaVencimiento;
@@ -64,15 +67,21 @@ document.addEventListener('storage-ready', () => {
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const persona = getPersonaById(selectPersona.value);
+    if (!editId && !persona) {
+      alert('Registra y selecciona una persona para el préstamo.');
+      return;
+    }
     const data = {
-      prestante: document.getElementById('prestamo-prestante').value.trim(),
+      prestante: persona?.nombre || getPrestamoById(editId)?.prestante || '',
+      personaId: persona?.id || null,
       monto: parseMontoInput(document.getElementById('prestamo-monto').value),
       intereses: parseMontoInput(document.getElementById('prestamo-intereses').value),
       fechaVencimiento: document.getElementById('prestamo-vencimiento').value,
       cuotas: document.getElementById('prestamo-cuotas').value
     };
 
-    if (!data.prestante || !data.fechaVencimiento) return;
+    if (!data.fechaVencimiento) return;
 
     if (editId) {
       data.cuotasPagadas = document.getElementById('prestamo-cuotas-pagadas').value;
@@ -91,26 +100,34 @@ document.addEventListener('storage-ready', () => {
     const total = totalPrestamoConInteres(prestamo);
     const cuota = valorCuotaPrestamo(prestamo);
     const pagadas = prestamo.cuotasPagadas ?? 0;
-    const puedeMarcar = pagadas < prestamo.cuotas;
+    const pendiente = montoPendientePrestamo(prestamo);
+    const abonos = Array.isArray(prestamo.abonos) ? prestamo.abonos : [];
+    const totalAbonado = abonos.reduce((sum, abono) => sum + (Number(abono.monto) || 0), 0);
+    const cuotaPagada = valorCuotaPrestamo(prestamo) * pagadas;
+    const puedeMarcar = pendiente > 0 && pagadas < prestamo.cuotas;
+    const persona = prestamo.personaId ? getPersonaById(prestamo.personaId)?.nombre : '';
 
     const li = document.createElement('li');
     li.className = 'cuenta-card prestamo-card';
     li.innerHTML = `
       <div class="cuenta-card__header">
-        <h3 class="cuenta-card__title">${escapeHtml(prestamo.prestante)}</h3>
+        <h3 class="cuenta-card__title">${escapeHtml(persona || prestamo.prestante)}</h3>
         <span class="badge ${badgePrestamo(estado)}">${etiquetaEstadoPrestamo(estado)}</span>
       </div>
       <p class="cuenta-card__monto">${formatMonto(total)}</p>
       <div class="cuenta-card__meta">
         <p>Capital ${formatMonto(prestamo.monto)} · Int. ${prestamo.intereses ?? 0}%</p>
         <p>Vence ${formatFecha(prestamo.fechaVencimiento)}</p>
-        <p>Cuota ${formatMonto(cuota)} · ${pagadas}/${prestamo.cuotas} pagadas</p>
+        <p>${prestamo.cuotas > 1 ? `Cuota ${formatMonto(cuota)} · ${pagadas}/${prestamo.cuotas} pagadas` : 'Pago único o abonos'} · Saldo ${formatMonto(pendiente)}</p>
+        ${persona ? `<p>Persona: ${escapeHtml(persona)}</p>` : '<p>Sin persona vinculada</p>'}
+        ${abonos.length ? `<p class="prestamo-abonos">Abonos: ${abonos.map((abono) => `${formatFecha(abono.fecha)} ${formatMonto(abono.monto)}`).join(' · ')}${cuotaPagada ? ` · Cuotas ${formatMonto(cuotaPagada)}` : ''} · Total abonado ${formatMonto(totalAbonado + cuotaPagada)}</p>` : ''}
       </div>
       <div class="prestamo-card__progress">
         <div class="prestamo-card__bar" style="width:${Math.min(100, (pagadas / prestamo.cuotas) * 100)}%"></div>
       </div>
       <div class="cuenta-card__actions">
         ${puedeMarcar ? `<button type="button" class="btn btn--primary btn--sm" data-cuota="${prestamo.id}">+ Cuota</button>` : ''}
+        ${pendiente > 0 ? `<button type="button" class="btn btn--ghost btn--sm" data-abono="${prestamo.id}">+ Abonar</button>` : ''}
         <button type="button" class="btn btn--ghost btn--sm" data-edit="${prestamo.id}">Editar</button>
         <button type="button" class="btn btn--danger btn--sm" data-delete="${prestamo.id}">Eliminar</button>
       </div>
@@ -119,14 +136,24 @@ document.addEventListener('storage-ready', () => {
   }
 
   async function render() {
-    const prestamos = getPrestamosByUsuario(sesion.id);
+    renderPersonas();
+    const todosPrestamos = getPrestamosByUsuario(sesion.id);
+    const prestamos = mostrarPagados.checked ? todosPrestamos : todosPrestamos.filter((prestamo) => getEstadoPrestamo(prestamo) !== 'completado');
     const r = resumenPrestamos(sesion.id);
 
     lista.innerHTML = '';
     const hasItems = prestamos.length > 0;
-    emptyState.hidden = hasItems;
+    emptyState.hidden = todosPrestamos.length > 0;
     lista.hidden = !hasItems;
-    indicadores.hidden = !hasItems;
+    indicadores.hidden = todosPrestamos.length === 0;
+    if (todosPrestamos.length && !hasItems) {
+      emptyState.hidden = false;
+      emptyState.querySelector('strong').textContent = 'Todos los préstamos están pagados';
+      emptyState.querySelector('p').textContent = 'Activa «Mostrar préstamos pagados» para consultar el historial.';
+    } else {
+      emptyState.querySelector('strong').textContent = 'No hay préstamos';
+      emptyState.querySelector('p').textContent = 'Pulsa «Nuevo préstamo» para registrar el primero.';
+    }
 
     if (hasItems) {
       document.getElementById('ind-prestamos-cantidad').textContent = r.cantidad;
@@ -166,7 +193,31 @@ document.addEventListener('storage-ready', () => {
         render();
       });
     });
+
+    lista.querySelectorAll('[data-abono]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const prestamo = getPrestamoById(btn.dataset.abono);
+        if (!prestamo) return;
+        const monto = parseMontoInput(prompt(`Saldo pendiente: ${formatMonto(montoPendientePrestamo(prestamo))}. ¿Cuánto deseas abonar?`, ''));
+        if (!monto) return;
+        try {
+          await abonarPrestamo(prestamo.id, monto);
+          document.dispatchEvent(new Event('datos-actualizados'));
+          render();
+        } catch (error) {
+          alert(error.message);
+        }
+      });
+    });
   }
+
+  function renderPersonas() {
+    const personas = getPersonasByUsuario(sesion.id);
+    const selected = selectPersona.value;
+    selectPersona.innerHTML = '<option value="">Selecciona una persona</option>' + personas.map((persona) => `<option value="${persona.id}">${escapeHtml(persona.nombre)}</option>`).join('');
+    selectPersona.value = selected;
+  }
+  mostrarPagados.addEventListener('change', render);
 
   render();
 });

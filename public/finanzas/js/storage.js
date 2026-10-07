@@ -7,6 +7,8 @@ const JSON_FILES = {
   cuentas: 'cuentas.json',
   historialPagos: 'historialPagos.json',
   gastosHormiga: 'gastosHormiga.json',
+  gastos: 'gastos.json',
+  personas: 'personas.json',
   prestamos: 'prestamos.json',
   sesion: 'sesion.json'
 };
@@ -18,6 +20,8 @@ const cache = {
   cuentas: [],
   historialPagos: [],
   gastosHormiga: [],
+  gastos: [],
+  personas: [],
   prestamos: [],
   sesion: null
 };
@@ -36,6 +40,8 @@ async function cargarDatosServidor() {
     datos.cuentas,
     datos.historialPagos,
     datos.gastosHormiga,
+    datos.gastos,
+    datos.personas,
     datos.prestamos,
     datos.sesion
   );
@@ -49,6 +55,8 @@ async function guardarDatosServidor(tipo) {
       : tipo === 'cuentas' ? cache.cuentas
       : tipo === 'historialPagos' ? cache.historialPagos
       : tipo === 'gastosHormiga' ? cache.gastosHormiga
+      : tipo === 'gastos' ? cache.gastos
+      : tipo === 'personas' ? cache.personas
       : tipo === 'prestamos' ? cache.prestamos : cache.sesion })
   });
   if (!response.ok) throw new Error(`No se pudo guardar ${tipo}.`);
@@ -126,37 +134,43 @@ async function resolveDataDirectory(handle) {
   return handle.getDirectoryHandle('data', { create: false });
 }
 
-async function aplicarCacheDesdeDatos(usuarios, cuentas, historial, hormiga, prestamos, sesion) {
+async function aplicarCacheDesdeDatos(usuarios, cuentas, historial, hormiga, gastos, personas, prestamos, sesion) {
   cache.usuarios = Array.isArray(usuarios) ? usuarios : [];
   cache.cuentas = Array.isArray(cuentas) ? cuentas : [];
   cache.historialPagos = Array.isArray(historial) ? historial : [];
   cache.gastosHormiga = Array.isArray(hormiga) ? hormiga : [];
+  cache.gastos = Array.isArray(gastos) ? gastos : [];
+  cache.personas = Array.isArray(personas) ? personas : [];
   cache.prestamos = Array.isArray(prestamos) ? prestamos : [];
   cache.sesion = sesion && sesion.id ? sesion : null;
 }
 
 async function cargarTodosLosJSON() {
-  const [usuarios, cuentas, historial, hormiga, prestamos, sesion] = await Promise.all([
+  const [usuarios, cuentas, historial, hormiga, gastos, personas, prestamos, sesion] = await Promise.all([
     leerArchivo(JSON_FILES.usuarios).catch(() => []),
     leerArchivo(JSON_FILES.cuentas).catch(() => []),
     leerArchivo(JSON_FILES.historialPagos).catch(() => []),
     leerArchivo(JSON_FILES.gastosHormiga).catch(() => []),
+    leerArchivo(JSON_FILES.gastos).catch(() => []),
+    leerArchivo(JSON_FILES.personas).catch(() => []),
     leerArchivo(JSON_FILES.prestamos).catch(() => []),
     leerArchivo(JSON_FILES.sesion).catch(() => null)
   ]);
-  await aplicarCacheDesdeDatos(usuarios, cuentas, historial, hormiga, prestamos, sesion);
+  await aplicarCacheDesdeDatos(usuarios, cuentas, historial, hormiga, gastos, personas, prestamos, sesion);
 }
 
 async function cargarDesdeRutaRelativa() {
-  const [usuarios, cuentas, historial, hormiga, prestamos, sesion] = await Promise.all([
+  const [usuarios, cuentas, historial, hormiga, gastos, personas, prestamos, sesion] = await Promise.all([
     fetchJsonRelativo(JSON_FILES.usuarios, []),
     fetchJsonRelativo(JSON_FILES.cuentas, []),
     fetchJsonRelativo(JSON_FILES.historialPagos, []),
     fetchJsonRelativo(JSON_FILES.gastosHormiga, []),
+    fetchJsonRelativo(JSON_FILES.gastos, []),
+    fetchJsonRelativo(JSON_FILES.personas, []),
     fetchJsonRelativo(JSON_FILES.prestamos, []),
     fetchJsonRelativo(JSON_FILES.sesion, null)
   ]);
-  await aplicarCacheDesdeDatos(usuarios, cuentas, historial, hormiga, prestamos, sesion);
+  await aplicarCacheDesdeDatos(usuarios, cuentas, historial, hormiga, gastos, personas, prestamos, sesion);
 }
 
 async function conectarData(handle) {
@@ -249,6 +263,8 @@ async function guardarEnJSON(tipo) {
   if (tipo === 'gastosHormiga') {
     await escribirArchivo(JSON_FILES.gastosHormiga, cache.gastosHormiga);
   }
+  if (tipo === 'gastos') await escribirArchivo(JSON_FILES.gastos, cache.gastos);
+  if (tipo === 'personas') await escribirArchivo(JSON_FILES.personas, cache.personas);
   if (tipo === 'prestamos') {
     await escribirArchivo(JSON_FILES.prestamos, cache.prestamos);
   }
@@ -555,6 +571,41 @@ function getGastoHormigaById(id) {
   return getGastosHormiga().find((g) => g.id === id);
 }
 
+function getPersonasByUsuario(usuarioId) {
+  return cache.personas.filter((persona) => persona.usuarioId === usuarioId).sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+}
+
+function getPersonaById(id) {
+  return cache.personas.find((persona) => persona.id === id) || null;
+}
+
+async function createPersona(data) {
+  const nombre = String(data.nombre || '').trim();
+  if (!nombre) throw new Error('Escribe el nombre de la persona.');
+  const existente = getPersonasByUsuario(data.usuarioId).find((persona) => persona.nombre.toLocaleLowerCase() === nombre.toLocaleLowerCase());
+  if (existente) return existente;
+  const persona = { id: generateId(), usuarioId: data.usuarioId, nombre };
+  cache.personas.push(persona);
+  await guardarEnJSON('personas');
+  return persona;
+}
+
+async function updatePersona(id, nombre) {
+  const persona = getPersonaById(id);
+  if (!persona) return null;
+  persona.nombre = String(nombre || '').trim();
+  await guardarEnJSON('personas');
+  return persona;
+}
+
+async function deletePersona(id) {
+  cache.personas = cache.personas.filter((persona) => persona.id !== id);
+  cache.gastosHormiga = cache.gastosHormiga.map((gasto) => gasto.personaId === id ? { ...gasto, personaId: null } : gasto);
+  cache.gastos = cache.gastos.map((gasto) => gasto.personaId === id ? { ...gasto, personaId: null } : gasto);
+  cache.prestamos = cache.prestamos.map((prestamo) => prestamo.personaId === id ? { ...prestamo, personaId: null } : prestamo);
+  await Promise.all([guardarEnJSON('personas'), guardarEnJSON('gastosHormiga'), guardarEnJSON('gastos'), guardarEnJSON('prestamos')]);
+}
+
 function mesDesdeFecha(fechaStr) {
   const d = parseFecha(fechaStr);
   return d ? mesAnioFromDate(d) : mesAnioActual();
@@ -569,7 +620,8 @@ async function createGastoHormiga(data) {
     fecha,
     mes: mesDesdeFecha(fecha),
     monto: data.monto ?? 0,
-    descripcion: (data.descripcion || '').trim()
+    descripcion: (data.descripcion || '').trim(),
+    personaId: data.personaId || null
   };
   gastos.push(gasto);
   await saveGastosHormiga(gastos);
@@ -595,6 +647,52 @@ async function updateGastoHormiga(id, updates) {
 async function deleteGastoHormiga(id) {
   const gastos = getGastosHormiga().filter((g) => g.id !== id);
   await saveGastosHormiga(gastos);
+}
+
+/* ---------- Compras y gastos ---------- */
+function getGastos() {
+  return [...cache.gastos];
+}
+
+function getGastosByMes(usuarioId, mes) {
+  return getGastos().filter((gasto) => gasto.usuarioId === usuarioId && gasto.mes === mes);
+}
+
+function getGastoById(id) {
+  return getGastos().find((gasto) => gasto.id === id) || null;
+}
+
+async function createGasto(data) {
+  const fecha = data.fecha;
+  const gasto = {
+    id: generateId(),
+    usuarioId: data.usuarioId,
+    fecha,
+    mes: mesDesdeFecha(fecha),
+    monto: data.monto ?? 0,
+    descripcion: String(data.descripcion || '').trim(),
+    personaId: data.personaId || null
+  };
+  cache.gastos.push(gasto);
+  await guardarEnJSON('gastos');
+  return gasto;
+}
+
+async function updateGasto(id, updates) {
+  const index = cache.gastos.findIndex((gasto) => gasto.id === id);
+  if (index < 0) return null;
+  const actualizado = { ...cache.gastos[index], ...updates };
+  if (updates.fecha) actualizado.mes = mesDesdeFecha(updates.fecha);
+  if (updates.descripcion !== undefined) actualizado.descripcion = String(updates.descripcion).trim();
+  actualizado.personaId = updates.personaId || null;
+  cache.gastos[index] = actualizado;
+  await guardarEnJSON('gastos');
+  return actualizado;
+}
+
+async function deleteGasto(id) {
+  cache.gastos = cache.gastos.filter((gasto) => gasto.id !== id);
+  await guardarEnJSON('gastos');
 }
 
 /* ---------- Préstamos ---------- */
@@ -625,7 +723,9 @@ async function createPrestamo(data) {
     intereses: data.intereses ?? 0,
     fechaVencimiento: data.fechaVencimiento,
     cuotas: Math.max(1, parseInt(data.cuotas, 10) || 1),
-    cuotasPagadas: data.cuotasPagadas ?? 0
+    cuotasPagadas: data.cuotasPagadas ?? 0,
+    personaId: data.personaId || null,
+    abonos: []
   };
   prestamos.push(prestamo);
   await savePrestamos(prestamos);
@@ -657,6 +757,18 @@ async function updatePrestamo(id, updates) {
 async function deletePrestamo(id) {
   const prestamos = getPrestamos().filter((p) => p.id !== id);
   await savePrestamos(prestamos);
+}
+
+async function abonarPrestamo(id, monto, fecha = fechaHoyInput()) {
+  const prestamo = getPrestamoById(id);
+  if (!prestamo) return null;
+  const valor = Math.round((Number(monto) || 0) * 100) / 100;
+  if (valor <= 0) throw new Error('El abono debe ser mayor que cero.');
+  const pendiente = montoPendientePrestamo(prestamo);
+  if (valor > pendiente) throw new Error(`El abono no puede superar el saldo de ${formatMonto(pendiente)}.`);
+  prestamo.abonos = [...(Array.isArray(prestamo.abonos) ? prestamo.abonos : []), { id: generateId(), fecha, monto: valor }];
+  await savePrestamos(getPrestamos());
+  return prestamo;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

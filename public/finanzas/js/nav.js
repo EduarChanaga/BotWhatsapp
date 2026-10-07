@@ -9,7 +9,7 @@
   const menu = document.getElementById('nav-menu');
   if (!toggle || !menu) return;
 
-  const mqDesktop = window.matchMedia('(min-width: 768px)');
+  const mqDesktop = window.matchMedia('(min-width: 1024px)');
 
   function closeMenu() {
     nav.classList.remove('app-nav--open');

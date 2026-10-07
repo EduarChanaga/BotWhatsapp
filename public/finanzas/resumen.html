@@ -14,12 +14,22 @@
     </button>
     <div class="app-nav__menu" id="nav-menu">
       <div class="app-nav__links">
-        <a href="dashboard.html">Cuentas</a>
-        <a href="pagos.html">Pagos</a>
-        <a href="hormiga.html">Hormiga</a>
-        <a href="prestamos.html">Préstamos</a>
-        <a href="resumen.html" class="active">Resumen</a>
-        <a href="gaming.html">Gaming</a>
+        <div class="app-nav__group" role="group" aria-label="Pagos">
+          <span class="app-nav__group-title">Pagos</span>
+          <div class="app-nav__group-links"><a href="pagos.html">Pagos</a><a href="hormiga.html">Hormiga</a><a href="gastos.html">Compras y gastos</a></div>
+        </div>
+        <div class="app-nav__group" role="group" aria-label="Registros">
+          <span class="app-nav__group-title">Registros</span>
+          <div class="app-nav__group-links"><a href="dashboard.html">Cuentas</a><a href="prestamos.html">Préstamos</a><a href="personas.html">Personas</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Resumen">
+          <span class="app-nav__group-title">Resumen</span>
+          <div class="app-nav__group-links"><a href="resumen.html" class="active">Resumen</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Extra">
+          <span class="app-nav__group-title">Extra</span>
+          <div class="app-nav__group-links"><a href="gaming.html">Gaming</a></div>
+        </div>
       </div>
       <span class="app-nav__user" id="user-label"></span>
       <div class="app-nav__actions">
@@ -34,9 +44,10 @@
     <header class="page-header page-header__row">
       <div>
         <h1>Resumen mensual</h1>
-        <p>Cuentas pagadas + gastos hormiga del mes.</p>
+        <p>Cuentas pagadas, gastos hormiga y compras del mes.</p>
       </div>
       <a href="hormiga.html" class="btn btn--primary">+ Gasto hormiga</a>
+      <a href="gastos.html" class="btn btn--secondary">+ Compra o salida</a>
     </header>
 
     <div class="resumen-toolbar">
@@ -62,6 +73,11 @@
         <p class="resumen-card__valor" id="resumen-hormiga">0,00 €</p>
         <p class="resumen-card__detalle" id="resumen-hormiga-det"></p>
       </article>
+      <article class="resumen-card">
+        <h2>Compras y gastos</h2>
+        <p class="resumen-card__valor" id="resumen-gastos">0,00 €</p>
+        <p class="resumen-card__detalle" id="resumen-gastos-det"></p>
+      </article>
       <article class="resumen-card resumen-card--total">
         <h2>Total del mes</h2>
         <p class="resumen-card__valor resumen-card__valor--total" id="resumen-total">0,00 €</p>
@@ -80,8 +96,17 @@
           <h3>Gastos hormiga</h3>
           <ul id="detalle-hormiga" class="resumen-detalle-list"></ul>
         </section>
+        <section>
+          <h3>Compras y gastos</h3>
+          <ul id="detalle-gastos" class="resumen-detalle-list"></ul>
+        </section>
       </div>
     </details>
+
+    <section class="resumen-personas card-panel">
+      <div><h2>Gastos por persona</h2><p class="resumen-general__sub">Compras, salidas y gastos hormiga del mes seleccionado.</p></div>
+      <ul id="resumen-personas-lista" class="resumen-detalle-list"></ul>
+    </section>
 
     <section class="resumen-general card-panel" id="resumen-general-prestamos" hidden>
       <div class="resumen-general__header">

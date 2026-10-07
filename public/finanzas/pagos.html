@@ -14,12 +14,22 @@
     </button>
     <div class="app-nav__menu" id="nav-menu">
       <div class="app-nav__links">
-        <a href="dashboard.html">Cuentas</a>
-        <a href="pagos.html" class="active">Pagos</a>
-        <a href="hormiga.html">Hormiga</a>
-        <a href="prestamos.html">Préstamos</a>
-        <a href="resumen.html">Resumen</a>
-        <a href="gaming.html">Gaming</a>
+        <div class="app-nav__group" role="group" aria-label="Pagos">
+          <span class="app-nav__group-title">Pagos</span>
+          <div class="app-nav__group-links"><a href="pagos.html" class="active">Pagos</a><a href="hormiga.html">Hormiga</a><a href="gastos.html">Compras y gastos</a></div>
+        </div>
+        <div class="app-nav__group" role="group" aria-label="Registros">
+          <span class="app-nav__group-title">Registros</span>
+          <div class="app-nav__group-links"><a href="dashboard.html">Cuentas</a><a href="prestamos.html">Préstamos</a><a href="personas.html">Personas</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Resumen">
+          <span class="app-nav__group-title">Resumen</span>
+          <div class="app-nav__group-links"><a href="resumen.html">Resumen</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Extra">
+          <span class="app-nav__group-title">Extra</span>
+          <div class="app-nav__group-links"><a href="gaming.html">Gaming</a></div>
+        </div>
       </div>
       <span class="app-nav__user" id="user-label"></span>
       <div class="app-nav__actions">
@@ -65,7 +75,7 @@
           <label for="rango-hasta">Hasta</label>
           <input type="month" id="rango-hasta">
         </div>
-        <button type="button" class="btn btn--ghost btn--sm" id="btn-rango-defecto">Rango por defecto</button>
+        <button type="button" class="btn btn--ghost btn--sm" id="btn-rango-defecto">Mes actual</button>
       </div>
 
       <div id="lista-pagos" class="pagos-todas"></div>

@@ -276,7 +276,9 @@
         "achieved": 0,
         "unlocktime": 0
       }
-    ]
+    ],
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "6dde401e-aac0-41d5-b7b8-44173b7ebb67",
@@ -638,14 +640,15 @@
         "achieved": 0,
         "unlocktime": 0
       }
-    ]
+    ],
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "eb1c55f0-0dfb-431d-acc5-0415c20bf450",
     "name": "ASSASSINS CREED: VALHALLA",
     "status": "platinum",
     "endless": false,
-    "hours": 165.3,
+    "hours": 168.4,
     "cost": 75000,
     "acquiredAt": "2025-12-12",
     "rating": 10,
@@ -661,7 +664,7 @@
     "queueOrder": 1,
     "steamAppId": 2208920,
     "steamName": "Assassin's Creed Valhalla",
-    "steamPlaytimeHours": 165.3,
+    "steamPlaytimeHours": 168.4,
     "steamAchievements": [
       {
         "apiname": "ACValhalla_Ach_1",
@@ -750,8 +753,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_18",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789285792
       },
       {
         "apiname": "ACValhalla_Ach_19",
@@ -835,8 +838,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_35",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789283929
       },
       {
         "apiname": "ACValhalla_Ach_36",
@@ -865,8 +868,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_41",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789286872
       },
       {
         "apiname": "ACValhalla_Ach_42",
@@ -940,8 +943,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_56",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789195331
       },
       {
         "apiname": "ACValhalla_Ach_57",
@@ -985,8 +988,8 @@
       },
       {
         "apiname": "ACValhalla_Ach_65",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789197295
       },
       {
         "apiname": "ACValhalla_Ach_66",
@@ -1000,13 +1003,13 @@
       },
       {
         "apiname": "ACValhalla_Ach_68",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789198076
       },
       {
         "apiname": "ACValhalla_Ach_69",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789199060
       },
       {
         "apiname": "ACValhalla_Ach_70",
@@ -1123,7 +1126,9 @@
         "achieved": 0,
         "unlocktime": 0
       }
-    ]
+    ],
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "7275bfd9-e80f-4f38-aa43-3a1009865553",
@@ -1643,7 +1648,9 @@
         "unlocktime": 0
       }
     ],
-    "hours": 6.9
+    "hours": 6.9,
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "770a830a-71bb-452a-8354-09f451527b98",
@@ -1976,7 +1983,9 @@
         "unlocktime": 0
       }
     ],
-    "hours": 18.4
+    "hours": 18.4,
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "bbe72b0c-6b2c-408c-a794-597cd9446e2c",
@@ -2107,7 +2116,8 @@
         "unlocktime": 0
       }
     ],
-    "hours": 5.2
+    "hours": 5.2,
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "4f193105-f216-48c5-9d68-b96f1a10157f",
@@ -2196,7 +2206,9 @@
         "achieved": 0,
         "unlocktime": 0
       }
-    ]
+    ],
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "6402c6c6-e58b-4048-9d8d-38941a514a32",
@@ -2395,14 +2407,16 @@
         "unlocktime": 0
       }
     ],
-    "hours": 0
+    "hours": 0,
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "ffe8caf6-18ac-43d7-8d79-2c7fc95dc2bd",
     "name": "UNRAVEL TWO",
     "status": "playing",
     "endless": false,
-    "hours": 6.6,
+    "hours": 14.1,
     "cost": 12000,
     "acquiredAt": "2026-08-22",
     "rating": 7,
@@ -2417,7 +2431,7 @@
     "queueOrder": 0,
     "steamAppId": 1225570,
     "steamName": "Unravel Two",
-    "steamPlaytimeHours": 6.6,
+    "steamPlaytimeHours": 14.1,
     "steamAchievements": [
       {
         "apiname": "Achievement_GOSCC_1",
@@ -2559,7 +2573,9 @@
         "achieved": 0,
         "unlocktime": 0
       }
-    ]
+    ],
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "c911ae3b-0fb7-4686-928f-ebb08e0aa163",
@@ -2642,7 +2658,9 @@
         "unlocktime": 1781931916
       }
     ],
-    "hours": 6.4
+    "hours": 6.4,
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "c67fc5b5-7f33-488d-991a-2a722f834809",
@@ -2663,7 +2681,7 @@
     "queueOrder": 0,
     "steamAppId": 1672970,
     "steamName": "Minecraft Dungeons",
-    "steamPlaytimeHours": 14.5,
+    "steamPlaytimeHours": 16.4,
     "steamAchievements": [
       {
         "apiname": "REVIVE_20",
@@ -3186,7 +3204,9 @@
         "unlocktime": 0
       }
     ],
-    "hours": 14.5
+    "hours": 16.4,
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "488ca384-9576-4666-81c4-88462a807bfc",
@@ -3524,7 +3544,9 @@
         "unlocktime": 0
       }
     ],
-    "hours": 3.2
+    "hours": 3.2,
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   },
   {
     "id": "c6691163-9ec8-4a15-946b-67e09a506483",
@@ -3640,6 +3662,156 @@
         "achieved": 0,
         "unlocktime": 0
       }
-    ]
+    ],
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
+  },
+  {
+    "id": "5a11befa-f224-4efa-a5c6-6c6e4b5c0cdd",
+    "name": "BIPED 2",
+    "status": "pending",
+    "endless": false,
+    "hours": 0,
+    "cost": 15000,
+    "acquiredAt": "2026-10-07",
+    "rating": 0,
+    "ratingScale": 10,
+    "tags": [],
+    "description": "",
+    "image": "/imagenes/juegos/3c5e4749-8622-4017-b93e-73fefb4adf73.png",
+    "inQueue": false,
+    "queueOrder": 0,
+    "steamAppId": 2560240,
+    "steamName": "Biped 2",
+    "steamPlaytimeHours": 0,
+    "steamAchievements": [
+      {
+        "apiname": "1",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "2",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "3",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "4",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "6",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "7",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "8",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "9",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "11",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "13",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "14",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "15",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "16",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "17",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "18",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "19",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "20",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "21",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "22",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "23",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "24",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "25",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ],
+    "steamId64": "76561199863742925",
+    "steamLastSyncedAt": 1791404601421
   }
 ]

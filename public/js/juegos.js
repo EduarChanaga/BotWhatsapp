@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'pokecontrol-juegos';
+const STEAM_REFRESH_INTERVAL = 30 * 60 * 1000;
 const STATUS_LABELS = { pending: 'Pendiente', playing: 'Jugando', completed: 'Completado', platinum: 'Completado platinando', abandoned: 'Abandonado', endless: 'Sin final' };
 
 let games = loadGames();
@@ -11,6 +12,8 @@ let serverReady = false;
 let steamGameId = null;
 let selectedSteamApp = null;
 let steamLibrary = [];
+let steamRefreshAt = null;
+let steamRefreshing = false;
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -191,14 +194,89 @@ async function syncSteamGame() {
   if (!response.ok) throw new Error(result.error || 'No se pudo sincronizar Steam.');
   game.steamAppId = result.appId;
   game.steamName = result.name;
-  game.steamId64 = $('#steamId64').value.trim() || undefined;
+  game.steamId64 = result.steamId64 || $('#steamId64').value.trim() || undefined;
   game.steamPlaytimeHours = result.playtimeHours;
   game.steamAchievements = result.achievements;
+  game.steamLastSyncedAt = Date.now();
   if (Number.isFinite(result.playtimeHours)) game.hours = result.playtimeHours;
   await saveGames();
   render();
+  steamRefreshAt = Date.now() + STEAM_REFRESH_INTERVAL;
+  updateSteamRefreshCountdown();
   $('#steamDialog').close();
   showToast(`Steam vinculado: ${result.playtimeHours} h sincronizadas`);
+}
+
+function getSteamLinkedGames() {
+  return games.filter((game) => Number.isInteger(Number(game.steamAppId)) && Number(game.steamAppId) > 0);
+}
+
+function updateSteamRefreshCountdown() {
+  const countdown = $('#steamRefreshCountdown');
+  const button = $('#refreshSteamButton');
+  const linkedGames = getSteamLinkedGames();
+  button.disabled = steamRefreshing || !linkedGames.length;
+
+  if (!linkedGames.length) {
+    countdown.textContent = 'Sin juegos vinculados';
+    return;
+  }
+  if (steamRefreshing) {
+    countdown.textContent = 'Actualizando ahora...';
+    return;
+  }
+
+  const secondsLeft = Math.max(0, Math.ceil(((steamRefreshAt || Date.now()) - Date.now()) / 1000));
+  const minutes = Math.floor(secondsLeft / 60).toString().padStart(2, '0');
+  const seconds = (secondsLeft % 60).toString().padStart(2, '0');
+  countdown.textContent = `Próxima actualización en ${minutes}:${seconds}`;
+}
+
+async function refreshLinkedSteamGames(manual = false) {
+  if (steamRefreshing) return;
+  const linkedGames = getSteamLinkedGames();
+  if (!serverReady || !linkedGames.length) {
+    updateSteamRefreshCountdown();
+    return;
+  }
+
+  steamRefreshing = true;
+  updateSteamRefreshCountdown();
+  let updatedCount = 0;
+
+  try {
+    const response = await fetch('/api/steam/library', { cache: 'no-store' });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'No se pudo actualizar la biblioteca de Steam.');
+
+    const steamGames = new Map((result.games || []).map((game) => [Number(game.appid), game]));
+    const syncedAt = Date.now();
+    for (const game of linkedGames) {
+      const steamGame = steamGames.get(Number(game.steamAppId));
+      if (!steamGame || !Number.isFinite(steamGame.playtimeHours)) continue;
+      game.steamName = steamGame.name || game.steamName;
+      game.steamId64 = result.steamId64 || game.steamId64;
+      game.steamPlaytimeHours = steamGame.playtimeHours;
+      game.hours = steamGame.playtimeHours;
+      game.steamLastSyncedAt = syncedAt;
+      updatedCount += 1;
+    }
+
+    if (updatedCount) {
+      await saveGames();
+      render();
+    }
+    if (manual) {
+      showToast(`${updatedCount} juego${updatedCount === 1 ? '' : 's'} de Steam actualizado${updatedCount === 1 ? '' : 's'}`);
+    }
+  } catch (error) {
+    console.error('Error guardando sincronización Steam:', error);
+    if (manual) showToast(error.message || 'No se pudieron guardar las horas de Steam.');
+  } finally {
+    steamRefreshing = false;
+    steamRefreshAt = Date.now() + STEAM_REFRESH_INTERVAL;
+    updateSteamRefreshCountdown();
+  }
 }
 
 function render() { updateStats(); renderLibrary(); renderQueue(); }
@@ -228,6 +306,12 @@ async function initializeGames() {
     console.error('Error cargando juegos desde el servidor:', error);
   }
   render();
+  if (serverReady && getSteamLinkedGames().length) {
+    steamRefreshAt = Date.now();
+    refreshLinkedSteamGames();
+  } else {
+    updateSteamRefreshCountdown();
+  }
 }
 
 function openDialog(game = null) {
@@ -316,6 +400,7 @@ $('#gameList').addEventListener('click', (event) => {
 $('#closeSteamButton').addEventListener('click', () => $('#steamDialog').close());
 $('#cancelSteamButton').addEventListener('click', () => $('#steamDialog').close());
 $('#loadSteamLibraryButton').addEventListener('click', loadSteamLibrary);
+$('#refreshSteamButton').addEventListener('click', () => refreshLinkedSteamGames(true));
 $('#steamSearch').addEventListener('input', renderSteamLibrary);
 $('#saveSteamKeyButton').addEventListener('click', async () => {
   const apiKey = $('#steamApiKey').value.trim();
@@ -380,11 +465,15 @@ $('#gameForm').addEventListener('submit', async (event) => {
   if (currentImageFile) currentImage = await uploadImage(currentImageFile);
   const endless = $('#gameEndless').checked;
   const rawHours = $('#gameHours').value.trim();
-  const game = { id, name: $('#gameName').value.trim(), status: endless ? 'endless' : $('#gameStatus').value, endless, hours: rawHours === '' ? '' : Number(rawHours), cost: rawCost === '' ? '' : Number(rawCost), acquiredAt: $('#gameAcquiredAt').value, rating: selectedRating, ratingScale: 10, tags, description: $('#gameDescription').value.trim(), image: currentImage, inQueue, queueOrder: existing?.queueOrder || (inQueue && !wasInQueue ? nextOrder : 0) };
+  const game = { ...(existing || {}), id, name: $('#gameName').value.trim(), status: endless ? 'endless' : $('#gameStatus').value, endless, hours: rawHours === '' ? '' : Number(rawHours), cost: rawCost === '' ? '' : Number(rawCost), acquiredAt: $('#gameAcquiredAt').value, rating: selectedRating, ratingScale: 10, tags, description: $('#gameDescription').value.trim(), image: currentImage, inQueue, queueOrder: existing?.queueOrder || (inQueue && !wasInQueue ? nextOrder : 0) };
   games = existing ? games.map((item) => item.id === id ? game : item) : [...games, game];
   saveGames().catch((error) => showToast(error.message)); render(); $('#gameDialog').close(); showToast(existing ? 'Juego actualizado' : 'Juego añadido');
 });
 
 function showToast(message) { const toast = $('#toast'); toast.textContent = message; toast.classList.add('show'); window.setTimeout(() => toast.classList.remove('show'), 2200); }
+window.setInterval(() => {
+  updateSteamRefreshCountdown();
+  if (steamRefreshAt && Date.now() >= steamRefreshAt) refreshLinkedSteamGames();
+}, 1000);
 render();
 initializeGames();

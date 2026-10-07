@@ -12,6 +12,7 @@ document.addEventListener('storage-ready', () => {
   const inputFecha = document.getElementById('hormiga-fecha');
   const inputMonto = document.getElementById('hormiga-monto');
   const inputDesc = document.getElementById('hormiga-descripcion');
+  const inputPersona = document.getElementById('hormiga-persona');
   const btnGuardar = document.getElementById('btn-guardar-hormiga');
   const btnCancelar = document.getElementById('btn-cancelar-hormiga');
   const lista = document.getElementById('lista-hormiga');
@@ -42,6 +43,7 @@ document.addEventListener('storage-ready', () => {
     editId = null;
     form.reset();
     inputFecha.value = fechaHoyInput();
+    inputPersona.value = '';
     formTitulo.textContent = 'Nuevo gasto';
     btnGuardar.textContent = 'Agregar';
     btnCancelar.hidden = true;
@@ -52,6 +54,7 @@ document.addEventListener('storage-ready', () => {
     inputFecha.value = gasto.fecha;
     inputMonto.value = gasto.monto;
     inputDesc.value = gasto.descripcion;
+    inputPersona.value = gasto.personaId || '';
     formTitulo.textContent = 'Editar gasto';
     btnGuardar.textContent = 'Guardar';
     btnCancelar.hidden = false;
@@ -59,6 +62,8 @@ document.addEventListener('storage-ready', () => {
   }
 
   function render() {
+    const personas = getPersonasByUsuario(sesion.id);
+    inputPersona.innerHTML = '<option value="">Sin persona asociada</option>' + personas.map((persona) => `<option value="${persona.id}">${escapeHtml(persona.nombre)}</option>`).join('');
     const mes = mesSeleccionado();
     const gastos = getHormigaByMes(sesion.id, mes).sort(
       (a, b) => (parseFecha(b.fecha) || 0) - (parseFecha(a.fecha) || 0)
@@ -75,6 +80,7 @@ document.addEventListener('storage-ready', () => {
         <div class="hormiga-item__info">
           <span class="hormiga-item__fecha">${formatFechaCorta(g.fecha)}</span>
           <span class="hormiga-item__desc">${escapeHtml(g.descripcion)}</span>
+          ${g.personaId ? `<span class="gasto-persona">${escapeHtml(getPersonaById(g.personaId)?.nombre || '')}</span>` : ''}
         </div>
         <span class="hormiga-item__monto">${formatMonto(g.monto)}</span>
         <div class="hormiga-item__actions">
@@ -111,13 +117,14 @@ document.addEventListener('storage-ready', () => {
     if (!fecha || !descripcion) return;
 
     if (editId) {
-      await updateGastoHormiga(editId, { fecha, monto, descripcion });
+      await updateGastoHormiga(editId, { fecha, monto, descripcion, personaId: inputPersona.value || null });
     } else {
       await createGastoHormiga({
         usuarioId: sesion.id,
         fecha,
         monto,
-        descripcion
+        descripcion,
+        personaId: inputPersona.value || null
       });
     }
 

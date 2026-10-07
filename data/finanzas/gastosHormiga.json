@@ -384,14 +384,6 @@
     "descripcion": "tik tok"
   },
   {
-    "id": "1790899776304-cs6fbwc",
-    "usuarioId": 1,
-    "fecha": "2026-10-01",
-    "mes": "10-2026",
-    "monto": 220000,
-    "descripcion": "Casco"
-  },
-  {
     "id": "1790905316315-megg0g4",
     "usuarioId": 1,
     "fecha": "2026-10-01",
@@ -416,22 +408,6 @@
     "descripcion": "gasolina"
   },
   {
-    "id": "1790911106674-zt29cjg",
-    "usuarioId": 1,
-    "fecha": "2026-10-01",
-    "mes": "10-2026",
-    "monto": 66400,
-    "descripcion": "Regalo Nayibe"
-  },
-  {
-    "id": "1790996950343-vi4vu78",
-    "usuarioId": 1,
-    "fecha": "2026-10-02",
-    "mes": "10-2026",
-    "monto": 93000,
-    "descripcion": "papeles"
-  },
-  {
     "id": "1791006249817-0sn7uey",
     "usuarioId": 1,
     "fecha": "2026-10-03",
@@ -454,5 +430,13 @@
     "mes": "10-2026",
     "monto": 6000,
     "descripcion": "Martes Foscal"
+  },
+  {
+    "id": "1791381466643-0k7zxa5",
+    "usuarioId": 1,
+    "fecha": "2026-10-07",
+    "mes": "10-2026",
+    "monto": 15000,
+    "descripcion": "BIPED 2"
   }
 ]

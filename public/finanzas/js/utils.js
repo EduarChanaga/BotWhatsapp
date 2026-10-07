@@ -396,6 +396,14 @@ function contarHormigaMes(usuarioId, mesAnio) {
   return getHormigaByMes(usuarioId, mes).length;
 }
 
+function gastosGeneralesByMes(usuarioId, mesAnio) {
+  return getGastosByMes(usuarioId, mesAnio).sort((a, b) => (parseFecha(b.fecha) || 0) - (parseFecha(a.fecha) || 0));
+}
+
+function totalGastosGeneralesEnMes(usuarioId, mesAnio) {
+  return gastosGeneralesByMes(usuarioId, mesAnio).reduce((suma, gasto) => suma + (Number(gasto.monto) || 0), 0);
+}
+
 function detallePagosMes(usuarioId, mesAnio) {
   const mes = mesAnio || mesAnioActual();
   const cuentasPorId = new Map(
@@ -421,17 +429,21 @@ function resumenMensual(usuarioId, mesAnio) {
   const mes = mesAnio || mesAnioActual();
   const cuentasPagadas = totalGastadoEnMes(usuarioId, mes);
   const gastosHormiga = totalHormigaEnMes(usuarioId, mes);
+  const comprasGastos = totalGastosGeneralesEnMes(usuarioId, mes);
   return {
     mes,
     cuentasPagadas,
     gastosHormiga,
-    total: cuentasPagadas + gastosHormiga,
+    comprasGastos,
+    total: cuentasPagadas + gastosHormiga + comprasGastos,
     cantidadPagos: contarPagosMes(usuarioId, mes),
     cantidadHormiga: contarHormigaMes(usuarioId, mes),
+    cantidadComprasGastos: gastosGeneralesByMes(usuarioId, mes).length,
     detallePagos: detallePagosMes(usuarioId, mes),
     detalleHormiga: getHormigaByMes(usuarioId, mes).sort(
       (a, b) => (parseFecha(b.fecha) || 0) - (parseFecha(a.fecha) || 0)
-    )
+    ),
+    detalleComprasGastos: gastosGeneralesByMes(usuarioId, mes)
   };
 }
 
@@ -467,9 +479,7 @@ function valorCuotaPrestamo(prestamo) {
 }
 
 function getEstadoPrestamo(prestamo) {
-  const pagadas = prestamo.cuotasPagadas ?? 0;
-  const total = prestamo.cuotas ?? 1;
-  if (pagadas >= total) return 'completado';
+  if (montoPendientePrestamo(prestamo) <= 0) return 'completado';
   const venc = parseFecha(prestamo.fechaVencimiento);
   if (venc && venc < hoyMediodia()) return 'vencido';
   return 'activo';
@@ -493,8 +503,9 @@ function montoPendientePrestamo(prestamo) {
   const total = totalPrestamoConInteres(prestamo);
   const cuotas = Math.max(1, prestamo.cuotas ?? 1);
   const pagadas = prestamo.cuotasPagadas ?? 0;
-  if (pagadas >= cuotas) return 0;
-  const pendiente = total - valorCuotaPrestamo(prestamo) * pagadas;
+  const cuotasAbonadas = valorCuotaPrestamo(prestamo) * Math.min(cuotas, pagadas);
+  const abonos = (Array.isArray(prestamo.abonos) ? prestamo.abonos : []).reduce((suma, abono) => suma + (Number(abono.monto) || 0), 0);
+  const pendiente = total - cuotasAbonadas - abonos;
   return Math.round(Math.max(0, pendiente) * 100) / 100;
 }
 

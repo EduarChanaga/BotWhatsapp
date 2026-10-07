@@ -35,11 +35,11 @@ document.addEventListener('storage-ready', () => {
   }
 
   function aplicarRangoPorDefecto() {
-    const { desde, hasta } = getRangoMesesPorDefecto();
-    rangoDesde = desde;
-    rangoHasta = hasta;
-    inputDesde.value = mesAnioAInput(desde);
-    inputHasta.value = mesAnioAInput(hasta);
+    const actual = mesAnioActual();
+    rangoDesde = actual;
+    rangoHasta = actual;
+    inputDesde.value = mesAnioAInput(actual);
+    inputHasta.value = mesAnioAInput(actual);
   }
 
   function leerRangoDesdeInputs() {

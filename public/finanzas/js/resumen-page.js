@@ -11,6 +11,8 @@ document.addEventListener('storage-ready', () => {
   const elCuentasDet = document.getElementById('resumen-cuentas-det');
   const elHormiga = document.getElementById('resumen-hormiga');
   const elHormigaDet = document.getElementById('resumen-hormiga-det');
+  const elGastos = document.getElementById('resumen-gastos');
+  const elGastosDet = document.getElementById('resumen-gastos-det');
   const elTotal = document.getElementById('resumen-total');
   const elMesLabel = document.getElementById('resumen-mes-label');
   const cardTotal = document.querySelector('.resumen-card--total');
@@ -18,6 +20,8 @@ document.addEventListener('storage-ready', () => {
   const btnGuardarSueldo = document.getElementById('btn-guardar-sueldo');
   const listaPagos = document.getElementById('detalle-pagos');
   const listaHormiga = document.getElementById('detalle-hormiga');
+  const listaGastos = document.getElementById('detalle-gastos');
+  const listaPersonas = document.getElementById('resumen-personas-lista');
   const seccionGeneral = document.getElementById('resumen-general-prestamos');
   const prestamosVacio = document.getElementById('resumen-prestamos-vacio');
   const listaPrestamosGeneral = document.getElementById('gen-prestamos-lista');
@@ -97,6 +101,11 @@ document.addEventListener('storage-ready', () => {
         ? 'Sin gastos registrados'
         : `${r.cantidadHormiga} gasto${r.cantidadHormiga !== 1 ? 's' : ''}`;
 
+    elGastos.textContent = formatMonto(r.comprasGastos);
+    elGastosDet.textContent = r.cantidadComprasGastos === 0
+      ? 'Sin compras o gastos registrados'
+      : `${r.cantidadComprasGastos} registro${r.cantidadComprasGastos !== 1 ? 's' : ''}`;
+
     elTotal.textContent = formatMonto(r.total);
     elMesLabel.textContent = formatMesLabel(mes);
 
@@ -127,11 +136,34 @@ document.addEventListener('storage-ready', () => {
       r.detalleHormiga.length === 0
         ? '<li class="resumen-detalle-empty">—</li>'
         : r.detalleHormiga
-            .map(
-              (g) =>
-                `<li><span>${formatFechaCorta(g.fecha)} · ${escapeHtml(g.descripcion)}</span><span>${formatMonto(g.monto)}</span></li>`
-            )
+            .map((g) => {
+              const persona = g.personaId ? getPersonaById(g.personaId)?.nombre : '';
+              return `<li><span>${formatFechaCorta(g.fecha)} · ${escapeHtml(g.descripcion)}${persona ? ` · ${escapeHtml(persona)}` : ''}</span><span>${formatMonto(g.monto)}</span></li>`;
+            })
             .join('');
+
+    listaGastos.innerHTML = r.detalleComprasGastos.length === 0
+      ? '<li class="resumen-detalle-empty">—</li>'
+      : r.detalleComprasGastos.map((gasto) => {
+        const persona = gasto.personaId ? getPersonaById(gasto.personaId)?.nombre : '';
+        return `<li><span>${formatFechaCorta(gasto.fecha)} · ${escapeHtml(gasto.descripcion)}${persona ? ` · ${escapeHtml(persona)}` : ''}</span><span>${formatMonto(gasto.monto)}</span></li>`;
+      }).join('');
+
+    const registrosPersonas = [...r.detalleHormiga, ...r.detalleComprasGastos]
+      .filter((gasto) => gasto.personaId)
+      .reduce((agrupado, gasto) => {
+        const persona = getPersonaById(gasto.personaId);
+        if (!persona) return agrupado;
+        const actual = agrupado.get(persona.id) || { nombre: persona.nombre, cantidad: 0, total: 0 };
+        actual.cantidad += 1;
+        actual.total += Number(gasto.monto) || 0;
+        agrupado.set(persona.id, actual);
+        return agrupado;
+      }, new Map());
+    const filasPersonas = [...registrosPersonas.values()].sort((a, b) => b.total - a.total);
+    listaPersonas.innerHTML = filasPersonas.length
+      ? filasPersonas.map((persona) => `<li><span>${escapeHtml(persona.nombre)} · ${persona.cantidad} registro${persona.cantidad === 1 ? '' : 's'}</span><span>${formatMonto(persona.total)}</span></li>`).join('')
+      : '<li class="resumen-detalle-empty">No hay gastos asociados a personas este mes.</li>';
   }
 
   function render() {

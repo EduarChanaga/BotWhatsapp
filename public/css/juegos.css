@@ -63,4 +63,8 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -.04em; } h1 { font-si
 .toolbar-label { color: var(--muted); font-size: .75rem; font-weight: 700; }
 .library-toolbar select { border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--ink); padding: 8px 10px; outline: none; }
 .library-toolbar select:focus { border-color: var(--green); }
+.steam-refresh { display: flex; align-items: center; gap: 8px; margin-right: auto; color: var(--muted); font-size: .75rem; }
+.steam-refresh-label { color: #3568a8; font-weight: 700; text-transform: uppercase; }
+.steam-refresh .text-button { font-size: 1.15rem; line-height: 1; padding: 4px 7px; }
+.steam-refresh .text-button:disabled { cursor: default; opacity: .45; }
 .steam-library-actions { display: flex; gap: 8px; margin-top: 14px; }.steam-library-actions input { flex: 1; border: 1px solid var(--line); border-radius: 5px; background: #fbfcf8; color: var(--ink); padding: 9px 11px; outline: none; }.steam-progress { color: #3568a8; font-size: .7rem; margin-top: 7px; }.steam-progress i { display: block; height: 4px; background: #dce6f5; border-radius: 4px; overflow: hidden; margin-top: 4px; }.steam-progress b { display: block; height: 100%; background: #4c86c6; border-radius: 4px; }.steam-hours { display: inline-block; color: #3568a8; font-size: .7rem; margin-top: 6px; }

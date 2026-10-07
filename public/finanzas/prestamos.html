@@ -14,12 +14,22 @@
     </button>
     <div class="app-nav__menu" id="nav-menu">
       <div class="app-nav__links">
-        <a href="dashboard.html">Cuentas</a>
-        <a href="pagos.html">Pagos</a>
-        <a href="hormiga.html">Hormiga</a>
-        <a href="prestamos.html" class="active">Préstamos</a>
-        <a href="resumen.html">Resumen</a>
-        <a href="gaming.html">Gaming</a>
+        <div class="app-nav__group" role="group" aria-label="Pagos">
+          <span class="app-nav__group-title">Pagos</span>
+          <div class="app-nav__group-links"><a href="pagos.html">Pagos</a><a href="hormiga.html">Hormiga</a><a href="gastos.html">Compras y gastos</a></div>
+        </div>
+        <div class="app-nav__group" role="group" aria-label="Registros">
+          <span class="app-nav__group-title">Registros</span>
+          <div class="app-nav__group-links"><a href="dashboard.html">Cuentas</a><a href="prestamos.html" class="active">Préstamos</a><a href="personas.html">Personas</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Resumen">
+          <span class="app-nav__group-title">Resumen</span>
+          <div class="app-nav__group-links"><a href="resumen.html">Resumen</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Extra">
+          <span class="app-nav__group-title">Extra</span>
+          <div class="app-nav__group-links"><a href="gaming.html">Gaming</a></div>
+        </div>
       </div>
       <span class="app-nav__user" id="user-label"></span>
       <div class="app-nav__actions">
@@ -59,6 +69,8 @@
       </article>
     </div>
 
+    <div class="prestamos-toolbar"><label class="check-inline"><input type="checkbox" id="mostrar-pagados"><span>Mostrar préstamos pagados</span></label></div>
+
     <div id="empty-prestamos" class="empty-state" hidden>
       <strong>No hay préstamos</strong>
       <p>Pulsa «Nuevo préstamo» para registrar el primero.</p>
@@ -76,8 +88,8 @@
       </div>
       <form id="form-prestamo">
         <div class="form-group">
-          <label for="prestamo-prestante">Prestante</label>
-          <input type="text" id="prestamo-prestante" required placeholder="Nombre de quien recibe el préstamo">
+          <label for="prestamo-persona">Persona</label>
+          <select id="prestamo-persona"></select>
         </div>
         <div class="form-group">
           <label for="prestamo-monto">Monto</label>

@@ -54,6 +54,11 @@
             <button class="filter-button" type="button" data-filter="endless">Sin final</button>
           </div>
           <div class="library-toolbar">
+            <div class="steam-refresh" aria-live="polite">
+              <span class="steam-refresh-label">Steam</span>
+              <span id="steamRefreshCountdown">Sin juegos vinculados</span>
+              <button class="text-button" id="refreshSteamButton" type="button" title="Actualizar juegos vinculados a Steam" aria-label="Actualizar juegos vinculados a Steam" disabled>↻</button>
+            </div>
             <span class="toolbar-label">Ordenar por</span>
             <select id="sortSelect" aria-label="Ordenar juegos">
               <option value="rating-desc">Calificación: mayor a menor</option>

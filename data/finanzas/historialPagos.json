@@ -550,5 +550,13 @@
     "mes": "10-2026",
     "dia": "6",
     "estado": "pagado"
+  },
+  {
+    "id": "1791386877777-6p6hoip",
+    "cuentaId": "1781718005369-e593038",
+    "usuarioId": 1,
+    "mes": "10-2026",
+    "dia": "20",
+    "estado": "pagado"
   }
 ]

@@ -14,12 +14,22 @@
     </button>
     <div class="app-nav__menu" id="nav-menu">
       <div class="app-nav__links">
-        <a href="dashboard.html">Cuentas</a>
-        <a href="pagos.html">Pagos</a>
-        <a href="hormiga.html" class="active">Hormiga</a>
-        <a href="prestamos.html">Préstamos</a>
-        <a href="resumen.html">Resumen</a>
-        <a href="gaming.html">Gaming</a>
+        <div class="app-nav__group" role="group" aria-label="Pagos">
+          <span class="app-nav__group-title">Pagos</span>
+          <div class="app-nav__group-links"><a href="pagos.html">Pagos</a><a href="hormiga.html" class="active">Hormiga</a><a href="gastos.html">Compras y gastos</a></div>
+        </div>
+        <div class="app-nav__group" role="group" aria-label="Registros">
+          <span class="app-nav__group-title">Registros</span>
+          <div class="app-nav__group-links"><a href="dashboard.html">Cuentas</a><a href="prestamos.html">Préstamos</a><a href="personas.html">Personas</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Resumen">
+          <span class="app-nav__group-title">Resumen</span>
+          <div class="app-nav__group-links"><a href="resumen.html">Resumen</a></div>
+        </div>
+        <div class="app-nav__group app-nav__group--solo" role="group" aria-label="Extra">
+          <span class="app-nav__group-title">Extra</span>
+          <div class="app-nav__group-links"><a href="gaming.html">Gaming</a></div>
+        </div>
       </div>
       <span class="app-nav__user" id="user-label"></span>
       <div class="app-nav__actions">
@@ -63,6 +73,10 @@
         <div class="form-group hormiga-form__desc">
           <label for="hormiga-descripcion">Descripción</label>
           <input type="text" id="hormiga-descripcion" required placeholder="Ej. salida, café…">
+        </div>
+        <div class="form-group">
+          <label for="hormiga-persona">Con quién / para quién</label>
+          <select id="hormiga-persona"><option value="">Sin persona asociada</option></select>
         </div>
         <div class="hormiga-form__actions">
           <button type="button" class="btn btn--ghost btn--sm" id="btn-cancelar-hormiga" hidden>Cancelar</button>
