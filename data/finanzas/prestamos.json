@@ -3,17 +3,7 @@
     "id": "1788586637637-inr2ihd",
     "usuarioId": 1,
     "prestante": "Cesar Laiton sueldo",
-    "monto": 185000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-09-15",
-    "cuotas": 1,
-    "cuotasPagadas": 0
-  },
-  {
-    "id": "1789521032922-1e9b6zt",
-    "usuarioId": 1,
-    "prestante": "ahorros rubiela",
-    "monto": 52000,
+    "monto": 49000,
     "intereses": 0,
     "fechaVencimiento": "2026-09-15",
     "cuotas": 1,
@@ -23,29 +13,19 @@
     "id": "1789621113769-30o3gwv",
     "usuarioId": 1,
     "prestante": "ahorros daniel",
-    "monto": 95000,
+    "monto": 55000,
     "intereses": 0,
     "fechaVencimiento": "2026-09-20",
     "cuotas": 1,
     "cuotasPagadas": 0
   },
   {
-    "id": "1789621305238-zkyv3ud",
+    "id": "1790905744742-i3b6l8h",
     "usuarioId": 1,
-    "prestante": "ahoros juan",
-    "monto": 145000,
+    "prestante": "rubiela sueldo",
+    "monto": 400000,
     "intereses": 0,
-    "fechaVencimiento": "2026-09-19",
-    "cuotas": 1,
-    "cuotasPagadas": 0
-  },
-  {
-    "id": "1789621395269-15rx5nu",
-    "usuarioId": 1,
-    "prestante": "ahorros eduar",
-    "monto": 50000,
-    "intereses": 0,
-    "fechaVencimiento": "2026-09-17",
+    "fechaVencimiento": "2026-10-05",
     "cuotas": 1,
     "cuotasPagadas": 0
   }

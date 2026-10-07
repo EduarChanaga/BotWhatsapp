@@ -334,5 +334,125 @@
     "mes": "09-2026",
     "monto": 15000,
     "descripcion": "compras oxxo"
+  },
+  {
+    "id": "1789876025949-gd1fooo",
+    "usuarioId": 1,
+    "fecha": "2026-09-19",
+    "mes": "09-2026",
+    "monto": 188000,
+    "descripcion": "pasadia el portal karol"
+  },
+  {
+    "id": "1789876062868-20cuhae",
+    "usuarioId": 1,
+    "fecha": "2026-09-19",
+    "mes": "09-2026",
+    "monto": 50000,
+    "descripcion": "Gasolina"
+  },
+  {
+    "id": "1789876180475-zqezihd",
+    "usuarioId": 1,
+    "fecha": "2026-09-19",
+    "mes": "09-2026",
+    "monto": 75000,
+    "descripcion": "Amigo Secreto Karol"
+  },
+  {
+    "id": "1790636436922-qb88d2q",
+    "usuarioId": 1,
+    "fecha": "2026-09-26",
+    "mes": "09-2026",
+    "monto": 80000,
+    "descripcion": "amor y amistad"
+  },
+  {
+    "id": "1790821866262-be0zyjp",
+    "usuarioId": 1,
+    "fecha": "2026-10-01",
+    "mes": "10-2026",
+    "monto": 25000,
+    "descripcion": "deuda personal"
+  },
+  {
+    "id": "1790835525255-5dcr8qf",
+    "usuarioId": 1,
+    "fecha": "2026-10-01",
+    "mes": "10-2026",
+    "monto": 5000,
+    "descripcion": "tik tok"
+  },
+  {
+    "id": "1790899776304-cs6fbwc",
+    "usuarioId": 1,
+    "fecha": "2026-10-01",
+    "mes": "10-2026",
+    "monto": 220000,
+    "descripcion": "Casco"
+  },
+  {
+    "id": "1790905316315-megg0g4",
+    "usuarioId": 1,
+    "fecha": "2026-10-01",
+    "mes": "10-2026",
+    "monto": 40000,
+    "descripcion": "Regalo jack"
+  },
+  {
+    "id": "1790909145648-87jdwa1",
+    "usuarioId": 1,
+    "fecha": "2026-10-01",
+    "mes": "10-2026",
+    "monto": 24000,
+    "descripcion": "salida bros"
+  },
+  {
+    "id": "1790909165056-q345jhk",
+    "usuarioId": 1,
+    "fecha": "2026-10-01",
+    "mes": "10-2026",
+    "monto": 30000,
+    "descripcion": "gasolina"
+  },
+  {
+    "id": "1790911106674-zt29cjg",
+    "usuarioId": 1,
+    "fecha": "2026-10-01",
+    "mes": "10-2026",
+    "monto": 66400,
+    "descripcion": "Regalo Nayibe"
+  },
+  {
+    "id": "1790996950343-vi4vu78",
+    "usuarioId": 1,
+    "fecha": "2026-10-02",
+    "mes": "10-2026",
+    "monto": 93000,
+    "descripcion": "papeles"
+  },
+  {
+    "id": "1791006249817-0sn7uey",
+    "usuarioId": 1,
+    "fecha": "2026-10-03",
+    "mes": "10-2026",
+    "monto": 20000,
+    "descripcion": "Kick"
+  },
+  {
+    "id": "1791139410456-0ghj2ym",
+    "usuarioId": 1,
+    "fecha": "2026-10-03",
+    "mes": "10-2026",
+    "monto": 20000,
+    "descripcion": "Sabado, karol"
+  },
+  {
+    "id": "1791376424712-axrryi3",
+    "usuarioId": 1,
+    "fecha": "2026-10-06",
+    "mes": "10-2026",
+    "monto": 6000,
+    "descripcion": "Martes Foscal"
   }
 ]

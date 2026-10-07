@@ -2,6 +2,8 @@ const minaService = require('../services/minaService');
 const usuarioService = require('../services/usuarioService');
 const { generarImagenMinas } = require('../services/canvasService');
 const { MessageMedia } = require('whatsapp-web.js');
+const path = require('path');
+const fs = require('fs');
 
 async function handleMina(msg, texto) {
     const whatsappId = msg.author ? msg.author.split('@')[0] : msg.from.split('@')[0];
@@ -18,20 +20,32 @@ async function handleMina(msg, texto) {
         const minas = await minaService.obtenerMinas(usuario.id);
         await msg.reply('⛏️ *Descendiendo a las profundidades de la mina...*');
 
+        const tempPath = path.join(__dirname, `../temp_mina_${Date.now()}.png`);
+
         try {
             const imageBuffer = await generarImagenMinas(minas, usuario.nombre_whatsapp);
-            const media = new MessageMedia('image/png', imageBuffer.toString('base64'), 'mina.png');
             
+            // Guardar en disco para evitar que WhatsApp Web falle al procesar Base64 en memoria
+            fs.writeFileSync(tempPath, imageBuffer);
+            const media = MessageMedia.fromFilePath(tempPath);
+
             const caption = `⛰️ *CANTERA POKÉMON* ⛰️\n\n` +
                             `Comandos disponibles:\n` +
                             `🥊 *#mina picar [1-6] [pokemon]* (Req: Tipo Lucha)\n` +
                             `🪨 *#mina extraer [1-6] [pokemon]* (Req: Tipo Roca)\n` +
                             `⚙️ *#mina refinar [1-6] [pokemon]* (Req: Tipo Acero - Requiere 5 turnos)`;
 
-            return await msg.reply(media, undefined, { caption });
+            const chat = await msg.getChat();
+            await chat.sendMessage(media, { caption });
+            return;
         } catch (error) {
             console.error('Error generando mina:', error);
             return await msg.reply('⚠️ Hubo un problema al iluminar la cueva.');
+        } finally {
+            // Eliminar archivo temporal
+            if (fs.existsSync(tempPath)) {
+                fs.unlinkSync(tempPath);
+            }
         }
     }
 
@@ -83,7 +97,8 @@ async function handleMina(msg, texto) {
                 const urlImagen = getImagen({ id: res.pokeId });
                 if (urlImagen) {
                     const media = MessageMedia.fromFilePath(urlImagen);
-                    return await msg.reply(media, undefined, { caption: texto });
+                    const chat = await msg.getChat();
+                    return await chat.sendMessage(media, { caption: texto });
                 }
             }
             return await msg.reply(texto);

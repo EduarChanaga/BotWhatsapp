@@ -53,7 +53,7 @@
     "id": "1780594830376-qfenhve",
     "usuarioId": 1,
     "nombre": "Ahorros FNA",
-    "monto": 200000,
+    "monto": 180000,
     "mesInicio": "06-2026",
     "fechaPago": "10",
     "cantidadMeses": 0,
@@ -136,6 +136,26 @@
     "monto": 5000,
     "mesInicio": "08-2026",
     "fechaPago": "2",
+    "cantidadMeses": 0,
+    "estado": "pagando"
+  },
+  {
+    "id": "1790899574613-ft6bntm",
+    "usuarioId": 1,
+    "nombre": "Intercomunicador karol",
+    "monto": 76000,
+    "mesInicio": "11-2026",
+    "fechaPago": "2026-11-01",
+    "cantidadMeses": 2,
+    "estado": "pagando"
+  },
+  {
+    "id": "1791002792542-2epqg7k",
+    "usuarioId": 1,
+    "nombre": "Papeles moto",
+    "monto": 50000,
+    "mesInicio": "11-2026",
+    "fechaPago": "5",
     "cantidadMeses": 0,
     "estado": "pagando"
   }

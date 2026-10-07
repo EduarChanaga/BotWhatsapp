@@ -1994,7 +1994,7 @@
     "steamAppId": 2149010,
     "steamName": "Little Nightmares Enhanced Edition",
     "steamId64": "76561199863742925",
-    "steamPlaytimeHours": 4.5,
+    "steamPlaytimeHours": 5.2,
     "steamAchievements": [
       {
         "apiname": "LittleLostThings",
@@ -2063,8 +2063,8 @@
       },
       {
         "apiname": "SoClose",
-        "achieved": 0,
-        "unlocktime": 0
+        "achieved": 1,
+        "unlocktime": 1789963057
       },
       {
         "apiname": "NotAlone",
@@ -2107,7 +2107,7 @@
         "unlocktime": 0
       }
     ],
-    "hours": 4.5
+    "hours": 5.2
   },
   {
     "id": "4f193105-f216-48c5-9d68-b96f1a10157f",
@@ -2126,7 +2126,77 @@
     "description": "Gran juego de puzzles, divertido para pasar un momento",
     "image": "/imagenes/juegos/2932bb52-cd5b-45a6-b61f-a0454022f0d0.jpg",
     "inQueue": false,
-    "queueOrder": 3
+    "queueOrder": 3,
+    "steamAppId": 48000,
+    "steamName": "LIMBO",
+    "steamPlaytimeHours": 2.9,
+    "steamAchievements": [
+      {
+        "apiname": "ACH_1",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_2",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_3",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_4",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_5",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_6",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_7",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_8",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_9",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_10",
+        "achieved": 1,
+        "unlocktime": 1789535469
+      },
+      {
+        "apiname": "ACH_11",
+        "achieved": 1,
+        "unlocktime": 1789536055
+      },
+      {
+        "apiname": "ACH_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "ACH_13",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ]
   },
   {
     "id": "6402c6c6-e58b-4048-9d8d-38941a514a32",
@@ -3472,5 +3542,104 @@
     "image": "/imagenes/juegos/e48a656c-5104-4f59-ae2f-dca284e55950.jpg",
     "inQueue": false,
     "queueOrder": 0
+  },
+  {
+    "id": "38d6c30e-1ee2-4209-8dc5-37b3de79173c",
+    "name": "Biped",
+    "status": "abandoned",
+    "endless": false,
+    "hours": 2.3,
+    "cost": 5000,
+    "acquiredAt": "2026-08-20",
+    "rating": 8,
+    "ratingScale": 10,
+    "tags": [
+      "estrategia",
+      "cooperativo"
+    ],
+    "description": "",
+    "image": "/imagenes/juegos/2a24ebdf-2db0-43d6-999b-c358e8884e20.png",
+    "inQueue": false,
+    "queueOrder": 0,
+    "steamAppId": 1071870,
+    "steamName": "Biped",
+    "steamPlaytimeHours": 2.3,
+    "steamAchievements": [
+      {
+        "apiname": "Achievement_1",
+        "achieved": 1,
+        "unlocktime": 1790997450
+      },
+      {
+        "apiname": "Achievement_2",
+        "achieved": 1,
+        "unlocktime": 1790998131
+      },
+      {
+        "apiname": "Achievement_3",
+        "achieved": 1,
+        "unlocktime": 1790998698
+      },
+      {
+        "apiname": "Achievement_4",
+        "achieved": 1,
+        "unlocktime": 1790999463
+      },
+      {
+        "apiname": "Achievement_5",
+        "achieved": 1,
+        "unlocktime": 1791000379
+      },
+      {
+        "apiname": "Achievement_6",
+        "achieved": 1,
+        "unlocktime": 1791040317
+      },
+      {
+        "apiname": "Achievement_7",
+        "achieved": 1,
+        "unlocktime": 1791041489
+      },
+      {
+        "apiname": "Achievement_8",
+        "achieved": 1,
+        "unlocktime": 1791044231
+      },
+      {
+        "apiname": "Achievement_9",
+        "achieved": 1,
+        "unlocktime": 1790999464
+      },
+      {
+        "apiname": "Achievement_10",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_11",
+        "achieved": 1,
+        "unlocktime": 1790999345
+      },
+      {
+        "apiname": "Achievement_12",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_13",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_14",
+        "achieved": 0,
+        "unlocktime": 0
+      },
+      {
+        "apiname": "Achievement_15",
+        "achieved": 0,
+        "unlocktime": 0
+      }
+    ]
   }
 ]
